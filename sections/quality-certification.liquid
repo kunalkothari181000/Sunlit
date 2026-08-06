@@ -1,12 +1,12 @@
 <style>
   .qual-sec {
     background: #f8fafc;
-    padding: 6em 0;
+    padding: 5.5em 0;
     position: relative;
   }
   .qual-left-sticky {
     position: sticky !important;
-    top: 130px !important;
+    top: 120px !important;
     align-self: flex-start !important;
   }
   .qual-images-composite {
@@ -45,33 +45,30 @@
     gap: 8px;
     box-shadow: 0 8px 20px rgba(24, 67, 51, 0.3);
   }
-  .qual-cards-stack-list {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-bottom: 2em;
+  .qual-cards-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5em !important;
   }
-  .qual-card-item-stack {
-    position: sticky !important;
+  .qual-card-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
     background: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 24px !important;
-    padding: 2.2em 2.2em !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 24px !important;
+    padding: 2em 2.2em !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
   }
-  .qual-card-item-stack:hover {
-    transform: translateY(-4px) scale(1.02) !important;
+  .qual-card-item:hover {
+    transform: translateX(8px) !important;
     border-color: #f97316 !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.09) !important;
   }
   .qc-icon-box {
-    width: 60px !important;
-    height: 60px !important;
+    width: 56px !important;
+    height: 56px !important;
     background: rgba(249, 115, 22, 0.12) !important;
     color: #f97316 !important;
     border-radius: 18px !important;
@@ -84,7 +81,7 @@
     flex-grow: 1 !important;
   }
   .qc-content h3 {
-    font-size: 22px !important;
+    font-size: 21px !important;
     font-weight: 800 !important;
     color: #184333 !important;
     margin-bottom: 6px !important;
@@ -105,6 +102,12 @@
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
+  }
+  @media (max-width: 991px) {
+    .qual-left-sticky {
+      position: relative !important;
+      top: 0 !important;
+    }
   }
 </style>
 
@@ -154,16 +157,15 @@
         </div>
       </div>
 
-      <!-- RIGHT CERTIFICATION CARDS (Sticky Overlapping Stack) -->
+      <!-- RIGHT CERTIFICATION CARDS (Clean Scrollable List) -->
       <div class="col-lg-7 col-12">
-        <div class="qual-cards-stack-list">
+        <div class="qual-cards-list">
           {% for block in section.blocks %}
-            {% assign top_offset = 140 | plus: forloop.index0 | times: 28 %}
             <div 
-              class="qual-card-item-stack" 
-              style="top: {{ top_offset }}px; z-index: {{ forloop.index }};" 
+              class="qual-card-item" 
               data-aos="fade-up" 
               data-aos-duration="800" 
+              data-aos-delay="{{ forloop.index0 | times: 120 }}" 
               {{ block.shopify_attributes }}
             >
 
