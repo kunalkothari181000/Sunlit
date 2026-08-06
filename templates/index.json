@@ -142,10 +142,10 @@
       "name": "Logo Slider",
       "settings": {
         "enable_marquee": true,
-        "marquee_speed": 4000,
-        "slides_desktop": 5,
-        "slides_mobile": 2,
-        "space_between": 30
+        "marquee_speed": "4000",
+        "slides_desktop": "3",
+        "slides_mobile": "2",
+        "space_between": "30"
       }
     },
     "promise_cards_jHDtXx": {
