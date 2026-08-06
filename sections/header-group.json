@@ -125,7 +125,7 @@
         "close_icon": "shopify://shop_images/close.svg",
         "menu": "main-menu",
         "button_label": "Contact Us",
-        "button_link": "https://admin.shopify.com/store/akshatagro/pages",
+        "button_link": "https://akshatagro.myshopify.com/pages/contact-us",
         "button_icon": "shopify://shop_images/arrow.svg"
       }
     }
