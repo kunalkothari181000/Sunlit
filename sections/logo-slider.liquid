@@ -1,8 +1,8 @@
 <section class="lg-slider-sec">
-  <div class="container-fluid px-0">
+  <div class="{% if section.settings.enable_marquee %}container-fluid px-0{% else %}container{% endif %}">
     <div class="row g-0">
       <div class="col-12">
-        <div class="swiper lg-swiper lg-swiper-{{ section.id }}" 
+        <div class="swiper lg-swiper lg-swiper-{{ section.id }} {% if section.settings.enable_marquee %}is-marquee{% endif %}" 
              data-aos="fade-up" 
              data-aos-duration="1000"
              data-marquee="{{ section.settings.enable_marquee }}"
@@ -17,7 +17,7 @@
                 <div class="lg-wrap">
                   {% if block.settings.logo %}
                     <img 
-                      src="{{ block.settings.logo | image_url: width: 300 }}" 
+                      src="{{ block.settings.logo | image_url: width: 400 }}" 
                       alt="{{ block.settings.alt_text | escape }}"
                       loading="lazy"
                     >
@@ -33,7 +33,7 @@
                   <div class="lg-wrap">
                     {% if block.settings.logo %}
                       <img 
-                        src="{{ block.settings.logo | image_url: width: 300 }}" 
+                        src="{{ block.settings.logo | image_url: width: 400 }}" 
                         alt="{{ block.settings.alt_text | escape }}"
                         loading="lazy"
                       >
@@ -51,58 +51,67 @@
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var container = document.querySelector(".lg-swiper-{{ section.id }}");
-    if (!container) return;
+  (function () {
+    function initLogoSwiper_{{ section.id | replace: '-', '_' }}() {
+      var container = document.querySelector(".lg-swiper-{{ section.id }}");
+      if (!container) return;
 
-    var isMarquee = container.getAttribute("data-marquee") === "true";
-    var speed = parseInt(container.getAttribute("data-speed")) || 4000;
-    var desktopSlides = parseInt(container.getAttribute("data-desktop")) || 5;
-    var mobileSlides = parseInt(container.getAttribute("data-mobile")) || 2;
-    var space = parseInt(container.getAttribute("data-space")) || 30;
+      if (container.swiper) {
+        container.swiper.destroy(true, true);
+      }
 
-    if (isMarquee) {
-      new Swiper(".lg-swiper-{{ section.id }}", {
-        loop: true,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false
-        },
-        speed: speed,
-        slidesPerView: "auto",
-        spaceBetween: space,
-        freeMode: true,
-        freeModeMomentum: false,
-        allowTouchMove: false
-      });
-    } else {
-      new Swiper(".lg-swiper-{{ section.id }}", {
-        loop: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        },
-        speed: 800,
-        spaceBetween: space,
-        slidesPerView: desktopSlides,
-        breakpoints: {
-          0: {
-            slidesPerView: mobileSlides,
-            spaceBetween: 15
+      var isMarquee = container.getAttribute("data-marquee") === "true";
+      var speed = parseInt(container.getAttribute("data-speed")) || 4000;
+      var desktopSlides = parseInt(container.getAttribute("data-desktop")) || 5;
+      var mobileSlides = parseInt(container.getAttribute("data-mobile")) || 2;
+      var space = parseInt(container.getAttribute("data-space")) || 30;
+
+      if (isMarquee) {
+        new Swiper(".lg-swiper-{{ section.id }}", {
+          loop: true,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false
           },
-          768: {
-            slidesPerView: Math.min(3, desktopSlides),
-            spaceBetween: 20
+          speed: speed,
+          slidesPerView: "auto",
+          spaceBetween: space,
+          freeMode: true,
+          freeModeMomentum: false,
+          allowTouchMove: false
+        });
+      } else {
+        new Swiper(".lg-swiper-{{ section.id }}", {
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
           },
-          1024: {
-            slidesPerView: desktopSlides,
-            spaceBetween: space
+          speed: 800,
+          spaceBetween: space,
+          slidesPerView: desktopSlides,
+          breakpoints: {
+            0: {
+              slidesPerView: mobileSlides,
+              spaceBetween: 15
+            },
+            768: {
+              slidesPerView: Math.min(3, desktopSlides),
+              spaceBetween: 20
+            },
+            1024: {
+              slidesPerView: desktopSlides,
+              spaceBetween: space
+            }
           }
-        }
-      });
+        });
+      }
     }
-  });
+
+    document.addEventListener("DOMContentLoaded", initLogoSwiper_{{ section.id | replace: '-', '_' }});
+    document.addEventListener("shopify:section:load", initLogoSwiper_{{ section.id | replace: '-', '_' }});
+  })();
 </script>
 
 {% schema %}

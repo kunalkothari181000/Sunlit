@@ -452,20 +452,36 @@ html.lenis, html.lenis body {
   overflow: hidden;
 }
 
-.lg-swiper .swiper-wrapper {
+.lg-swiper.is-marquee .swiper-wrapper {
   transition-timing-function: linear !important;
   -webkit-transition-timing-function: linear !important;
 }
 
-.lg-swiper .swiper-slide {
+.lg-swiper.is-marquee .swiper-slide {
   width: auto !important;
+}
+
+.lg-swiper:not(.is-marquee) .swiper-slide {
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.lg-swiper:not(.is-marquee) .lg-wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.lg-swiper:not(.is-marquee) .lg-wrap img {
+  max-width: 220px;
+  max-height: 70px;
+  width: auto;
+  margin: 0 auto;
+}
+
 .lg-wrap {
-  padding: 10px 25px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
