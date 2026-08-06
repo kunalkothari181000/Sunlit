@@ -175,9 +175,40 @@
       <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
 
+    <!-- Lenis Smooth Scroll CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
     <script>
       (function () {
         'use strict';
+
+        // ── Lenis Smooth Scroll Initialization ──
+        if (typeof Lenis !== 'undefined') {
+          const lenis = new Lenis({
+            duration: 1.2,
+            easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 1.5,
+            infinite: false,
+          });
+
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+
+          window.lenisInstance = lenis;
+
+          lenis.on('scroll', function () {
+            if (typeof AOS !== 'undefined') {
+              AOS.refresh();
+            }
+          });
+        }
 
         /* Back-to-top button */
         var backTop = document.getElementById('sunlit-back-top');
@@ -192,7 +223,11 @@
           window.addEventListener('scroll', backTopScroll, { passive: true });
           backTopScroll();
           backTop.addEventListener('click', function () {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.lenisInstance) {
+              window.lenisInstance.scrollTo(0, { duration: 1.2 });
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
           });
         }
 
@@ -207,8 +242,12 @@
           e.preventDefault();
           var stickyNav = document.querySelector('.main-nav');
           var offset = stickyNav ? stickyNav.offsetHeight : 0;
-          var top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
-          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.lenisInstance) {
+            window.lenisInstance.scrollTo(target, { offset: -offset - 16, duration: 1.2 });
+          } else {
+            var top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
         });
 
       })();
