@@ -861,4 +861,15 @@ html.lenis, html.lenis body {
     line-height: 1.4 !important;
   }
 }
+
+/* ── DESKTOP HEADER LOGO SIZE INCREASE ─────────────────────────────────── */
+@media (min-width: 992px) {
+  .main-nav .inner-nav .l-part .logo img {
+    width: 220px !important;
+    max-width: 260px !important;
+    height: auto !important;
+    max-height: 65px !important;
+    object-fit: contain !important;
+  }
+}
 /*# sourceMappingURL=res.css.map */
