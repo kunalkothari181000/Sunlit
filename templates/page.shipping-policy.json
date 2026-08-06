@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main_policy": {
+      "type": "policy-page",
+      "settings": {
+        "page_title": "Shipping & Delivery Policy"
+      }
+    }
+  },
+  "order": [
+    "main_policy"
+  ]
+}
