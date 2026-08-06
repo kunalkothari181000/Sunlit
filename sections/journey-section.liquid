@@ -1,7 +1,7 @@
 <section class="journey-sec sec">
   <div class="container">
     
-    <!-- Section Header (Centered Clean Stack) -->
+    <!-- Section Header (Centered Stack) -->
     <div class="row text-center mb-5">
       <div class="col-lg-8 col-12 mx-auto">
         <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
@@ -16,47 +16,44 @@
       </div>
     </div>
 
-    <!-- Timeline Wrapper -->
-    <div class="journey-timeline-wrap">
-      
-      <!-- Central Curvy SVG Animated Path Line -->
-      <div class="timeline-line-svg-container">
-        <svg class="timeline-svg" viewBox="0 0 100 1200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Background Curvy Dashed Path -->
-          <path d="M 50,0 Q 90,150 50,300 T 50,600 T 50,900 T 50,1200" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
-          <!-- Animated Gradient Curvy Path -->
-          <path d="M 50,0 Q 90,150 50,300 T 50,600 T 50,900 T 50,1200" stroke="url(#curvyGradient)" stroke-width="5" class="timeline-curvy-animated-stroke"/>
-          <defs>
-            <linearGradient id="curvyGradient" x1="0" y1="0" x2="0" y2="1200" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#f97316"/>
-              <stop offset="0.5" stop-color="#ffb74d"/>
-              <stop offset="1" stop-color="#184333"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+    <!-- Ashya-Style Connected Timeline Container -->
+    <div class="ashya-timeline-container">
 
-      <!-- Timeline Items Loop -->
-      <div class="timeline-items-list">
+      <!-- Dynamic Diagonal Connecting SVG Path -->
+      <svg class="ashya-connecting-svg" viewBox="0 0 100 1000" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 50,20 Q 85,150 15,300 T 85,600 T 15,900 T 50,1000" stroke="#f97316" stroke-width="3" stroke-dasharray="6 6" class="ashya-svg-line"/>
+      </svg>
+
+      <div class="ashya-timeline-items">
         {% for block in section.blocks %}
-          <div class="timeline-item-row {% cycle 'left-row', 'right-row' %}" data-aos="fade-up" data-aos-duration="900" {{ block.shopify_attributes }}>
+          {% assign is_even = forloop.index | modulo: 2 %}
+          
+          <div class="ashya-item-row {% if is_even == 0 %}row-reverse-item{% endif %}" data-aos="fade-up" data-aos-duration="900" {{ block.shopify_attributes }}>
             
-            <div class="timeline-content-card">
-              <div class="t-card-header">
-                <span class="t-year-badge">{{ block.settings.year }}</span>
-                <span class="t-step-index">Step 0{{ forloop.index }}</span>
-              </div>
-              <h3 class="t-title">{{ block.settings.title }}</h3>
-              <p class="t-desc">{{ block.settings.text }}</p>
-            </div>
-
-            <div class="timeline-node">
-              <div class="node-pulse">
-                <div class="node-inner-dot"></div>
+            <!-- Left Box (Visual Art / Image) -->
+            <div class="ashya-visual-box">
+              <div class="ashya-art-card">
+                <div class="ashya-art-badge">{{ block.settings.year }}</div>
+                <div class="ashya-art-illustration">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#184333" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <span class="ashya-milestone-tag">Milestone 0{{ forloop.index }}</span>
               </div>
             </div>
 
-            <div class="timeline-empty-space"></div>
+            <!-- Central Numbered Node Button -->
+            <div class="ashya-node-col">
+              <div class="ashya-num-node">
+                <span>{{ forloop.index }}</span>
+              </div>
+            </div>
+
+            <!-- Right Box (Text Content) -->
+            <div class="ashya-text-box">
+              <span class="ashya-eyebrow">{{ block.settings.year }} • MILESTONE</span>
+              <h3 class="ashya-title">{{ block.settings.title }}</h3>
+              <p class="ashya-desc">{{ block.settings.text }}</p>
+            </div>
 
           </div>
         {% endfor %}
