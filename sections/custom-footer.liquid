@@ -43,6 +43,15 @@
           </p>
         {% endif %}
 
+        {% if section.settings.parent_company_text != blank %}
+          <p class="parent-company-tagline">
+            <span class="company-badge-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </span>
+            {{ section.settings.parent_company_text }}
+          </p>
+        {% endif %}
+
         <ul class="ft-col-list">
 
           {% if section.settings.phone != blank %}
@@ -137,7 +146,13 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "default": "Hygienically processed agricultural products crafted with purity, freshness, and consistent quality."
+    },
+    {
+      "type": "text",
+      "id": "parent_company_text",
+      "label": "Parent / Subsidiary Note",
+      "default": "Sunlit Farms is a subsidiary of Akshat Group"
     },
     {
       "type": "text",
