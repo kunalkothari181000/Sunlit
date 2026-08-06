@@ -704,6 +704,54 @@ html.lenis, html.lenis body {
   }
 }
 
+/* ── 28. 80VH HERO BANNERS FOR CAREER, CONTACT & INFRASTRUCTURE PAGES ─── */
+.page-hero-banner,
+.career-hero-banner,
+.contact-hero-banner,
+.infra-hero-banner {
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.hero-page-head {
+  font-size: 52px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  margin-top: 16px !important;
+  margin-bottom: 20px !important;
+}
+
+.hero-page-subtext {
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 991px) {
+  .page-hero-banner,
+  .career-hero-banner,
+  .contact-hero-banner,
+  .infra-hero-banner {
+    min-height: 60vh !important;
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
+  }
+  .hero-page-head {
+    font-size: 38px !important;
+  }
+  .hero-page-subtext {
+    font-size: 16px !important;
+  }
+}
+/*# sourceMappingURL=res.css.map */
+
 @media (max-width: 767px) {
   .con-grid {
     grid-template-columns: 1fr;

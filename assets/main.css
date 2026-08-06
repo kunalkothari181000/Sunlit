@@ -2667,4 +2667,17 @@ ul {
 
 .collection-sec .pr-card {
   margin-bottom: 24px;
-}/*# sourceMappingURL=main.css.map */
+}/* Page Hero Banner 80vh Height */
+.page-hero-banner,
+.career-hero-banner,
+.contact-hero-banner,
+.infra-hero-banner {
+  min-height: 80vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 140px !important;
+  padding-bottom: 80px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
