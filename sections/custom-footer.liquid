@@ -80,9 +80,9 @@
 
       </div>
 
-      <!-- MENU BLOCKS -->
+      <!-- MENU BLOCKS (3 Columns on Mobile) -->
       {% for block in section.blocks %}
-        <div class="col-lg-2 col-12 {% if forloop.first %}offset-lg-1{% endif %}" {{ block.shopify_attributes }}>
+        <div class="col-lg-2 col-4 {% if forloop.first %}offset-lg-1{% endif %}" {{ block.shopify_attributes }}>
           <div class="ft-col">
 
             {% if block.settings.heading != blank %}
