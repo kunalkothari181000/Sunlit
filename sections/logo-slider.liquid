@@ -2,13 +2,19 @@
   <div class="container-fluid px-0">
     <div class="row g-0">
       <div class="col-12">
-        <div class="swiper lg-swiper" data-aos="fade-up" data-aos-duration="1000">
+        <div class="swiper lg-swiper lg-swiper-{{ section.id }}" 
+             data-aos="fade-up" 
+             data-aos-duration="1000"
+             data-marquee="{{ section.settings.enable_marquee }}"
+             data-speed="{{ section.settings.marquee_speed }}"
+             data-desktop="{{ section.settings.slides_desktop }}"
+             data-mobile="{{ section.settings.slides_mobile }}"
+             data-space="{{ section.settings.space_between }}">
           <div class="swiper-wrapper">
 
             {% for block in section.blocks %}
               <div class="swiper-slide" {{ block.shopify_attributes }}>
                 <div class="lg-wrap">
-                  
                   {% if block.settings.logo %}
                     <img 
                       src="{{ block.settings.logo | image_url: width: 300 }}" 
@@ -16,27 +22,26 @@
                       loading="lazy"
                     >
                   {% endif %}
-
                 </div>
               </div>
             {% endfor %}
 
             {% comment %} Duplicate blocks for seamless infinite marquee loop {% endcomment %}
-            {% for block in section.blocks %}
-              <div class="swiper-slide" aria-hidden="true">
-                <div class="lg-wrap">
-                  
-                  {% if block.settings.logo %}
-                    <img 
-                      src="{{ block.settings.logo | image_url: width: 300 }}" 
-                      alt="{{ block.settings.alt_text | escape }}"
-                      loading="lazy"
-                    >
-                  {% endif %}
-
+            {% if section.settings.enable_marquee %}
+              {% for block in section.blocks %}
+                <div class="swiper-slide" aria-hidden="true">
+                  <div class="lg-wrap">
+                    {% if block.settings.logo %}
+                      <img 
+                        src="{{ block.settings.logo | image_url: width: 300 }}" 
+                        alt="{{ block.settings.alt_text | escape }}"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </div>
                 </div>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            {% endif %}
 
           </div>
         </div>
@@ -47,20 +52,56 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var lgswiper = new Swiper(".lg-swiper", {
-      loop: true,
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: false
-      },
-      speed: 4000,
-      slidesPerView: "auto",
-      spaceBetween: 40,
-      freeMode: true,
-      freeModeMomentum: false,
-      allowTouchMove: false
-    });
+    var container = document.querySelector(".lg-swiper-{{ section.id }}");
+    if (!container) return;
+
+    var isMarquee = container.getAttribute("data-marquee") === "true";
+    var speed = parseInt(container.getAttribute("data-speed")) || 4000;
+    var desktopSlides = parseInt(container.getAttribute("data-desktop")) || 5;
+    var mobileSlides = parseInt(container.getAttribute("data-mobile")) || 2;
+    var space = parseInt(container.getAttribute("data-space")) || 30;
+
+    if (isMarquee) {
+      new Swiper(".lg-swiper-{{ section.id }}", {
+        loop: true,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false
+        },
+        speed: speed,
+        slidesPerView: "auto",
+        spaceBetween: space,
+        freeMode: true,
+        freeModeMomentum: false,
+        allowTouchMove: false
+      });
+    } else {
+      new Swiper(".lg-swiper-{{ section.id }}", {
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
+        speed: 800,
+        spaceBetween: space,
+        slidesPerView: desktopSlides,
+        breakpoints: {
+          0: {
+            slidesPerView: mobileSlides,
+            spaceBetween: 15
+          },
+          768: {
+            slidesPerView: Math.min(3, desktopSlides),
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: desktopSlides,
+            spaceBetween: space
+          }
+        }
+      });
+    }
   });
 </script>
 
@@ -69,7 +110,53 @@
   "name": "Logo Slider",
   "tag": "section",
   "class": "logo-slider-section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Enable Non-Stop Marquee Loop",
+      "default": true,
+      "info": "Continuous infinite scrolling logo ticker"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee Speed (ms)",
+      "min": 1000,
+      "max": 10000,
+      "step": 500,
+      "default": 4000,
+      "info": "Lower value = faster continuous scroll"
+    },
+    {
+      "type": "range",
+      "id": "slides_desktop",
+      "label": "Logos visible per screen on Desktop",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 5,
+      "info": "Applies when marquee loop is disabled or as base width"
+    },
+    {
+      "type": "range",
+      "id": "slides_mobile",
+      "label": "Logos visible per screen on Mobile",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "space_between",
+      "label": "Space Between Logos (px)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    }
+  ],
   "blocks": [
     {
       "type": "logo",
@@ -97,9 +184,11 @@
         { "type": "logo" },
         { "type": "logo" },
         { "type": "logo" },
+        { "type": "logo" },
         { "type": "logo" }
       ]
     }
   ]
 }
-{% endschema %}
+{% endschema %}
+
