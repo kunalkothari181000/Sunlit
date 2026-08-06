@@ -8,38 +8,58 @@
   {% endif %}
 
   <div class="container">
-    <div class="row align-items-center">
+    <div class="row align-items-center g-5">
 
       <!-- LEFT CONTENT -->
       <div class="col-lg-6 col-12">
         <div class="product-inner-content" data-aos="fade-right" data-aos-duration="1000">
 
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 bg-warning bg-opacity-25 border border-warning rounded-pill text-dark font-monospace small fw-bold mb-3">
+            <span>🌾 100% MP Wheat</span>
+            <span>•</span>
+            <span>No Maida</span>
+            <span>•</span>
+            <span>No Added Preservatives</span>
+          </div>
+
           {% if section.settings.heading != blank %}
-            <h1>{{ section.settings.heading }}</h1>
+            <h1 class="fw-extrabold display-4 mb-2">{{ section.settings.heading }}</h1>
           {% endif %}
 
+          <h4 class="text-warning fw-bold mb-3">Made from MP Wheat • Stone Ground Chakki Quality</h4>
+
           {% if section.settings.description != blank %}
-            <p class="para">
+            <p class="para mb-4 fs-5 text-secondary">
               {{ section.settings.description }}
             </p>
           {% endif %}
 
-          <!-- STATIC VARIANT STYLE OPTIONS (editable text only) -->
+          <!-- Key Highlights Badges -->
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">🌾 Rich in Dietary Fiber</span>
+            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">✨ Ultra Soft Rotis</span>
+            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">🛡️ 100% Hygienically Packed</span>
+          </div>
+
+          <!-- STATIC VARIANT STYLE OPTIONS -->
           {% if section.blocks.size > 0 %}
-            <ul class="varient-picker">
-              {% for block in section.blocks %}
-                <li {{ block.shopify_attributes }}>
-                  <button>
-                    <span>{{ block.settings.label }}</span>
-                  </button>
-                </li>
-              {% endfor %}
-            </ul>
+            <div class="mb-4">
+              <label class="fw-bold text-dark d-block mb-2">Select Pack Weight:</label>
+              <ul class="varient-picker d-flex gap-2 list-unstyled mb-0">
+                {% for block in section.blocks %}
+                  <li {{ block.shopify_attributes }}>
+                    <button class="btn btn-outline-dark rounded-pill px-4 py-2 {% if forloop.index == 3 %}active bg-dark text-white{% endif %}">
+                      <span>{{ block.settings.label }}</span>
+                    </button>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           {% endif %}
 
           <!-- BUTTON -->
           {% if section.settings.button_label != blank %}
-            <a href="{{ section.settings.button_link }}" class="main-btn">
+            <a href="{{ section.settings.button_link | default: '/pages/contact-us' }}" class="main-btn orange-btn btn-lg rounded-pill px-5 py-3">
               <span>{{ section.settings.button_label }}</span>
 
               {% if section.settings.button_icon %}
@@ -56,13 +76,19 @@
 
       <!-- RIGHT IMAGE -->
       <div class="col-lg-6 col-12">
-        <div class="pr-hero" data-aos="fade-left" data-aos-duration="1000">
+        <div class="pr-hero text-center" data-aos="fade-left" data-aos-duration="1000">
 
           {% if section.settings.product_image %}
             <img 
               src="{{ section.settings.product_image | image_url: width: 1000 }}" 
-              class="w-100" 
-              alt="product"
+              class="w-100 img-fluid drop-shadow" 
+              alt="Sunlit Farms Whole Wheat Chakki Atta"
+            >
+          {% else %}
+            <img 
+              src="https://cdn.shopify.com/s/files/1/0000/0000/files/pr-hero.png" 
+              class="w-100 img-fluid drop-shadow" 
+              alt="Sunlit Farms Whole Wheat Chakki Atta"
             >
           {% endif %}
 
@@ -88,13 +114,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Sunlit Farms Premium Atta"
+      "default": "Whole Wheat Chakki Atta"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Made from carefully selected, high-quality wheat and hygienically processed using modern milling technology to ensure purity, freshness, and consistent performance in every pack."
+      "default": "Made from carefully selected, high-quality MP wheat and stone-ground under controlled conditions to preserve natural fiber, dietary nutrition, and freshness in every pack."
     },
     {
       "type": "image_picker",
@@ -105,7 +131,7 @@
       "type": "text",
       "id": "button_label",
       "label": "Button Label",
-      "default": "Explore Now"
+      "default": "Inquire Bulk Supply"
     },
     {
       "type": "url",

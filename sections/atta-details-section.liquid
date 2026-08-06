@@ -1,0 +1,332 @@
+<style>
+  .atta-spec-sec {
+    background: #fffdfa;
+    padding: 5.5em 0;
+    border-top: 1px solid #fef3c7;
+    border-bottom: 1px solid #fef3c7;
+  }
+  .atta-badge-strip {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    margin-bottom: 3.5em;
+  }
+  .ab-badge-item {
+    background: #fff8e7;
+    border: 1.5px solid #f59e0b;
+    color: #78350f;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.12);
+  }
+  .ab-badge-item svg {
+    color: #d97706;
+  }
+  .process-card-box {
+    background: #ffffff;
+    border: 1px solid #fde68a;
+    border-radius: 28px;
+    padding: 2.4em 2em;
+    box-shadow: 0 15px 40px rgba(120, 53, 15, 0.06);
+    height: 100%;
+    transition: transform 0.35s ease, border-color 0.35s ease;
+  }
+  .process-card-box:hover {
+    transform: translateY(-6px);
+    border-color: #f59e0b;
+  }
+  .pcb-icon-wrap {
+    width: 64px;
+    height: 64px;
+    background: #fef3c7;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d97706;
+    margin-bottom: 20px;
+  }
+  .pcb-step {
+    font-size: 12px;
+    font-weight: 800;
+    color: #d97706;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .pcb-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #78350f;
+    margin-bottom: 10px;
+  }
+  .pcb-desc {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* Nutritional Facts Table Styling */
+  .nutrition-box {
+    background: #ffffff;
+    border: 2px solid #78350f;
+    border-radius: 28px;
+    padding: 2.5em;
+    box-shadow: 0 20px 50px rgba(120, 53, 15, 0.1);
+  }
+  .nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  .nutrition-table th {
+    background: #78350f;
+    color: #ffffff;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+  }
+  .nutrition-table th:first-child {
+    border-top-left-radius: 12px;
+  }
+  .nutrition-table th:last-child {
+    border-top-right-radius: 12px;
+  }
+  .nutrition-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .nutrition-table tr:nth-child(even) td {
+    background: #fffcf5;
+  }
+  .nutri-highlight {
+    font-weight: 800;
+    color: #78350f;
+  }
+  .fssai-footer-strip {
+    background: #fff8e7;
+    border-radius: 16px;
+    padding: 14px 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ffs-item {
+    font-size: 13px;
+    color: #78350f;
+  }
+  .ffs-item strong {
+    color: #184333;
+  }
+</style>
+
+<section class="atta-spec-sec sec">
+  <div class="container">
+
+    <!-- 3 Key Badges Strip (Directly from Packaging) -->
+    <div class="atta-badge-strip" data-aos="fade-down" data-aos-duration="900">
+      <div class="ab-badge-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>100% Atta • No Maida</span>
+      </div>
+      <div class="ab-badge-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>No Added Preservatives</span>
+      </div>
+      <div class="ab-badge-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Rich in Dietary Fiber</span>
+      </div>
+      <div class="ab-badge-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>Made from MP Wheat</span>
+      </div>
+    </div>
+
+    <!-- Section Heading -->
+    <div class="row text-center mb-5">
+      <div class="col-lg-8 col-12 mx-auto">
+        <span class="sub-pill mb-2">Our Milling Process</span>
+        <h2 class="sec-head d-inline-block with-gr">Crafted for Taste, Softness & Health</h2>
+        <p class="para mt-2">
+          Every pack of Sunlit Farms Whole Wheat Chakki Atta is produced under stringent quality standards to deliver fluffy rotis and complete nourishment.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 Process Pillars (Directly from Packaging Art) -->
+    <div class="row g-4 mb-5">
+      
+      <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000">
+        <div class="process-card-box">
+          <div class="pcb-icon-wrap">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <span class="pcb-step">Step 01 • Sourcing</span>
+          <h3 class="pcb-title">Selected Wheat</h3>
+          <p class="pcb-desc">Only premium quality MP wheat grains are carefully selected to ensure consistent taste, texture, and natural sweetness.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+        <div class="process-card-box">
+          <div class="pcb-icon-wrap">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+          </div>
+          <span class="pcb-step">Step 02 • Milling</span>
+          <h3 class="pcb-title">Chakki Ground</h3>
+          <p class="pcb-desc">Traditionally stone-ground under controlled low temperatures to preserve dietary fiber, essential vitamins, and moisture for softer rotis.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="process-card-box">
+          <div class="pcb-icon-wrap">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="pcb-step">Step 03 • Packaging</span>
+          <h3 class="pcb-title">Hygienically Packed</h3>
+          <p class="pcb-desc">Multiple automated checks during milling & packing in zero-contamination Swiss Bühler environments maintain maximum freshness and safety.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Nutritional Facts & Specification Box (Directly from Packaging Art) -->
+    <div class="row align-items-center g-5 mt-4" data-aos="fade-up" data-aos-duration="1000">
+      
+      <div class="col-lg-7 col-12">
+        <div class="nutrition-box">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <span class="sub-pill bg-light text-dark mb-1">Authentic Spec</span>
+              <h3 class="fw-bold mb-0" style="color: #78350f;">Nutritional Facts</h3>
+            </div>
+            <span class="badge bg-warning text-dark px-3 py-2 fs-6 fw-bold">Serving Size: 100g</span>
+          </div>
+
+          <table class="nutrition-table">
+            <thead>
+              <tr>
+                <th>Nutrient Parameter</th>
+                <th>Per 100g</th>
+                <th>Per Serve (60g)</th>
+                <th>% RDA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="nutri-highlight">Energy (Kcal)</td>
+                <td>362.27</td>
+                <td>217.36</td>
+                <td>10.87%</td>
+              </tr>
+              <tr>
+                <td class="nutri-highlight">Protein (g)</td>
+                <td>12.19</td>
+                <td>7.31</td>
+                <td>14.62%</td>
+              </tr>
+              <tr>
+                <td class="nutri-highlight">Carbohydrate (g)</td>
+                <td>74.35</td>
+                <td>44.61</td>
+                <td>14.89%</td>
+              </tr>
+              <tr>
+                <td>Total Sugar (g)</td>
+                <td>1.26</td>
+                <td>0.76</td>
+                <td>1.52%</td>
+              </tr>
+              <tr>
+                <td class="nutri-highlight">Dietary Fibre (g)</td>
+                <td>12.34</td>
+                <td>7.40</td>
+                <td>18.50%</td>
+              </tr>
+              <tr>
+                <td>Total Fat (g)</td>
+                <td>1.79</td>
+                <td>1.07</td>
+                <td>1.60%</td>
+              </tr>
+              <tr>
+                <td>Trans Fat (g)</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00%</td>
+              </tr>
+              <tr>
+                <td>Sodium (mg)</td>
+                <td>4.86</td>
+                <td>2.92</td>
+                <td>0.14%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="fssai-footer-strip">
+            <div class="ffs-item">Ingredients: <strong>100% Whole Wheat</strong></div>
+            <div class="ffs-item">Storage: <strong>Store in cool & dry airtight container</strong></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FSSAI & Unit Licenses Box -->
+      <div class="col-lg-5 col-12">
+        <div class="card border-0 shadow-lg p-4" style="border-radius: 28px; background: linear-gradient(135deg, #184333 0%, #0a241a 100%); text-color: #ffffff;">
+          <span class="badge bg-warning text-dark d-inline-block w-auto me-auto mb-3 px-3 py-2">FSSAI Certified Manufacturing</span>
+          <h3 class="text-white fw-bold mb-3">Guaranteed Safety & Traceability</h3>
+          <p class="text-white-50 para mb-4">
+            Our Atta is manufactured across certified processing plants following international food safety benchmarks (FSSC 22000 & ISO).
+          </p>
+
+          <div class="p-3 bg-white bg-opacity-10 rounded-4 mb-3 border border-white border-opacity-15">
+            <span class="text-warning small d-block fw-bold mb-1">Akshat Agro Milling Co. Pvt. Ltd. (Nimrani, MP)</span>
+            <span class="text-white fs-6 font-monospace">FSSAI Lic. No. 11414890000281</span>
+          </div>
+
+          <div class="p-3 bg-white bg-opacity-10 rounded-4 mb-3 border border-white border-opacity-15">
+            <span class="text-warning small d-block fw-bold mb-1">Akshat Roller Flour Mill Pvt. Ltd. (Chandauli, UP)</span>
+            <span class="text-white fs-6 font-monospace">FSSAI Lic. No. 12720039000182</span>
+          </div>
+
+          <div class="p-3 bg-white bg-opacity-10 rounded-4 border border-white border-opacity-15">
+            <span class="text-warning small d-block fw-bold mb-1">Simran Food Pvt. Ltd. (Varanasi, UP)</span>
+            <span class="text-white fs-6 font-monospace">FSSAI Lic. No. 12714038000965</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Atta Specifications",
+  "tag": "section",
+  "class": "atta-details-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Atta Specifications"
+    }
+  ]
+}
+{% endschema %}
