@@ -1,7 +1,7 @@
 <section class="journey-sec sec">
   <div class="container">
     
-    <!-- Section Header (Centered Stack) -->
+    <!-- Section Header (Centered Clean Stack) -->
     <div class="row text-center mb-5">
       <div class="col-lg-8 col-12 mx-auto">
         <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
@@ -16,44 +16,50 @@
       </div>
     </div>
 
-    <!-- Ashya-Style Connected Timeline Container -->
-    <div class="ashya-timeline-container">
+    <!-- Timeline Wrapper with SVG Scroll Line -->
+    <div class="timeline-wrapper">
+      
+      <!-- Central Animated SVG Line -->
+      <div class="timeline-line-center">
+        <svg class="timeline-svg-scroll" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none">
+          <line x1="2" y1="0" x2="2" y2="1000" stroke="#e2e8f0" stroke-width="4" stroke-dasharray="8 6"/>
+          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#timelineGlow)" stroke-width="4" class="timeline-glow-pulse"/>
+          <defs>
+            <linearGradient id="timelineGlow" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f97316"/>
+              <stop offset="0.5" stop-color="#ffb74d"/>
+              <stop offset="1" stop-color="#184333"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-      <!-- Dynamic Diagonal Connecting SVG Path -->
-      <svg class="ashya-connecting-svg" viewBox="0 0 100 1000" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 50,20 Q 85,150 15,300 T 85,600 T 15,900 T 50,1000" stroke="#f97316" stroke-width="3" stroke-dasharray="6 6" class="ashya-svg-line"/>
-      </svg>
-
-      <div class="ashya-timeline-items">
+      <!-- Timeline Items -->
+      <div class="timeline-items-flow">
         {% for block in section.blocks %}
           {% assign is_even = forloop.index | modulo: 2 %}
           
-          <div class="ashya-item-row {% if is_even == 0 %}row-reverse-item{% endif %}" data-aos="fade-up" data-aos-duration="900" {{ block.shopify_attributes }}>
+          <div class="timeline-row-item {% if is_even == 0 %}timeline-row-right{% else %}timeline-row-left{% endif %}" data-aos="fade-up" data-aos-duration="800" {{ block.shopify_attributes }}>
             
-            <!-- Left Box (Visual Art / Image) -->
-            <div class="ashya-visual-box">
-              <div class="ashya-art-card">
-                <div class="ashya-art-badge">{{ block.settings.year }}</div>
-                <div class="ashya-art-illustration">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#184333" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                </div>
-                <span class="ashya-milestone-tag">Milestone 0{{ forloop.index }}</span>
+            <!-- Content Card -->
+            <div class="timeline-card">
+              <div class="tc-top">
+                <span class="tc-year">{{ block.settings.year }}</span>
+                <span class="tc-step">Step 0{{ forloop.index }}</span>
+              </div>
+              <h3 class="tc-title">{{ block.settings.title }}</h3>
+              <p class="tc-text">{{ block.settings.text }}</p>
+            </div>
+
+            <!-- Central Node -->
+            <div class="timeline-center-node">
+              <div class="node-ring">
+                <div class="node-dot"></div>
               </div>
             </div>
 
-            <!-- Central Numbered Node Button -->
-            <div class="ashya-node-col">
-              <div class="ashya-num-node">
-                <span>{{ forloop.index }}</span>
-              </div>
-            </div>
-
-            <!-- Right Box (Text Content) -->
-            <div class="ashya-text-box">
-              <span class="ashya-eyebrow">{{ block.settings.year }} • MILESTONE</span>
-              <h3 class="ashya-title">{{ block.settings.title }}</h3>
-              <p class="ashya-desc">{{ block.settings.text }}</p>
-            </div>
+            <!-- Empty Balancer Column -->
+            <div class="timeline-card-space"></div>
 
           </div>
         {% endfor %}

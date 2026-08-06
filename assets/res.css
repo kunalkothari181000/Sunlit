@@ -1517,170 +1517,311 @@ html.lenis, html.lenis body {
   100% { stroke-dasharray: 1000 0; stroke-dashoffset: -1000; }
 }
 
-/* ── 27. ASHYA FOODS STYLE CONNECTED TIMELINE ──────────────────────────── */
+/* ── 27. CLEAN VERTICAL TIMELINE WITH SVG SCROLL GLOW ──────────────────── */
 .journey-sec {
   position: relative;
-  padding: 6em 0;
-  background: #fcfdfd;
+  padding: 5.5em 0;
+  background: #f8fafc;
   overflow: hidden;
 }
 
-.ashya-timeline-container {
+.timeline-wrapper {
   position: relative;
-  max-width: 1050px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 3em 0;
+  padding: 2em 0;
 }
 
-.ashya-connecting-svg {
+.timeline-line-center {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  bottom: 0;
+  width: 4px;
+  transform: translateX(-50%);
   z-index: 1;
 }
 
-.ashya-svg-line {
-  animation: strokeFlowDash 6s linear infinite;
+.timeline-svg-scroll {
+  width: 4px;
+  height: 100%;
 }
 
-@keyframes strokeFlowDash {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -120; }
+.timeline-glow-pulse {
+  stroke-dasharray: 200 400;
+  animation: timelineGlowPulse 5s linear infinite;
 }
 
-.ashya-timeline-items {
+@keyframes timelineGlowPulse {
+  0% { stroke-dashoffset: 600; }
+  100% { stroke-dashoffset: -600; }
+}
+
+.timeline-items-flow {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 5em;
+  gap: 3.5em;
 }
 
-.ashya-item-row {
+.timeline-row-item {
   display: flex;
   align-items: center;
-  gap: 30px;
   width: 100%;
 }
 
-.ashya-item-row.row-reverse-item {
+.timeline-row-left {
+  flex-direction: row;
+}
+
+.timeline-row-right {
   flex-direction: row-reverse;
 }
 
-.ashya-visual-box {
-  flex: 1;
-}
-
-.ashya-art-card {
-  position: relative;
+.timeline-card {
+  width: 44%;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 28px;
-  padding: 2.8em 2.2em;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 24px;
+  padding: 2.2em 2em;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
 }
 
-.ashya-art-card:hover {
-  transform: translateY(-6px);
+.timeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
   border-color: #f97316;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
 }
 
-.ashya-art-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #184333;
-  color: #ffb74d;
+.tc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tc-year {
+  display: inline-block;
   font-size: 13px;
   font-weight: 800;
-  padding: 6px 20px;
-  border-radius: 100px;
-  box-shadow: 0 6px 18px rgba(24, 67, 51, 0.25);
-}
-
-.ashya-art-illustration {
-  width: 76px;
-  height: 76px;
-  background: rgba(24, 67, 51, 0.08);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto 16px;
-}
-
-.ashya-milestone-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #64748b;
-  letter-spacing: 0.12em;
-}
-
-.ashya-node-col {
-  width: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.ashya-num-node {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
   color: #ffffff;
-  font-size: 20px;
-  font-weight: 800;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.22), 0 8px 20px rgba(249, 115, 22, 0.35);
-  transition: transform 0.35s ease, background 0.35s ease;
-}
-
-.ashya-item-row:hover .ashya-num-node {
-  transform: scale(1.25);
   background: linear-gradient(135deg, #184333 0%, #0f2c22 100%);
+  padding: 5px 16px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(24, 67, 51, 0.25);
 }
 
-.ashya-text-box {
-  flex: 1;
-  padding: 1.5em;
-}
-
-.ashya-eyebrow {
-  display: inline-block;
+.tc-step {
   font-size: 12px;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
   color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tc-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #184333;
   margin-bottom: 8px;
 }
 
-.ashya-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #184333;
-  margin-bottom: 12px;
-  line-height: 1.2;
+.tc-text {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
-.ashya-desc {
-  font-size: 16px;
+.timeline-center-node {
+  width: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.node-ring {
+  width: 24px;
+  height: 24px;
+  background: #f97316;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.28), 0 6px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.node-dot {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.timeline-row-item:hover .node-ring {
+  transform: scale(1.4);
+  background: #184333;
+}
+
+.timeline-card-space {
+  width: 44%;
+}
+
+/* ── QUALITY & CERTIFICATION STYLING ─────────────────────────────────── */
+.qual-sec {
+  background: #f8fafc;
+  padding: 5em 0;
+}
+
+.qual-left-sticky {
+  position: sticky;
+  top: 130px;
+  align-self: flex-start;
+}
+
+.qual-images-composite {
+  position: relative;
+  min-height: 320px;
+  margin-top: 2em;
+}
+
+.q-img-primary {
+  width: 75%;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.q-img-secondary {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  border-radius: 20px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+.q-badge-floating {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #184333;
+  color: #ffb74d;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(24, 67, 51, 0.3);
+}
+
+.qual-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.qual-card-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.8em 2em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.qual-card-item:hover {
+  transform: translateX(8px);
+  border-color: #f97316;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.qc-icon-box {
+  width: 54px;
+  height: 54px;
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.qc-content {
+  flex-grow: 1;
+}
+
+.qc-content h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #184333;
+  margin-bottom: 6px;
+}
+
+.qc-content .para {
+  font-size: 14px;
   color: #475569;
-  line-height: 1.65;
   margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.qc-check-icon {
+  width: 34px;
+  height: 34px;
+  background: rgba(24, 67, 51, 0.08);
+  color: #184333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .qual-left-sticky {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .timeline-line-center {
+    left: 20px;
+    transform: none;
+  }
+  .timeline-row-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-left: 45px;
+  }
+  .timeline-card {
+    width: 100% !important;
+  }
+  .timeline-center-node {
+    position: absolute;
+    left: 9px;
+    top: 25px;
+    width: auto;
+  }
+  .timeline-card-space {
+    display: none;
+  }
 }
 
 /* Career Page Buttons & Brand Colors */
