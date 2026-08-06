@@ -143,8 +143,8 @@
       "settings": {
         "enable_marquee": true,
         "marquee_speed": "4000",
-        "slides_desktop": "6",
-        "slides_mobile": "2",
+        "slides_desktop": "5",
+        "slides_mobile": "3",
         "space_between": "30"
       }
     },

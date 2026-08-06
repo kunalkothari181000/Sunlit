@@ -63,7 +63,7 @@
       var isMarquee = container.getAttribute("data-marquee") === "true";
       var speed = parseInt(container.getAttribute("data-speed")) || 4000;
       var desktopSlides = parseInt(container.getAttribute("data-desktop")) || 5;
-      var mobileSlides = parseInt(container.getAttribute("data-mobile")) || 2;
+      var mobileSlides = parseInt(container.getAttribute("data-mobile")) || 3;
       var space = parseInt(container.getAttribute("data-space")) || 30;
 
       if (isMarquee) {
@@ -97,7 +97,7 @@
               spaceBetween: 15
             },
             768: {
-              slidesPerView: Math.min(3, desktopSlides),
+              slidesPerView: Math.min(4, desktopSlides),
               spaceBetween: 20
             },
             1024: {
