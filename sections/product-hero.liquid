@@ -1,9 +1,124 @@
+<style>
+  .product-inner-header {
+    position: relative;
+    padding: 5.5em 0 4.5em;
+    background: linear-gradient(135deg, #fffbf2 0%, #fff7e6 100%);
+    overflow: hidden;
+  }
+  .hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1.5px solid #ffb74d;
+    padding: 8px 22px;
+    border-radius: 100px;
+    color: #78350f;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.12);
+  }
+  .hero-badge-pill span.dot-sep {
+    color: #f97316;
+  }
+  .hero-product-title {
+    font-size: 52px;
+    font-weight: 800;
+    color: #184333;
+    line-height: 1.15;
+    margin: 16px 0 12px;
+  }
+  .hero-product-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #f97316;
+    margin-bottom: 16px;
+  }
+  .hero-product-desc {
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.65;
+    max-width: 580px;
+    margin-bottom: 24px;
+  }
+  .product-feature-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .p-feat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #184333;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 7px 18px;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .p-feat-tag svg {
+    color: #184333;
+  }
+
+  /* BRAND VARIANT SELECTION BUTTONS */
+  .variant-selector-wrap {
+    margin-bottom: 32px;
+  }
+  .variant-selector-label {
+    font-size: 14px;
+    font-weight: 800;
+    color: #184333;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .varient-picker {
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .brand-var-btn {
+    background: #ffffff !important;
+    border: 2px solid #184333 !important;
+    color: #184333 !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    padding: 10px 24px !important;
+    border-radius: 100px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+  }
+  .brand-var-btn:hover {
+    background: #f97316 !important;
+    border-color: #f97316 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25) !important;
+  }
+  .brand-var-btn.active {
+    background: #184333 !important;
+    border-color: #184333 !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 22px rgba(24, 67, 51, 0.3) !important;
+  }
+</style>
+
 <header class="product-inner-header">
 
   {% if section.settings.bg_image %}
     <img 
       src="{{ section.settings.bg_image | image_url: width: 1920 }}" 
       alt="background"
+      style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.15; pointer-events: none;"
     >
   {% endif %}
 
@@ -14,41 +129,50 @@
       <div class="col-lg-6 col-12">
         <div class="product-inner-content" data-aos="fade-right" data-aos-duration="1000">
 
-          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 bg-warning bg-opacity-25 border border-warning rounded-pill text-dark font-monospace small fw-bold mb-3">
-            <span>🌾 100% MP Wheat</span>
-            <span>•</span>
+          <div class="hero-badge-pill">
+            <span>100% MP Wheat</span>
+            <span class="dot-sep">•</span>
             <span>No Maida</span>
-            <span>•</span>
-            <span>No Added Preservatives</span>
+            <span class="dot-sep">•</span>
+            <span>Zero Preservatives</span>
           </div>
 
           {% if section.settings.heading != blank %}
-            <h1 class="fw-extrabold display-4 mb-2">{{ section.settings.heading }}</h1>
+            <h1 class="hero-product-title">{{ section.settings.heading }}</h1>
           {% endif %}
 
-          <h4 class="text-warning fw-bold mb-3">Made from MP Wheat • Stone Ground Chakki Quality</h4>
+          <div class="hero-product-subtitle">Made from MP Wheat • Stone Ground Chakki Quality</div>
 
           {% if section.settings.description != blank %}
-            <p class="para mb-4 fs-5 text-secondary">
+            <p class="hero-product-desc">
               {{ section.settings.description }}
             </p>
           {% endif %}
 
-          <!-- Key Highlights Badges -->
-          <div class="d-flex flex-wrap gap-2 mb-4">
-            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">🌾 Rich in Dietary Fiber</span>
-            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">✨ Ultra Soft Rotis</span>
-            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill fs-6">🛡️ 100% Hygienically Packed</span>
+          <!-- Key Highlights Badges (Clean SVG Icons, NO EMOJIS) -->
+          <div class="product-feature-tags">
+            <span class="p-feat-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Rich in Dietary Fiber</span>
+            </span>
+            <span class="p-feat-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Ultra Soft Rotis</span>
+            </span>
+            <span class="p-feat-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Hygienically Packed</span>
+            </span>
           </div>
 
-          <!-- STATIC VARIANT STYLE OPTIONS -->
+          <!-- BRAND VARIANT SELECTION BUTTONS -->
           {% if section.blocks.size > 0 %}
-            <div class="mb-4">
-              <label class="fw-bold text-dark d-block mb-2">Select Pack Weight:</label>
-              <ul class="varient-picker d-flex gap-2 list-unstyled mb-0">
+            <div class="variant-selector-wrap">
+              <span class="variant-selector-label">Select Pack Weight:</span>
+              <ul class="varient-picker">
                 {% for block in section.blocks %}
                   <li {{ block.shopify_attributes }}>
-                    <button class="btn btn-outline-dark rounded-pill px-4 py-2 {% if forloop.index == 3 %}active bg-dark text-white{% endif %}">
+                    <button class="brand-var-btn {% if forloop.index == 3 %}active{% endif %}">
                       <span>{{ block.settings.label }}</span>
                     </button>
                   </li>
