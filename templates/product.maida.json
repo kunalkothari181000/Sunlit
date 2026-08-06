@@ -37,7 +37,12 @@
       "name": "Product Hero",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/pr-inner-bg.jpg",
+        "eyebrow": "Smooth Texture",
         "heading": "Maida",
+        "subtitle": "Refined Wheat Flour • Perfect for Baking",
+        "pill_1": "Soft Dough Results",
+        "pill_2": "Zero Preservatives",
+        "pill_3": "Super Fine Grind",
         "description": "Refined wheat flour finely milled and sifted under controlled conditioning to produce smooth texture, high elasticity, and perfect bakery performance.",
         "product_image": "shopify:\/\/shop_images\/pr-hero.png",
         "button_label": "Inquire Bulk Supply",

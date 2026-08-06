@@ -37,7 +37,12 @@
       "name": "Product Hero",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/pr-inner-bg.jpg",
+        "eyebrow": "Whole Wheat",
         "heading": "Chakki Atta",
+        "subtitle": "Made from MP Wheat • Stone Ground Chakki Quality",
+        "pill_1": "100% MP Wheat",
+        "pill_2": "No Maida",
+        "pill_3": "Zero Preservatives",
         "description": "Made from carefully selected, high-quality MP wheat and stone-ground under controlled conditions to preserve natural fiber, dietary nutrition, and freshness in every pack.",
         "product_image": "shopify:\/\/shop_images\/pr-hero.png",
         "button_label": "Inquire Bulk / Wholesale",

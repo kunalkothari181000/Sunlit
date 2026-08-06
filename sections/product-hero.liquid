@@ -33,7 +33,6 @@
     color: #f97316;
   }
 
-  /* SMALL WHOLE WHEAT & BIG CHAKKI ATTA TITLE */
   .hero-eyebrow-small {
     font-size: 22px;
     font-weight: 800;
@@ -66,7 +65,6 @@
     margin-bottom: 24px;
   }
 
-  /* VIBRANT SUNLIT BRAND VARIANT SELECTION BUTTONS */
   .variant-selector-wrap {
     margin-bottom: 32px;
   }
@@ -144,17 +142,24 @@
         <div class="product-inner-content" data-aos="fade-right" data-aos-duration="1000">
 
           <div class="hero-badge-pill">
-            <span>100% MP Wheat</span>
+            <span>{{ section.settings.pill_1 | default: "100% MP Wheat" }}</span>
             <span class="dot-sep">•</span>
-            <span>No Maida</span>
+            <span>{{ section.settings.pill_2 | default: "No Maida" }}</span>
             <span class="dot-sep">•</span>
-            <span>Zero Preservatives</span>
+            <span>{{ section.settings.pill_3 | default: "Zero Preservatives" }}</span>
           </div>
 
-          <span class="hero-eyebrow-small">Whole Wheat</span>
-          <h1 class="hero-product-title-big">Chakki Atta</h1>
+          {% if section.settings.eyebrow != blank %}
+            <span class="hero-eyebrow-small">{{ section.settings.eyebrow }}</span>
+          {% endif %}
 
-          <div class="hero-product-subtitle">Made from MP Wheat • Stone Ground Chakki Quality</div>
+          {% if section.settings.heading != blank %}
+            <h1 class="hero-product-title-big">{{ section.settings.heading }}</h1>
+          {% endif %}
+
+          {% if section.settings.subtitle != blank %}
+            <div class="hero-product-subtitle">{{ section.settings.subtitle }}</div>
+          {% endif %}
 
           {% if section.settings.description != blank %}
             <p class="hero-product-desc">
@@ -203,13 +208,13 @@
             <img 
               src="{{ section.settings.product_image | image_url: width: 1000 }}" 
               class="w-100 img-fluid drop-shadow" 
-              alt="Sunlit Farms Whole Wheat Chakki Atta"
+              alt="{{ section.settings.heading | default: 'Sunlit Farms Product' }}"
             >
           {% else %}
             <img 
               src="https://cdn.shopify.com/s/files/1/0000/0000/files/pr-hero.png" 
               class="w-100 img-fluid drop-shadow" 
-              alt="Sunlit Farms Whole Wheat Chakki Atta"
+              alt="{{ section.settings.heading | default: 'Sunlit Farms Product' }}"
             >
           {% endif %}
 
@@ -233,9 +238,39 @@
     },
     {
       "type": "text",
+      "id": "eyebrow",
+      "label": "Small Eyebrow",
+      "default": "Whole Wheat"
+    },
+    {
+      "type": "text",
       "id": "heading",
-      "label": "Heading",
+      "label": "Main Heading",
       "default": "Chakki Atta"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Made from MP Wheat • Stone Ground Chakki Quality"
+    },
+    {
+      "type": "text",
+      "id": "pill_1",
+      "label": "Badge Pill 1",
+      "default": "100% MP Wheat"
+    },
+    {
+      "type": "text",
+      "id": "pill_2",
+      "label": "Badge Pill 2",
+      "default": "No Maida"
+    },
+    {
+      "type": "text",
+      "id": "pill_3",
+      "label": "Badge Pill 3",
+      "default": "Zero Preservatives"
     },
     {
       "type": "textarea",
