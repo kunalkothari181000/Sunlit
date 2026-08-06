@@ -120,12 +120,12 @@
       "name": "Custom Header",
       "settings": {
         "logo": "shopify://shop_images/Untitled_design_19_ed02c467-610a-4965-8473-1171de612673.png",
-        "mobile_logo": "shopify://shop_images/ft-logo.png",
+        "mobile_logo": "shopify://shop_images/Untitled_design_19_ed02c467-610a-4965-8473-1171de612673.png",
         "menu_icon": "shopify://shop_images/menu.svg",
         "close_icon": "shopify://shop_images/close.svg",
         "menu": "main-menu",
-        "button_label": "Explore More",
-        "button_link": "",
+        "button_label": "Contact Us",
+        "button_link": "https://admin.shopify.com/store/akshatagro/pages",
         "button_icon": "shopify://shop_images/arrow.svg"
       }
     }
