@@ -865,13 +865,13 @@ html.lenis, html.lenis body {
 /* ── DESKTOP HEADER LOGO SIZE INCREASE ─────────────────────────────────── */
 @media (min-width: 992px) {
   .main-nav .inner-nav .l-part .logo img {
-    width: 220px !important;
-    max-width: 260px !important;
+    width: 270px !important;
+    max-width: 320px !important;
     height: auto !important;
-    max-height: 65px !important;
+    max-height: 85px !important;
     object-fit: contain !important;
   }
-/* ── 26. CONTACT, INFRASTRUCTURE & CAREERS PAGES STYLING ───────────────── */
+}/* ── 26. CONTACT, INFRASTRUCTURE & CAREERS PAGES STYLING ───────────────── */
 .contact-info-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
