@@ -12,8 +12,7 @@
     "careers_main": {
       "type": "careers-page",
       "settings": {
-        "heading": "Build Your Career at Sunlit Farms",
-        "subtext": "Join a fast-growing agri-food company committed to innovation, quality excellence, and empowering everyday meals for millions."
+        "bg_image": "shopify://shop_images/ft-bg.png"
       }
     }
   },
