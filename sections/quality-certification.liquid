@@ -1,13 +1,11 @@
 <style>
   .qual-sec {
     background: #f8fafc;
-    padding: 6em 0;
+    padding: 5.5em 0;
     position: relative;
   }
-  .qual-left-sticky {
-    position: sticky !important;
-    top: 120px !important;
-    align-self: flex-start !important;
+  .qual-left-box {
+    position: relative;
   }
   .qual-images-composite {
     position: relative;
@@ -46,34 +44,32 @@
     box-shadow: 0 8px 25px rgba(24, 67, 51, 0.35);
   }
 
-  /* 3D Stacking Cards Container */
-  .qual-cards-stack-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 4em;
+  /* Clean Standard Cards List */
+  .qual-cards-clean-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5em !important;
   }
-  .qual-card-stack-item {
-    position: sticky !important;
+  .qual-card-simple-item {
+    position: relative !important;
     display: flex !important;
     align-items: center !important;
     gap: 24px !important;
     background: #ffffff !important;
     border: 1.5px solid #e2e8f0 !important;
-    border-radius: 26px !important;
-    padding: 2.2em 2.4em !important;
-    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.04), 0 15px 45px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 24px !important;
+    padding: 2em 2.2em !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04) !important;
     transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
-    margin-bottom: 24px;
   }
-  .qual-card-stack-item:hover {
+  .qual-card-simple-item:hover {
     transform: translateY(-4px) !important;
     border-color: #f97316 !important;
-    box-shadow: 0 20px 50px rgba(249, 115, 22, 0.14) !important;
+    box-shadow: 0 20px 48px rgba(249, 115, 22, 0.12) !important;
   }
   .qc-icon-box {
-    width: 60px !important;
-    height: 60px !important;
+    width: 58px !important;
+    height: 58px !important;
     background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(255, 183, 77, 0.18) 100%) !important;
     color: #f97316 !important;
     border-radius: 18px !important;
@@ -84,7 +80,7 @@
     box-shadow: 0 6px 18px rgba(249, 115, 22, 0.12) !important;
     transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease !important;
   }
-  .qual-card-stack-item:hover .qc-icon-box {
+  .qual-card-simple-item:hover .qc-icon-box {
     transform: scale(1.08) !important;
     background: #184333 !important;
     color: #ffb74d !important;
@@ -99,7 +95,7 @@
     margin-bottom: 6px !important;
   }
   .qc-content h3 {
-    font-size: 22px !important;
+    font-size: 21px !important;
     font-weight: 800 !important;
     color: #184333 !important;
     margin-bottom: 0 !important;
@@ -122,8 +118,8 @@
     line-height: 1.55 !important;
   }
   .qc-check-icon {
-    width: 38px !important;
-    height: 38px !important;
+    width: 36px !important;
+    height: 36px !important;
     background: rgba(24, 67, 51, 0.08) !important;
     color: #184333 !important;
     border-radius: 50% !important;
@@ -133,30 +129,20 @@
     flex-shrink: 0 !important;
     transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease !important;
   }
-  .qual-card-stack-item:hover .qc-check-icon {
+  .qual-card-simple-item:hover .qc-check-icon {
     transform: scale(1.12) !important;
     background: #f97316 !important;
     color: #ffffff !important;
-  }
-  @media (max-width: 991px) {
-    .qual-left-sticky {
-      position: relative !important;
-      top: 0 !important;
-    }
-    .qual-card-stack-item {
-      position: relative !important;
-      top: 0 !important;
-    }
   }
 </style>
 
 <section class="qual-sec sec">
   <div class="container">
-    <div class="row align-items-start g-5">
+    <div class="row align-items-center g-5">
 
-      <!-- LEFT CONTENT & IMAGES (Sticky Sidebar) -->
+      <!-- LEFT CONTENT & IMAGES -->
       <div class="col-lg-5 col-12">
-        <div class="qual-left-sticky">
+        <div class="qual-left-box">
           
           <span class="sub-pill mb-2">Food Safety Standards</span>
           
@@ -196,16 +182,15 @@
         </div>
       </div>
 
-      <!-- RIGHT CERTIFICATION CARDS (Stacked Scroll Animation) -->
+      <!-- RIGHT CERTIFICATION CARDS (Clean Standard Premium Grid List) -->
       <div class="col-lg-7 col-12">
-        <div class="qual-cards-stack-wrapper">
+        <div class="qual-cards-clean-list">
           {% for block in section.blocks %}
-            {% assign sticky_top = 120 | plus: forloop.index0 | times: 65 %}
             <div 
-              class="qual-card-stack-item" 
-              style="top: {{ sticky_top }}px; z-index: {{ forloop.index }};" 
+              class="qual-card-simple-item" 
               data-aos="fade-up" 
               data-aos-duration="800" 
+              data-aos-delay="{{ forloop.index0 | times: 120 }}" 
               {{ block.shopify_attributes }}
             >
 
