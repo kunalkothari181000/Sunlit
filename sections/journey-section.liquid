@@ -1,10 +1,12 @@
 <section class="journey-sec sec">
   <div class="container">
     
-    <!-- Section Header -->
+    <!-- Section Header (Centered Clean Stack) -->
     <div class="row text-center mb-5">
       <div class="col-lg-8 col-12 mx-auto">
-        <span class="sub-pill" data-aos="fade-down" data-aos-duration="800">Milestones & History</span>
+        <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
+          <span class="sub-pill">Milestones & History</span>
+        </div>
         <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
           {{ section.settings.heading | default: "Our Journey" }}
         </h2>
@@ -17,13 +19,15 @@
     <!-- Timeline Wrapper -->
     <div class="journey-timeline-wrap">
       
-      <!-- Central SVG Animated Line -->
+      <!-- Central Curvy SVG Animated Path Line -->
       <div class="timeline-line-svg-container">
-        <svg class="timeline-svg" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="2" y1="0" x2="2" y2="1000" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
-          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#lineGradient)" stroke-width="4" class="timeline-animated-stroke"/>
+        <svg class="timeline-svg" viewBox="0 0 100 1200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background Curvy Dashed Path -->
+          <path d="M 50,0 Q 90,150 50,300 T 50,600 T 50,900 T 50,1200" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+          <!-- Animated Gradient Curvy Path -->
+          <path d="M 50,0 Q 90,150 50,300 T 50,600 T 50,900 T 50,1200" stroke="url(#curvyGradient)" stroke-width="5" class="timeline-curvy-animated-stroke"/>
           <defs>
-            <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+            <linearGradient id="curvyGradient" x1="0" y1="0" x2="0" y2="1200" gradientUnits="userSpaceOnUse">
               <stop stop-color="#f97316"/>
               <stop offset="0.5" stop-color="#ffb74d"/>
               <stop offset="1" stop-color="#184333"/>
@@ -38,14 +42,18 @@
           <div class="timeline-item-row {% cycle 'left-row', 'right-row' %}" data-aos="fade-up" data-aos-duration="900" {{ block.shopify_attributes }}>
             
             <div class="timeline-content-card">
-              <div class="t-year-badge">{{ block.settings.year }}</div>
+              <div class="t-card-header">
+                <span class="t-year-badge">{{ block.settings.year }}</span>
+                <span class="t-step-index">Step 0{{ forloop.index }}</span>
+              </div>
               <h3 class="t-title">{{ block.settings.title }}</h3>
               <p class="t-desc">{{ block.settings.text }}</p>
             </div>
 
             <div class="timeline-node">
-              <div class="node-pulse"></div>
-              <span class="node-year-text">{{ block.settings.year }}</span>
+              <div class="node-pulse">
+                <div class="node-inner-dot"></div>
+              </div>
             </div>
 
             <div class="timeline-empty-space"></div>

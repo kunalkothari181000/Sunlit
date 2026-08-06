@@ -447,10 +447,10 @@ ul {
   display: inline-block;
 }
 .main-nav .inner-nav .l-part .logo img {
-  width: 280px !important;
-  max-width: 340px !important;
+  width: 180px !important;
+  max-width: 210px !important;
   height: auto !important;
-  max-height: 90px !important;
+  max-height: 60px !important;
   object-fit: contain !important;
 }
 .main-nav .inner-nav .m-part {

@@ -1,63 +1,57 @@
 <section class="about-infra-sec sec">
   <div class="container">
 
-    <!-- Header -->
-    <div class="row mb-5 align-items-end">
-      <div class="col-lg-7 col-12" data-aos="fade-right" data-aos-duration="1000">
-        <span class="sub-pill">Industrial Power</span>
-        {% if section.settings.heading != blank %}
-          <h2 class="sec-head with-gr d-inline-block mb-0">
-            {{ section.settings.heading }}
-          </h2>
-        {% endif %}
+    <div class="infra-banner-box" data-aos="fade-up" data-aos-duration="1000">
+      
+      <!-- Top Header -->
+      <div class="row mb-5 align-items-end">
+        <div class="col-lg-7 col-12">
+          <span class="hero-tag-badge mb-3">Industrial Power</span>
+          {% if section.settings.heading != blank %}
+            <h2 class="sec-head text-white d-inline-block mb-0">
+              {{ section.settings.heading }}
+            </h2>
+          {% endif %}
+        </div>
+        <div class="col-lg-5 col-12 mt-3 mt-lg-0">
+          {% if section.settings.subtext != blank %}
+            <p class="para text-white-50 mb-0">
+              {{ section.settings.subtext }}
+            </p>
+          {% endif %}
+        </div>
       </div>
-      <div class="col-lg-5 col-12 mt-3 mt-lg-0" data-aos="fade-left" data-aos-duration="1000">
-        {% if section.settings.subtext != blank %}
-          <p class="para mb-0">
-            {{ section.settings.subtext }}
-          </p>
-        {% endif %}
-      </div>
-    </div>
 
-    <!-- Cards Grid -->
-    <div class="row g-4">
-      {% for block in section.blocks %}
-        <div class="col-lg-4 col-md-6 col-12" {{ block.shopify_attributes }}>
-          <div class="infra-glass-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="{{ forloop.index0 | times: 150 }}">
-
-            <div class="igc-top">
-              <div class="igc-icon-badge">
-                {% if block.settings.image %}
-                  <img 
-                    src="{{ block.settings.image | image_url: width: 200 }}" 
-                    alt="{{ block.settings.title | escape }}"
-                    class="igc-img"
-                  >
-                {% else %}
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                {% endif %}
+      <!-- Feature Cards Grid -->
+      <div class="row g-4">
+        {% for block in section.blocks %}
+          <div class="col-lg-4 col-md-6 col-12" {{ block.shopify_attributes }}>
+            <div class="infra-premium-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="{{ forloop.index0 | times: 150 }}">
+              
+              <div class="ipc-top">
+                <span class="ipc-num">0{{ forloop.index }}</span>
+                <div class="ipc-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
               </div>
-              <span class="igc-index">0{{ forloop.index }}</span>
-            </div>
 
-            <div class="igc-body">
               {% if block.settings.title != blank %}
-                <h3>{{ block.settings.title }}</h3>
+                <h3 class="ipc-title">{{ block.settings.title }}</h3>
               {% endif %}
 
               {% if block.settings.text != blank %}
-                <p class="para">
+                <p class="ipc-text">
                   {{ block.settings.text }}
                 </p>
               {% endif %}
+
+              <div class="ipc-bar"></div>
+
             </div>
-
-            <div class="igc-glow"></div>
-
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
+
     </div>
 
   </div>

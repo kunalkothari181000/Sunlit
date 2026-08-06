@@ -1,12 +1,12 @@
 <section class="qual-sec sec">
   <div class="container">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-start g-5">
 
-      <!-- LEFT CONTENT & IMAGES -->
-      <div class="col-lg-5 col-12" data-aos="fade-right" data-aos-duration="1000">
-        <div class="qual-left-wrap">
+      <!-- LEFT CONTENT & IMAGES (Sticky Scroll) -->
+      <div class="col-lg-5 col-12">
+        <div class="qual-left-sticky">
           
-          <span class="sub-pill">Food Safety Standards</span>
+          <span class="sub-pill mb-2">Food Safety Standards</span>
           
           {% if section.settings.heading != blank %}
             <h2 class="sec-head d-inline-block with-gr">
@@ -36,7 +36,7 @@
               >
             {% endif %}
             <div class="q-badge-floating">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>100% Quality Inspected</span>
             </div>
           </div>
@@ -45,10 +45,10 @@
       </div>
 
       <!-- RIGHT CERTIFICATION CARDS -->
-      <div class="col-lg-7 col-12" data-aos="fade-left" data-aos-duration="1000">
+      <div class="col-lg-7 col-12">
         <div class="qual-cards-list">
           {% for block in section.blocks %}
-            <div class="qual-card-item" {{ block.shopify_attributes }}>
+            <div class="qual-card-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ forloop.index0 | times: 150 }}" {{ block.shopify_attributes }}>
 
               <div class="qc-icon-box">
                 {% if block.settings.icon %}
