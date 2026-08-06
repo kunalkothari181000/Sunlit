@@ -21,21 +21,21 @@
       <div class="col-12">
         <div class="ar-grid" data-aos="fade-up" data-aos-duration="1000" >
 
-          <!-- Custom SVG Scroll Animated Arrows -->
-          <svg class="custom-process-arrow ar-svg-1" viewBox="0 0 200 80" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 15,65 Q 100,5 185,58" stroke="#f97316" stroke-width="3.5" stroke-dasharray="7 5" stroke-linecap="round" class="animated-dash-path"/>
-            <polygon points="185,58 175,50 177,62" fill="#f97316"/>
-          </svg>
+          {% if section.settings.arrow_1 %}
+            <img 
+              src="{{ section.settings.arrow_1 | image_url: width: 300 }}" 
+              class="ar1" 
+              alt="arrow"
+            >
+          {% endif %}
 
-          <svg class="custom-process-arrow ar-svg-2" viewBox="0 0 200 80" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 15,15 Q 100,75 185,22" stroke="#f97316" stroke-width="3.5" stroke-dasharray="7 5" stroke-linecap="round" class="animated-dash-path"/>
-            <polygon points="185,22 177,12 175,24" fill="#f97316"/>
-          </svg>
-
-          <svg class="custom-process-arrow ar-svg-3" viewBox="0 0 200 80" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 15,65 Q 100,5 185,58" stroke="#f97316" stroke-width="3.5" stroke-dasharray="7 5" stroke-linecap="round" class="animated-dash-path"/>
-            <polygon points="185,58 175,50 177,62" fill="#f97316"/>
-          </svg>
+          {% if section.settings.arrow_2 %}
+            <img 
+              src="{{ section.settings.arrow_2 | image_url: width: 300 }}" 
+              class="ar2" 
+              alt="arrow"
+            >
+          {% endif %}
 
           {% for block in section.blocks %}
             <div class="ar-wrap" {{ block.shopify_attributes }}>

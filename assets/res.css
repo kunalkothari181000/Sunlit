@@ -622,51 +622,19 @@ html.lenis, html.lenis body {
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4) !important;
 }
 
-/* ── 23. PROCESS GRID CUSTOM ANIMATED SVG CURVED ARROWS ─────────────────── */
-.ar-grid {
-  position: relative;
+/* ── 23. PROCESS GRID ARROW FLOATING ANIMATION ──────────────────────────── */
+.ar-grid .ar1, .ar-grid .ar2 {
+  animation: arFloat 3.5s infinite ease-in-out;
+  filter: drop-shadow(0 4px 10px rgba(249, 115, 22, 0.3));
 }
 
-.custom-process-arrow {
-  position: absolute;
-  z-index: 5;
-  pointer-events: none;
-  overflow: visible;
+.ar-grid .ar2 {
+  animation-delay: 1.75s;
 }
 
-.ar-svg-1 {
-  left: 17%;
-  top: -42px;
-  width: 17%;
-  height: 65px;
-}
-
-.ar-svg-2 {
-  left: 42%;
-  bottom: -42px;
-  width: 17%;
-  height: 65px;
-}
-
-.ar-svg-3 {
-  right: 17%;
-  top: -42px;
-  width: 17%;
-  height: 65px;
-}
-
-.animated-dash-path {
-  animation: processDashFlow 1.8s linear infinite;
-  filter: drop-shadow(0 2px 8px rgba(249, 115, 22, 0.4));
-}
-
-@keyframes processDashFlow {
-  from {
-    stroke-dashoffset: 24;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+@keyframes arFloat {
+  0%, 100% { transform: translateY(-100%) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-106%) scale(1.04); opacity: 1; }
 }
 
 @media (max-width: 991px) {
