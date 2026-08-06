@@ -1,1 +1,150 @@
-{"sections":{"product_hero_nG63w9":{"type":"product-hero","blocks":{"variant_khnjqf":{"type":"variant","settings":{"label":"1Kg"}},"variant_x6TPnW":{"type":"variant","settings":{"label":"2Kg"}},"variant_Ce3dnD":{"type":"variant","settings":{"label":"5Kg"}},"variant_VPKcET":{"type":"variant","settings":{"label":"10Kg"}}},"block_order":["variant_khnjqf","variant_x6TPnW","variant_Ce3dnD","variant_VPKcET"],"name":"Product Hero","settings":{"bg_image":"shopify:\/\/shop_images\/pr-inner-bg.jpg","heading":"Maida","description":"Made from carefully selected, high-quality wheat and hygienically processed using modern milling technology to ensure purity, freshness, and consistent performance in every pack.","product_image":"shopify:\/\/shop_images\/pr-hero.png","button_label":"Explore Now","button_link":"","button_icon":"shopify:\/\/shop_images\/arrow.svg"}},"infrastructure_section_azKdz7":{"type":"infrastructure-section","blocks":{"card_mQJyj7":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/c1.jpg","title":"Quality wheat","text":"Sourced from trusted farms to ensure superior grain quality and natural taste."}},"card_zwwF4D":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/c1.jpg","title":"Quality wheat","text":"Sourced from trusted farms to ensure superior grain quality and natural taste."}},"card_y7PVBW":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/c1.jpg","title":"Quality wheat","text":"Sourced from trusted farms to ensure superior grain quality and natural taste."}}},"block_order":["card_mQJyj7","card_zwwF4D","card_y7PVBW"],"name":"Infrastructure Section","settings":{"heading":"Infrastructure","subtext":"Sunlit Farms operates with modern milling infrastructure designed to maintain efficiency, hygiene, and product consistency."}},"product_cta_DmyPKM":{"type":"product-cta","blocks":{"feature_8tJMkM":{"type":"feature","settings":{"icon":"shopify:\/\/shop_images\/icc1.svg","title":"Soft Rotis","text":"Ensures soft, fluffy rotis with excellent taste."}},"feature_dgENVk":{"type":"feature","settings":{"icon":"shopify:\/\/shop_images\/icc2.svg","title":"Soft Rotis","text":"Ensures soft, fluffy rotis with excellent taste."}},"feature_8yLCQa":{"type":"feature","settings":{"icon":"shopify:\/\/shop_images\/icc3.svg","title":"Soft Rotis","text":"Ensures soft, fluffy rotis with excellent taste."}}},"block_order":["feature_8tJMkM","feature_dgENVk","feature_8yLCQa"],"name":"Product CTA Advanced","settings":{"heading":"Everyday perfection in your kitchen.","main_image":"shopify:\/\/shop_images\/prr.png","overlay_image":"shopify:\/\/shop_images\/pr-pt.svg"}},"main":{"type":"product-information","blocks":{"media-gallery":{"type":"_product-media-gallery","static":true,"settings":{"media_presentation":"grid","media_columns":"two","image_gap":4,"large_first_image":false,"icons_style":"none","slideshow_controls_style":"counter","slideshow_mobile_controls_style":"dots","thumbnail_position":"right","thumbnail_width":44,"thumbnail_radius":0,"aspect_ratio":"adapt","constrain_to_viewport":true,"media_fit":"contain","media_radius":0,"extend_media":false,"zoom":true,"video_loop":false,"hide_variants":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"product-details":{"type":"_product-details","static":true,"settings":{"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","details_position":"flex-start","gap":28,"sticky_details_desktop":true,"inherit_color_scheme":true,"color_scheme":"scheme-1","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":24,"padding-block-end":24,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"group_icgrde":{"type":"group","name":"Header","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"inherit_color_scheme":true,"color_scheme":"","background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_xrnftG":{"type":"text","name":"Product title","settings":{"text":"<h1>{{ closest.product.title }}<\/h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"h3","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"price_tVjtKg":{"type":"price","settings":{"show_sale_price_first":true,"show_installments":false,"show_tax_info":false,"type_preset":"paragraph","width":"100%","alignment":"left","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","color":"var(--color-foreground)","padding-block-start":4,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_xrnftG","price_tVjtKg"]},"divider_VJhene":{"type":"_divider","name":"t:names.divider","settings":{"thickness":1,"corner_radius":"square","width_percent":100,"padding-block-start":0,"padding-block-end":0},"blocks":{}},"variant_picker_R3rGDr":{"type":"variant-picker","settings":{"variant_style":"buttons","show_swatches":false,"alignment":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"buy_buttons_eYQEYi":{"type":"buy-buttons","settings":{"stacking":true,"show_pickup_availability":false,"gift_card_form":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"quantity":{"type":"quantity","static":true,"settings":{},"blocks":{}},"add-to-cart":{"type":"add-to-cart","static":true,"settings":{"style_class":"button"},"blocks":{}},"accelerated-checkout":{"type":"accelerated-checkout","static":true,"settings":{},"blocks":{}}},"block_order":[]},"text_aEtTtq":{"type":"text","name":"Product description","settings":{"text":"{{ closest.product.description }}","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["group_icgrde","divider_VJhene","variant_picker_R3rGDr","buy_buttons_eYQEYi","text_aEtTtq"]}},"disabled":true,"settings":{"content_width":"content-center-aligned","desktop_media_position":"left","equal_columns":false,"limit_details_width":false,"gap":48,"enable_sticky_add_to_cart":true,"color_scheme":"","padding-block-start":0,"padding-block-end":0}},"cta_section_JjwcRX":{"type":"cta-section","name":"CTA Section","settings":{"bg_image":"shopify:\/\/shop_images\/cta-bg.jpg","heading":"Partner with a Trusted Brand","subtext":"Available Across Your Region","button_label":"Contact Us","button_link":""}}},"order":["product_hero_nG63w9","infrastructure_section_azKdz7","product_cta_DmyPKM","main","cta_section_JjwcRX"]}
+{
+  "sections": {
+    "product_hero_nG63w9": {
+      "type": "product-hero",
+      "blocks": {
+        "variant_khnjqf": {
+          "type": "variant",
+          "settings": {
+            "label": "500g"
+          }
+        },
+        "variant_x6TPnW": {
+          "type": "variant",
+          "settings": {
+            "label": "1Kg"
+          }
+        },
+        "variant_Ce3dnD": {
+          "type": "variant",
+          "settings": {
+            "label": "5Kg"
+          }
+        },
+        "variant_VPKcET": {
+          "type": "variant",
+          "settings": {
+            "label": "50Kg"
+          }
+        }
+      },
+      "block_order": [
+        "variant_khnjqf",
+        "variant_x6TPnW",
+        "variant_Ce3dnD",
+        "variant_VPKcET"
+      ],
+      "name": "Product Hero",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/pr-inner-bg.jpg",
+        "heading": "Maida",
+        "description": "Refined wheat flour finely milled and sifted under controlled conditioning to produce smooth texture, high elasticity, and perfect bakery performance.",
+        "product_image": "shopify:\/\/shop_images\/pr-hero.png",
+        "button_label": "Inquire Bulk Supply",
+        "button_link": "\/pages\/contact-us"
+      }
+    },
+    "maida_details_section": {
+      "type": "maida-details-section",
+      "name": "Maida Specifications",
+      "settings": {}
+    },
+    "infrastructure_section_azKdz7": {
+      "type": "infrastructure-section",
+      "blocks": {
+        "card_mQJyj7": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "title": "Moisture Conditioning",
+            "text": "Wheat grains cleaned and conditioned for optimal roller milling elasticity."
+          }
+        },
+        "card_zwwF4D": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "title": "Multi-Stage Sifting",
+            "text": "Endosperm finely sifted through precision Swiss meshes for zero grit."
+          }
+        },
+        "card_y7PVBW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "title": "Hygienic Packaging",
+            "text": "Automated checks ensure airtight freshness and safety in every pack."
+          }
+        }
+      },
+      "block_order": [
+        "card_mQJyj7",
+        "card_zwwF4D",
+        "card_y7PVBW"
+      ],
+      "name": "Infrastructure Section",
+      "settings": {
+        "heading": "Modern Milling Infrastructure",
+        "subtext": "Sunlit Farms operates with state-of-the-art Swiss milling technology designed for high-capacity purity, hygiene, and product consistency."
+      }
+    },
+    "product_cta_DmyPKM": {
+      "type": "product-cta",
+      "blocks": {
+        "feature_8tJMkM": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/icc1.svg",
+            "title": "Soft Dough Results",
+            "text": "Delivers smooth dough formation and superior bakery rise."
+          }
+        },
+        "feature_dgENVk": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/icc2.svg",
+            "title": "Super Fine Grind",
+            "text": "Finely sifted endosperm for silky smooth texture."
+          }
+        },
+        "feature_8yLCQa": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/icc3.svg",
+            "title": "Perfect for Baking",
+            "text": "Ideal for breads, pastries, snacks, and commercial culinary uses."
+          }
+        }
+      },
+      "block_order": [
+        "feature_8tJMkM",
+        "feature_dgENVk",
+        "feature_8yLCQa"
+      ],
+      "name": "Product CTA Advanced",
+      "settings": {
+        "heading": "Everyday perfection in your kitchen.",
+        "main_image": "shopify:\/\/shop_images\/prr.png",
+        "overlay_image": "shopify:\/\/shop_images\/pr-pt.svg"
+      }
+    },
+    "cta_section_JjwcRX": {
+      "type": "cta-section",
+      "name": "CTA Section",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/cta-bg.jpg",
+        "heading": "Partner with Sunlit Farms for Bulk Maida Supply",
+        "subtext": "Available for Commercial Bakeries, FMCG Retail & Wholesale Procurement",
+        "button_label": "Contact Sales Team",
+        "button_link": "\/pages\/contact-us"
+      }
+    }
+  },
+  "order": [
+    "product_hero_nG63w9",
+    "maida_details_section",
+    "infrastructure_section_azKdz7",
+    "product_cta_DmyPKM",
+    "cta_section_JjwcRX"
+  ]
+}
