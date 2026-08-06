@@ -179,20 +179,6 @@
       (function () {
         'use strict';
 
-        /* Sticky nav scroll glow */
-        var nav = document.querySelector('.main-nav');
-        if (nav) {
-          var navScrollHandler = function () {
-            if (window.scrollY > 60) {
-              nav.classList.add('nav-scrolled');
-            } else {
-              nav.classList.remove('nav-scrolled');
-            }
-          };
-          window.addEventListener('scroll', navScrollHandler, { passive: true });
-          navScrollHandler();
-        }
-
         /* Back-to-top button */
         var backTop = document.getElementById('sunlit-back-top');
         if (backTop) {

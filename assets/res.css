@@ -16,47 +16,7 @@ a, button {
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── 3. STICKY NAV — scroll glow effect ────────────────────────────────── */
-.main-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.3s ease;
-  will-change: transform;
-}
-
-.main-nav.nav-scrolled {
-  background: rgba(255, 255, 255, 0.97) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.10);
-}
-
-/* ── 4. NAV LINKS — underline slide animation ───────────────────────────── */
-.main-nav .inner-nav .m-part .nav-list li a {
-  position: relative;
-  padding-bottom: 4px;
-  font-weight: 500;
-  transition: color 0.25s ease;
-}
-
-.main-nav .inner-nav .m-part .nav-list li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.main-nav .inner-nav .m-part .nav-list li a:hover::after {
-  width: 100%;
-}
-
-/* ── 5. MAIN BUTTON — lift + glow on hover ─────────────────────────────── */
+/* ── 3. MAIN BUTTON — lift + glow on hover ─────────────────────────────── */
 .main-btn {
   transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
   will-change: transform;
