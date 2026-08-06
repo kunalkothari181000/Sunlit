@@ -251,6 +251,251 @@ button:focus-visible {
   border-radius: 4px;
 }
 
+/* ── 18. HERO BACKGROUND VIDEO & VIDEO MODAL ────────────────────────────── */
+.main-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-play-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.video-modal-trigger:hover .video-play-icon {
+  transform: scale(1.15);
+  background: #f97316;
+  color: #ffffff;
+}
+
+/* Sunlit Video Modal */
+.sunlit-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.sunlit-video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sunlit-video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sunlit-video-modal-dialog {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  transform: scale(0.92);
+  transition: transform 0.35 cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sunlit-video-modal.active .sunlit-video-modal-dialog {
+  transform: scale(1);
+}
+
+.sunlit-video-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.sunlit-video-modal-close:hover {
+  background: #f97316;
+  transform: scale(1.1);
+}
+
+.sunlit-video-modal-body {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.sunlit-video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── 19. PREMIUM DYNAMIC COUNTER SECTION ────────────────────────────────── */
+.counter-sec {
+  position: relative;
+  z-index: 10;
+  margin-top: -80px;
+}
+
+.counter-card {
+  position: relative;
+  background: linear-gradient(145deg, #1e4b3b 0%, #143529 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 24px !important;
+  padding: 2.5em 2em !important;
+  box-shadow: 0 20px 45px rgba(15, 40, 30, 0.28) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.38s ease,
+              border-color 0.38s ease !important;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+
+.counter-card:hover::before {
+  left: 100%;
+}
+
+.counter-card:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 30px 60px rgba(15, 40, 30, 0.42), 0 0 25px rgba(249, 115, 22, 0.2) !important;
+  border-color: rgba(249, 115, 22, 0.5) !important;
+}
+
+.counter-card-header {
+  margin-bottom: 1.5em;
+}
+
+.counter-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-icon-box.default-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.18);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.counter-pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px #34d399;
+  animation: counterPulse 2s infinite ease-in-out;
+}
+
+@keyframes counterPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.counter-index-tag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+}
+
+.counter-card h3.count {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: color 0.3s ease;
+}
+
+.counter-card:hover h3.count {
+  color: #ffedd5 !important;
+}
+
+.counter-card p.para {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  margin-bottom: 0 !important;
+}
+
+
 /* ── RESPONSIVE OVERRIDES ───────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .swiper-pagination.vertical {

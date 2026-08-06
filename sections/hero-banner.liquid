@@ -1,12 +1,19 @@
 <section class="main-header
   {% if section.settings.small_header %} inner-header{% endif %}
 ">
- 
-    {% if section.settings.banner_image %}
+
+    {% if section.settings.enable_video_bg and section.settings.mp4_video != blank %}
+      <div class="hero-video-bg-wrap">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+          <source src="{{ section.settings.mp4_video }}" type="video/mp4">
+        </video>
+      </div>
+    {% elsif section.settings.banner_image %}
       <img 
         src="{{ section.settings.banner_image | image_url: width: 1920 }}" 
         alt="{{ section.settings.heading | escape }}" 
         loading="lazy"
+        class="hero-bg-img"
       >
     {% endif %}
 
@@ -27,18 +34,29 @@
               <p class="para">{{ section.settings.subtext }}</p>
             {% endif %}
 
-            {% if section.settings.button_label != blank %}
-              <a href="{{ section.settings.button_link }}" class="main-btn center">
-                <span>{{ section.settings.button_label }}</span>
+            <div class="banner-actions d-flex align-items-center justify-content-center gap-3 flex-wrap">
+              {% if section.settings.button_label != blank %}
+                <a href="{{ section.settings.button_link }}" class="main-btn center">
+                  <span>{{ section.settings.button_label }}</span>
 
-                {% if section.settings.button_icon %}
-                  <img 
-                    src="{{ section.settings.button_icon | image_url: width: 20 }}" 
-                    alt="icon"
-                  >
-                {% endif %}
-              </a>
-            {% endif %}
+                  {% if section.settings.button_icon %}
+                    <img 
+                      src="{{ section.settings.button_icon | image_url: width: 20 }}" 
+                      alt="icon"
+                    >
+                  {% endif %}
+                </a>
+              {% endif %}
+
+              {% if section.settings.show_video_btn %}
+                <button type="button" class="main-btn video-modal-trigger" data-video-src="{{ section.settings.video_btn_url }}">
+                  <span class="video-play-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  <span>{{ section.settings.video_btn_label }}</span>
+                </button>
+              {% endif %}
+            </div>
 
           </div>
         </div>
@@ -47,22 +65,93 @@
   </div>
 </section>
 
+<!-- Hero Video Modal -->
+{% if section.settings.show_video_btn %}
+<div id="sunlit-hero-video-modal" class="sunlit-video-modal" role="dialog" aria-hidden="true">
+  <div class="sunlit-video-modal-backdrop"></div>
+  <div class="sunlit-video-modal-dialog">
+    <button type="button" class="sunlit-video-modal-close" aria-label="Close video">&times;</button>
+    <div class="sunlit-video-modal-body">
+      <iframe class="sunlit-video-iframe" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("sunlit-hero-video-modal");
+  if (!modal) return;
+  const iframe = modal.querySelector(".sunlit-video-iframe");
+  const closeBtn = modal.querySelector(".sunlit-video-modal-close");
+  const backdrop = modal.querySelector(".sunlit-video-modal-backdrop");
+  const triggers = document.querySelectorAll(".video-modal-trigger");
+
+  function openModal(src) {
+    if (!src) return;
+    let url = src;
+    if (url.indexOf("autoplay=") === -1) {
+      url += (url.indexOf("?") === -1 ? "?" : "&") + "autoplay=1";
+    }
+    iframe.src = url;
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    iframe.src = "";
+    document.body.style.overflow = "";
+  }
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener("click", function () {
+      const src = this.getAttribute("data-video-src");
+      openModal(src);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (backdrop) backdrop.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+});
+</script>
+{% endif %}
+
 {% schema %}
 {
   "name": "Hero Banner",
   "tag": "section",
   "class": "hero-banner-section",
   "settings": [
-     {
+    {
       "type": "checkbox",
       "id": "small_header",
       "label": "Small Header",
       "default": false
-      },
+    },
     {
       "type": "image_picker",
       "id": "banner_image",
       "label": "Background Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_bg",
+      "label": "Enable Video Background",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "mp4_video",
+      "label": "Direct MP4 Video URL (for Background)",
+      "info": "Upload an MP4 file to Shopify Files and paste its URL here"
     },
     {
       "type": "text",
@@ -91,6 +180,28 @@
       "type": "image_picker",
       "id": "button_icon",
       "label": "Button Icon"
+    },
+    {
+      "type": "header",
+      "content": "Video Modal Feature"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_video_btn",
+      "label": "Show Watch Video Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "video_btn_label",
+      "label": "Video Button Label",
+      "default": "Watch Reel"
+    },
+    {
+      "type": "text",
+      "id": "video_btn_url",
+      "label": "Video Embed URL (YouTube/Vimeo)",
+      "default": "https://www.youtube.com/embed/dQw4w9WgXcQ"
     }
   ],
   "presets": [
@@ -100,4 +211,4 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}
