@@ -16,22 +16,35 @@
     color: #78350f;
     font-size: 13px;
     font-weight: 800;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.12);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.12);
   }
   .hero-badge-pill span.dot-sep {
     color: #f97316;
   }
-  .hero-product-title {
-    font-size: 52px;
+
+  /* SMALL WHOLE WHEAT & BIG CHAKKI ATTA TITLE */
+  .hero-eyebrow-small {
+    font-size: 22px;
     font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #f97316;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .hero-product-title-big {
+    font-size: 64px;
+    font-weight: 900;
     color: #184333;
-    line-height: 1.15;
-    margin: 16px 0 12px;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
   }
   .hero-product-subtitle {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
-    color: #f97316;
+    color: #78350f;
     margin-bottom: 16px;
   }
   .hero-product-desc {
@@ -52,29 +65,29 @@
     align-items: center;
     gap: 8px;
     background: #ffffff;
-    border: 1px solid #cbd5e1;
+    border: 1.5px solid #e2e8f0;
     color: #184333;
     font-size: 13px;
     font-weight: 700;
-    padding: 7px 18px;
+    padding: 8px 18px;
     border-radius: 100px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
   }
   .p-feat-tag svg {
-    color: #184333;
+    color: #16a34a;
   }
 
-  /* BRAND VARIANT SELECTION BUTTONS */
+  /* VIBRANT SUNLIT BRAND VARIANT SELECTION BUTTONS */
   .variant-selector-wrap {
     margin-bottom: 32px;
   }
   .variant-selector-label {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 800;
-    color: #184333;
+    color: #78350f;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
     display: block;
   }
   .varient-picker {
@@ -87,28 +100,34 @@
   }
   .brand-var-btn {
     background: #ffffff !important;
-    border: 2px solid #184333 !important;
-    color: #184333 !important;
-    font-size: 14px !important;
+    border: 2px solid #78350f !important;
+    color: #78350f !important;
+    font-size: 15px !important;
     font-weight: 800 !important;
-    padding: 10px 24px !important;
+    padding: 10px 26px !important;
     border-radius: 100px !important;
     cursor: pointer !important;
-    transition: all 0.3s ease !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
   }
   .brand-var-btn:hover {
-    background: #f97316 !important;
+    background: rgba(249, 115, 22, 0.12) !important;
     border-color: #f97316 !important;
-    color: #ffffff !important;
+    color: #ea580c !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25) !important;
   }
   .brand-var-btn.active {
-    background: #184333 !important;
-    border-color: #184333 !important;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+    border-color: #ea580c !important;
     color: #ffffff !important;
-    box-shadow: 0 8px 22px rgba(24, 67, 51, 0.3) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.38) !important;
+  }
+
+  @media (max-width: 767px) {
+    .hero-product-title-big {
+      font-size: 42px;
+    }
   }
 </style>
 
@@ -137,9 +156,8 @@
             <span>Zero Preservatives</span>
           </div>
 
-          {% if section.settings.heading != blank %}
-            <h1 class="hero-product-title">{{ section.settings.heading }}</h1>
-          {% endif %}
+          <span class="hero-eyebrow-small">Whole Wheat</span>
+          <h1 class="hero-product-title-big">Chakki Atta</h1>
 
           <div class="hero-product-subtitle">Made from MP Wheat • Stone Ground Chakki Quality</div>
 
@@ -149,7 +167,7 @@
             </p>
           {% endif %}
 
-          <!-- Key Highlights Badges (Clean SVG Icons, NO EMOJIS) -->
+          <!-- Key Highlights Badges -->
           <div class="product-feature-tags">
             <span class="p-feat-tag">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -165,7 +183,7 @@
             </span>
           </div>
 
-          <!-- BRAND VARIANT SELECTION BUTTONS -->
+          <!-- VIBRANT BRAND VARIANT SELECTION BUTTONS -->
           {% if section.blocks.size > 0 %}
             <div class="variant-selector-wrap">
               <span class="variant-selector-label">Select Pack Weight:</span>
@@ -238,7 +256,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Whole Wheat Chakki Atta"
+      "default": "Chakki Atta"
     },
     {
       "type": "textarea",
