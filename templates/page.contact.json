@@ -12,8 +12,7 @@
     "contact_main": {
       "type": "contact-page",
       "settings": {
-        "heading": "Contact Sunlit Farms",
-        "subtext": "Have questions about our products, bulk distributorship, or institutional supply? Get in touch with our team.",
+        "bg_image": "shopify://shop_images/hero.png",
         "phone": "+91 8877665544",
         "email": "mail@sunlitfarms.com"
       }
