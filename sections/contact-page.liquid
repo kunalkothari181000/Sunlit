@@ -1,4 +1,4 @@
-<div class="page-hero-banner">
+<div class="page-hero-banner contact-hero-banner" style="background: linear-gradient(135deg, rgba(24, 67, 51, 0.88) 0%, rgba(10, 36, 26, 0.92) 100%), url('{{ section.settings.bg_image | image_url: width: 1920 }}') center/cover no-repeat;">
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-8 col-12 mx-auto">
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Contact Form & Factory Locations Grid -->
-    <div class="row g-4 align-items-stretch">
+    <div class="row g-4 align-items-stretch mb-5">
       
       <!-- Sleek Glass Form -->
       <div class="col-lg-6 col-12" data-aos="fade-right" data-aos-duration="1000">
@@ -109,7 +109,7 @@
               <label for="c_msg">Your Message</label>
             </div>
 
-            <button type="submit" class="main-btn orange-btn w-100 py-3 fs-6">
+            <button type="submit" class="main-btn career-submit-btn w-100 py-3 fs-6">
               <span>Submit Inquiry</span>
             </button>
           </form>
@@ -162,6 +162,57 @@
 
     </div>
 
+    <!-- 3-Pin Interactive Plant Locations Map Section -->
+    <div class="row" data-aos="fade-up" data-aos-duration="1000">
+      <div class="col-12">
+        <div class="plant-map-interactive-box">
+          <div class="pm-head mb-4 text-center">
+            <span class="sub-pill">Interactive Map</span>
+            <h2 class="sec-head">Our 3 Plant Locations Across India</h2>
+            <p class="para">Explore our strategic manufacturing facilities across Madhya Pradesh & Uttar Pradesh.</p>
+          </div>
+
+          <div class="pm-map-visual">
+            <img src="{{ 'map.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Plant Locations Map" class="pm-bg-img">
+
+            <!-- Pin 1: Nimrani, MP -->
+            <div class="plant-pin-marker pin-mp">
+              <div class="pin-pulse"></div>
+              <div class="pin-tooltip">
+                <span class="pt-badge">Plant 1 • Madhya Pradesh</span>
+                <h4>AAM - Akshat Agro Milling</h4>
+                <p>Nimrani, Dist. Khargone (451001)</p>
+                <small>FSSAI: 11414890000281</small>
+              </div>
+            </div>
+
+            <!-- Pin 2: Chandauli, UP -->
+            <div class="plant-pin-marker pin-up-chandauli">
+              <div class="pin-pulse"></div>
+              <div class="pin-tooltip">
+                <span class="pt-badge">Plant 2 • Uttar Pradesh</span>
+                <h4>ARF - Akshat Roller Flour Mill</h4>
+                <p>Ramnagar, Chandauli (221110)</p>
+                <small>FSSAI: 12720039000182</small>
+              </div>
+            </div>
+
+            <!-- Pin 3: Varanasi, UP -->
+            <div class="plant-pin-marker pin-up-varanasi">
+              <div class="pin-pulse"></div>
+              <div class="pin-tooltip">
+                <span class="pt-badge">Plant 3 • Uttar Pradesh</span>
+                <h4>Simran Food Pvt. Ltd.</h4>
+                <p>Parao, Varanasi (221001)</p>
+                <small>Hygienic Processing Center</small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -171,6 +222,11 @@
   "tag": "section",
   "class": "contact-page-section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Hero Background Image"
+    },
     {
       "type": "text",
       "id": "phone",
