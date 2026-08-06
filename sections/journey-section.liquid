@@ -1,0 +1,180 @@
+<section class="journey-sec sec">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="row text-center mb-5">
+      <div class="col-lg-8 col-12 mx-auto">
+        <span class="sub-pill" data-aos="fade-down" data-aos-duration="800">Milestones & History</span>
+        <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
+          {{ section.settings.heading | default: "Our Journey" }}
+        </h2>
+        <p class="para mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          {{ section.settings.subtext | default: "From a single milling operation to a trusted manufacturing partner serving leading food brands across India." }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="journey-timeline-wrap">
+      
+      <!-- Central SVG Animated Line -->
+      <div class="timeline-line-svg-container">
+        <svg class="timeline-svg" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="2" y1="0" x2="2" y2="1000" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#lineGradient)" stroke-width="4" class="timeline-animated-stroke"/>
+          <defs>
+            <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f97316"/>
+              <stop offset="0.5" stop-color="#ffb74d"/>
+              <stop offset="1" stop-color="#184333"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <!-- Timeline Items Loop -->
+      <div class="timeline-items-list">
+        {% for block in section.blocks %}
+          <div class="timeline-item-row {% cycle 'left-row', 'right-row' %}" data-aos="fade-up" data-aos-duration="900" {{ block.shopify_attributes }}>
+            
+            <div class="timeline-content-card">
+              <div class="t-year-badge">{{ block.settings.year }}</div>
+              <h3 class="t-title">{{ block.settings.title }}</h3>
+              <p class="t-desc">{{ block.settings.text }}</p>
+            </div>
+
+            <div class="timeline-node">
+              <div class="node-pulse"></div>
+              <span class="node-year-text">{{ block.settings.year }}</span>
+            </div>
+
+            <div class="timeline-empty-space"></div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Our Journey",
+  "tag": "section",
+  "class": "journey-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Journey"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "From a single milling operation to a trusted manufacturing partner serving leading food brands across India."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "1999"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Milestone Title",
+          "default": "The Beginning"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Milestone Description",
+          "default": "Started operations with Simran Foods and a capacity of 60 TPD."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Journey",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "1999",
+            "title": "The Beginning",
+            "text": "Started operations with Simran Foods and a capacity of 60 TPD."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2004",
+            "title": "First Expansion",
+            "text": "Scaled operations to 200 TPD to meet growing demand."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2008",
+            "title": "Strategic Growth",
+            "text": "Acquired Akshat Roller Mills, adding 150 TPD capacity."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2010",
+            "title": "Scaling Up",
+            "text": "Expanded production capacity to 650 MT."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2011",
+            "title": "FMCG Partnerships",
+            "text": "Began supplying leading brands including Parle, Britannia and ITC."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2014",
+            "title": "New Facility",
+            "text": "Launched Akshat Agro, Indore with 400 TPD capacity."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2015",
+            "title": "Consumer Brand Launch",
+            "text": "Introduced Healthy Season for retail consumers."
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2025",
+            "title": "A New Chapter",
+            "text": "Launched Sunlit Farms across the staples category."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

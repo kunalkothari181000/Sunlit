@@ -1,1 +1,341 @@
-{"sections":{"main":{"type":"main-page","blocks":{"heading":{"type":"text","name":"Title","settings":{"text":"<h1>{{ closest.page.title }}<\/h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"h2","font":"var(--font-primary--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"page-content":{"type":"page-content","settings":{},"blocks":{}}},"block_order":["heading","page-content"],"disabled":true,"settings":{"content_direction":"column","gap":32,"color_scheme":"","padding-block-start":40,"padding-block-end":80}},"hero_banner_AhhJhz":{"type":"hero-banner","name":"Hero Banner","settings":{"small_header":false,"banner_image":"shopify:\/\/shop_images\/hero.png","heading":"Reliable Agricultural Sourcing.","subtext":"Hygienically processed from carefully selected wheat to ensure purity, freshness, and consistent quality in every pack.","button_label":"Explore More","button_link":""}},"about_cards_7FHGfN":{"type":"about-cards","blocks":{"card_iAPJjB":{"type":"card","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"Company Origin","text":"Sunlit Farms was founded with a simple vision — to provide pure, hygienically processed wheat products that families and retailers can trust every day."}},"card_mgw4Cn":{"type":"card","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"Company Origin","text":"Sunlit Farms was founded with a simple vision — to provide pure, hygienically processed wheat products that families and retailers can trust every day."}},"card_G6VCQF":{"type":"card","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"Company Origin","text":"Sunlit Farms was founded with a simple vision — to provide pure, hygienically processed wheat products that families and retailers can trust every day."}}},"block_order":["card_iAPJjB","card_mgw4Cn","card_G6VCQF"],"name":"About Cards","settings":{}},"purpose_section_cigAn3":{"type":"purpose-section","name":"Purpose Section","settings":{"top_bg":"shopify:\/\/shop_images\/green-pt.svg","heading":"Feeding Everyday Moments","text":"From the first roti of the morning to the snacks shared with family, we're proud to play a small role in countless everyday meals.","bottom_bg":"shopify:\/\/shop_images\/grass.png"}},"about_infra_VC49yW":{"type":"about-infra","blocks":{"card_q7tWg9":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/ss.png","title":"1200 MT Daily Capacity","text":"Built to meet demand at scale."}},"card_9e3zmE":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/ss.png","title":"500,000 Sq. Ft. Facility","text":"Integrated manufacturing and storage infrastructure."}},"card_77Bkjb":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/ss.png","title":"Automated Operations","text":"Powered by world-class Bühler technology."}}},"block_order":["card_q7tWg9","card_9e3zmE","card_77Bkjb"],"name":"About Infrastructure","settings":{"heading":"Infrastructure Built for Scale","subtext":"From sourcing and milling to packaging and dispatch, our infrastructure is designed to support high-volume production without compromising on consistency."}},"gallery_section_6GKiHw":{"type":"gallery-section","blocks":{"image_j9FAMn":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/hero.png","alt":"Gallery Image"}},"image_3HcFMc":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/hm-header.jpg","alt":"Gallery Image"}},"image_BDwDnA":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/hero.png","alt":"Gallery Image"}},"image_wAF7BP":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/hero.png","alt":"Gallery Image"}}},"block_order":["image_j9FAMn","image_3HcFMc","image_BDwDnA","image_wAF7BP"],"name":"Gallery Section","settings":{"subheading":"Our Gallery","heading":"Lorem ipsum dolor sit amet"}},"quality_certification_EMzygG":{"type":"quality-certification","blocks":{"cert_fWbywp":{"type":"cert","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"FSSC 22000","text":"International food safety certification."}},"cert_EQAKtQ":{"type":"cert","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"ISO Certified","text":"Structured systems for consistent quality and operations."}},"cert_3WJX8T":{"type":"cert","settings":{"icon":"shopify:\/\/shop_images\/ich.svg","title":"FSSAI Compliant","text":"Meeting all required food safety regulations and standards."}}},"block_order":["cert_fWbywp","cert_EQAKtQ","cert_3WJX8T"],"name":"Quality & Certification","settings":{"heading":"Quality You Can Trust","text":"Every batch is backed by strict quality controls, advanced testing infrastructure, and internationally recognised food safety standards.","image":"shopify:\/\/shop_images\/ab1.png","image2":"shopify:\/\/shop_images\/ab2.png"}},"distribution_map_tT8eXW":{"type":"distribution-map","blocks":{"stat_yrYPWB":{"type":"stat","settings":{"value":"16","title":"States Served","text":""}},"stat_xLCiKr":{"type":"stat","settings":{"value":"85","title":"Retail Presence","text":""}},"stat_Pbajkf":{"type":"stat","settings":{"value":"100","title":"Wholesale Partners","text":""}},"stat_h6EnzL":{"type":"stat","settings":{"value":"549","title":" Retail Outlets","text":""}}},"block_order":["stat_yrYPWB","stat_xLCiKr","stat_Pbajkf","stat_h6EnzL"],"name":"Distribution Map","settings":{"heading":"Growing Across Markets","text":"From regional roots to a growing footprint across India and international markets, Sunlit Farms continues to expand through strong partnerships and dependable supply.","image":"shopify:\/\/shop_images\/map.png"}}},"order":["main","hero_banner_AhhJhz","about_cards_7FHGfN","purpose_section_cigAn3","about_infra_VC49yW","gallery_section_6GKiHw","quality_certification_EMzygG","distribution_map_tT8eXW"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "hero_banner_AhhJhz": {
+      "type": "hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "small_header": false,
+        "banner_image": "shopify://shop_images/hero.png",
+        "heading": "Reliable Agricultural Sourcing.",
+        "subtext": "Hygienically processed from carefully selected wheat to ensure purity, freshness, and consistent quality in every pack.",
+        "button_label": "Explore More",
+        "button_link": ""
+      }
+    },
+    "our_journey_section": {
+      "type": "journey-section",
+      "blocks": {
+        "m_1999": {
+          "type": "milestone",
+          "settings": {
+            "year": "1999",
+            "title": "The Beginning",
+            "text": "Started operations with Simran Foods and a capacity of 60 TPD."
+          }
+        },
+        "m_2004": {
+          "type": "milestone",
+          "settings": {
+            "year": "2004",
+            "title": "First Expansion",
+            "text": "Scaled operations to 200 TPD to meet growing demand."
+          }
+        },
+        "m_2008": {
+          "type": "milestone",
+          "settings": {
+            "year": "2008",
+            "title": "Strategic Growth",
+            "text": "Acquired Akshat Roller Mills, adding 150 TPD capacity."
+          }
+        },
+        "m_2010": {
+          "type": "milestone",
+          "settings": {
+            "year": "2010",
+            "title": "Scaling Up",
+            "text": "Expanded production capacity to 650 MT."
+          }
+        },
+        "m_2011": {
+          "type": "milestone",
+          "settings": {
+            "year": "2011",
+            "title": "FMCG Partnerships",
+            "text": "Began supplying leading brands including Parle, Britannia and ITC."
+          }
+        },
+        "m_2014": {
+          "type": "milestone",
+          "settings": {
+            "year": "2014",
+            "title": "New Facility",
+            "text": "Launched Akshat Agro, Indore with 400 TPD capacity."
+          }
+        },
+        "m_2015": {
+          "type": "milestone",
+          "settings": {
+            "year": "2015",
+            "title": "Consumer Brand Launch",
+            "text": "Introduced Healthy Season for retail consumers."
+          }
+        },
+        "m_2025": {
+          "type": "milestone",
+          "settings": {
+            "year": "2025",
+            "title": "A New Chapter",
+            "text": "Launched Sunlit Farms across the staples category."
+          }
+        }
+      },
+      "block_order": [
+        "m_1999",
+        "m_2004",
+        "m_2008",
+        "m_2010",
+        "m_2011",
+        "m_2014",
+        "m_2015",
+        "m_2025"
+      ],
+      "name": "Our Journey",
+      "settings": {
+        "heading": "Our Journey",
+        "subtext": "From a single milling operation to a trusted manufacturing partner serving leading food brands across India."
+      }
+    },
+    "purpose_section_cigAn3": {
+      "type": "purpose-section",
+      "name": "Purpose Section",
+      "settings": {
+        "top_bg": "shopify://shop_images/green-pt.svg",
+        "heading": "Feeding Everyday Moments",
+        "text": "From the first roti of the morning to the snacks shared with family, we're proud to play a small role in countless everyday meals.",
+        "bottom_bg": "shopify://shop_images/grass.png"
+      }
+    },
+    "about_infra_VC49yW": {
+      "type": "about-infra",
+      "blocks": {
+        "card_q7tWg9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ss.png",
+            "title": "1200 MT Daily Capacity",
+            "text": "Built to meet demand at scale."
+          }
+        },
+        "card_9e3zmE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ss.png",
+            "title": "500,000 Sq. Ft. Facility",
+            "text": "Integrated manufacturing and storage infrastructure."
+          }
+        },
+        "card_77Bkjb": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ss.png",
+            "title": "Automated Operations",
+            "text": "Powered by world-class Bühler technology."
+          }
+        }
+      },
+      "block_order": [
+        "card_q7tWg9",
+        "card_9e3zmE",
+        "card_77Bkjb"
+      ],
+      "name": "About Infrastructure",
+      "settings": {
+        "heading": "Infrastructure Built for Scale",
+        "subtext": "From sourcing and milling to packaging and dispatch, our infrastructure is designed to support high-volume production without compromising on consistency."
+      }
+    },
+    "gallery_section_6GKiHw": {
+      "type": "gallery-section",
+      "blocks": {
+        "image_j9FAMn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.png",
+            "alt": "Gallery Image"
+          }
+        },
+        "image_3HcFMc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hm-header.jpg",
+            "alt": "Gallery Image"
+          }
+        },
+        "image_BDwDnA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.png",
+            "alt": "Gallery Image"
+          }
+        },
+        "image_wAF7BP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero.png",
+            "alt": "Gallery Image"
+          }
+        }
+      },
+      "block_order": [
+        "image_j9FAMn",
+        "image_3HcFMc",
+        "image_BDwDnA",
+        "image_wAF7BP"
+      ],
+      "name": "Gallery Section",
+      "settings": {
+        "subheading": "Our Gallery",
+        "heading": "Lorem ipsum dolor sit amet"
+      }
+    },
+    "quality_certification_EMzygG": {
+      "type": "quality-certification",
+      "blocks": {
+        "cert_fWbywp": {
+          "type": "cert",
+          "settings": {
+            "icon": "shopify://shop_images/ich.svg",
+            "title": "FSSC 22000",
+            "text": "International food safety certification."
+          }
+        },
+        "cert_EQAKtQ": {
+          "type": "cert",
+          "settings": {
+            "icon": "shopify://shop_images/ich.svg",
+            "title": "ISO Certified",
+            "text": "Structured systems for consistent quality and operations."
+          }
+        },
+        "cert_3WJX8T": {
+          "type": "cert",
+          "settings": {
+            "icon": "shopify://shop_images/ich.svg",
+            "title": "FSSAI Compliant",
+            "text": "Meeting all required food safety regulations and standards."
+          }
+        }
+      },
+      "block_order": [
+        "cert_fWbywp",
+        "cert_EQAKtQ",
+        "cert_3WJX8T"
+      ],
+      "name": "Quality & Certification",
+      "settings": {
+        "heading": "Quality You Can Trust",
+        "text": "Every batch is backed by strict quality controls, advanced testing infrastructure, and internationally recognised food safety standards.",
+        "image": "shopify://shop_images/ab1.png",
+        "image2": "shopify://shop_images/ab2.png"
+      }
+    },
+    "distribution_map_tT8eXW": {
+      "type": "distribution-map",
+      "blocks": {
+        "stat_yrYPWB": {
+          "type": "stat",
+          "settings": {
+            "value": "16",
+            "title": "States Served",
+            "text": ""
+          }
+        },
+        "stat_xLCiKr": {
+          "type": "stat",
+          "settings": {
+            "value": "85",
+            "title": "Retail Presence",
+            "text": ""
+          }
+        },
+        "stat_Pbajkf": {
+          "type": "stat",
+          "settings": {
+            "value": "100",
+            "title": "Wholesale Partners",
+            "text": ""
+          }
+        },
+        "stat_h6EnzL": {
+          "type": "stat",
+          "settings": {
+            "value": "549",
+            "title": " Retail Outlets",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_yrYPWB",
+        "stat_xLCiKr",
+        "stat_Pbajkf",
+        "stat_h6EnzL"
+      ],
+      "name": "Distribution Map",
+      "settings": {
+        "heading": "Growing Across Markets",
+        "text": "From regional roots to a growing footprint across India and international markets, Sunlit Farms continues to expand through strong partnerships and dependable supply.",
+        "image": "shopify://shop_images/map.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_AhhJhz",
+    "our_journey_section",
+    "purpose_section_cigAn3",
+    "about_infra_VC49yW",
+    "gallery_section_6GKiHw",
+    "quality_certification_EMzygG",
+    "distribution_map_tT8eXW"
+  ]
+}
