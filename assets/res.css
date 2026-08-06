@@ -470,8 +470,8 @@ html.lenis, html.lenis body {
 
 .lg-wrap {
   width: auto !important;
-  height: 80px !important;
-  padding: 0 30px !important;
+  height: 105px !important;
+  padding: 0 10px !important;
   padding-top: 0 !important;
   position: relative !important;
   display: flex !important;
@@ -485,10 +485,10 @@ html.lenis, html.lenis body {
   left: auto !important;
   width: auto !important;
   height: auto !important;
-  max-height: 60px !important;
-  max-width: 200px !important;
+  max-height: 82px !important;
+  max-width: 240px !important;
   object-fit: contain !important;
-  filter: opacity(0.95) grayscale(0.1) !important;
+  filter: opacity(0.95) grayscale(0.05) !important;
   transition: filter 0.3s ease, transform 0.3s ease !important;
 }
 
