@@ -1,8 +1,303 @@
+/* ==========================================================================
+   SUNLIT — ENHANCED UI / INTERACTIVE / SMOOTH SCROLL LAYER
+   ========================================================================== */
+
+/* ── 1. SMOOTH SCROLL ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── 2. GLOBAL TRANSITIONS ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  -webkit-font-smoothing: antialiased;
+}
+
+a, button {
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── 3. STICKY NAV — scroll glow effect ────────────────────────────────── */
+.main-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.3s ease;
+  will-change: transform;
+}
+
+.main-nav.nav-scrolled {
+  background: rgba(255, 255, 255, 0.97) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.10);
+}
+
+/* ── 4. NAV LINKS — underline slide animation ───────────────────────────── */
+.main-nav .inner-nav .m-part .nav-list li a {
+  position: relative;
+  padding-bottom: 4px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.main-nav .inner-nav .m-part .nav-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-nav .inner-nav .m-part .nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* ── 5. MAIN BUTTON — lift + glow on hover ─────────────────────────────── */
+.main-btn {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+  will-change: transform;
+}
+
+.main-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.06);
+}
+
+.main-btn:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Pulse ring on orange CTA */
+.orange-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.orange-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s ease;
+}
+
+.orange-btn:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── 6. CARDS — lift + shadow on hover ──────────────────────────────────── */
+.product-card,
+.ab-card,
+.promise-card,
+.pr-cta,
+.collection-card,
+.blog-card,
+.con-card {
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.32s ease;
+  will-change: transform;
+}
+
+.product-card:hover,
+.ab-card:hover,
+.promise-card:hover,
+.collection-card:hover,
+.blog-card:hover,
+.con-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* ── 7. IMAGES — smooth zoom on hover ───────────────────────────────────── */
+.product-card img,
+.collection-card img,
+.blog-card img,
+.hero-img img,
+.im-img img {
+  transition: transform 0.55s ease, filter 0.4s ease;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.product-card:hover img,
+.collection-card:hover img,
+.blog-card:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.04);
+}
+
+/* ── 8. SECTION HEADINGS — fade reveal (works with AOS) ─────────────────── */
+.sec-head,
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* ── 9. MOBILE NAV — smooth slide-in animation ──────────────────────────── */
+.mobile-nav {
+  transform: translateX(-100%);
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.42s ease;
+  visibility: hidden;
+}
+
+.mobile-nav.active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-nav .nav-list li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav.active .nav-list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav.active .nav-list li:nth-child(1) { transition-delay: 0.05s; }
+.mobile-nav.active .nav-list li:nth-child(2) { transition-delay: 0.10s; }
+.mobile-nav.active .nav-list li:nth-child(3) { transition-delay: 0.15s; }
+.mobile-nav.active .nav-list li:nth-child(4) { transition-delay: 0.20s; }
+.mobile-nav.active .nav-list li:nth-child(5) { transition-delay: 0.25s; }
+.mobile-nav.active .nav-list li:nth-child(6) { transition-delay: 0.30s; }
+
+/* ── 10. FOOTER LINKS — colour slide hover ───────────────────────────────── */
+.ft-list li a,
+.ft-col-list li a {
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.ft-list li a:hover,
+.ft-col-list li a:hover {
+  transform: translateX(4px);
+}
+
+/* ── 11. COUNTER SECTION — number pop ──────────────────────────────────── */
+.counter-wrap .counter {
+  transition: transform 0.3s ease;
+}
+
+.counter-wrap .counter:hover {
+  transform: scale(1.05);
+}
+
+/* ── 12. SWIPER PAGINATION dots — hover enlarge ─────────────────────────── */
+.swiper-pagination-bullet {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.swiper-pagination-bullet:hover {
+  transform: scale(1.4);
+}
+
+/* ── 13. MARQUEE — pause on hover ───────────────────────────────────────── */
+.marquee-wrapper:hover .marquee-track,
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── 14. BACK-TO-TOP BUTTON ─────────────────────────────────────────────── */
+#sunlit-back-top {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, visibility 0.35s ease,
+              transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+
+#sunlit-back-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#sunlit-back-top:hover {
+  box-shadow: 0 14px 32px rgba(249, 115, 22, 0.6);
+  transform: translateY(-3px);
+}
+
+#sunlit-back-top svg {
+  width: 20px;
+  height: 20px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── 15. PAGE ENTRY FADE ────────────────────────────────────────────────── */
+.content-for-layout {
+  animation: sunlitPageFade 0.5s ease both;
+}
+
+@keyframes sunlitPageFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 16. HERO BANNER — text shimmer on load ─────────────────────────────── */
+.banner-con h1 {
+  animation: sunlitSlideUp 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.banner-con .para {
+  animation: sunlitSlideUp 0.7s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.banner-con .main-btn {
+  animation: sunlitSlideUp 0.7s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sunlitSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 17. FOCUS VISIBLE — accessibility ─────────────────────────────────── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── RESPONSIVE OVERRIDES ───────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .swiper-pagination.vertical {
     left: -2.5% !important;
   }
 }
+
 @media (max-width: 991px) {
   .main-btn span {
     font-size: 16px;
@@ -24,6 +319,16 @@
     text-align: center;
   }
 }
+
+@media (max-width: 767px) {
+  .con-grid {
+    grid-template-columns: 1fr;
+  }
+  .container-right {
+    padding: 0 1em;
+  }
+}
+
 @media (max-width: 600px) {
   .con-wrapper {
     padding: 2em 1.5em;
@@ -73,6 +378,7 @@
     width: 25px;
   }
 }
+
 @media (max-width: 450px) {
   .product-inner-content h1 {
     font-size: 42px;
@@ -128,13 +434,5 @@
   }
   .main-nav {
     padding: 12px 0px;
-  }
-}
-@media (max-width: 767px) {
-  .con-grid {
-    grid-template-columns: 1fr;
-  }
-  .container-right {
-    padding: 0 1em;
   }
 }/*# sourceMappingURL=res.css.map */

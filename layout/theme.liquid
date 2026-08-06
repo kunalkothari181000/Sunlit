@@ -161,7 +161,71 @@
     <script src="assets/js/form.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
     <script>
-      AOS.init();
+      // AOS — enhanced settings for premium feel
+      AOS.init({
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 60
+      });
+    </script>
+
+    <!-- ── SUNLIT: Sticky Nav Glow + Back-to-Top ── -->
+    <button id="sunlit-back-top" aria-label="Back to top" title="Back to top">
+      <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script>
+      (function () {
+        'use strict';
+
+        /* Sticky nav scroll glow */
+        var nav = document.querySelector('.main-nav');
+        if (nav) {
+          var navScrollHandler = function () {
+            if (window.scrollY > 60) {
+              nav.classList.add('nav-scrolled');
+            } else {
+              nav.classList.remove('nav-scrolled');
+            }
+          };
+          window.addEventListener('scroll', navScrollHandler, { passive: true });
+          navScrollHandler();
+        }
+
+        /* Back-to-top button */
+        var backTop = document.getElementById('sunlit-back-top');
+        if (backTop) {
+          var backTopScroll = function () {
+            if (window.scrollY > 400) {
+              backTop.classList.add('visible');
+            } else {
+              backTop.classList.remove('visible');
+            }
+          };
+          window.addEventListener('scroll', backTopScroll, { passive: true });
+          backTopScroll();
+          backTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+
+        /* Smooth scroll — all anchor href="#id" links */
+        document.addEventListener('click', function (e) {
+          var link = e.target.closest('a[href^="#"]');
+          if (!link) return;
+          var href = link.getAttribute('href');
+          if (!href || href === '#') return;
+          var target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          var stickyNav = document.querySelector('.main-nav');
+          var offset = stickyNav ? stickyNav.offsetHeight : 0;
+          var top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+
+      })();
     </script>
   </body>
 </html>
