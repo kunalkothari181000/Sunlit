@@ -91,21 +91,21 @@
         "logo_mbjtq8": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/lg1.png",
+            "logo": "shopify://shop_images/Rectangle_3.png",
             "alt_text": "Brand Logo"
           }
         },
         "logo_xmViPE": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/lg1.png",
+            "logo": "shopify://shop_images/Rectangle_4.png",
             "alt_text": "Brand Logo"
           }
         },
         "logo_NqfKD8": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/lg1.png",
+            "logo": "shopify://shop_images/Rectangle_5.png",
             "alt_text": "Brand Logo"
           }
         },
@@ -143,8 +143,8 @@
       "settings": {
         "enable_marquee": true,
         "marquee_speed": "4000",
-        "slides_desktop": "5",
-        "slides_mobile": "3",
+        "slides_desktop": "6",
+        "slides_mobile": "2",
         "space_between": "30"
       }
     },
