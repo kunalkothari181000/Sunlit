@@ -447,7 +447,11 @@ ul {
   display: inline-block;
 }
 .main-nav .inner-nav .l-part .logo img {
-  width: 160px;
+  width: 280px !important;
+  max-width: 340px !important;
+  height: auto !important;
+  max-height: 90px !important;
+  object-fit: contain !important;
 }
 .main-nav .inner-nav .m-part {
   position: relative;

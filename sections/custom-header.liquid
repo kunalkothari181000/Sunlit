@@ -1,3 +1,23 @@
+<style>
+  .main-nav .inner-nav .l-part .logo img,
+  .main-nav .logo img,
+  .header-logo-img {
+    width: 280px !important;
+    max-width: 340px !important;
+    height: auto !important;
+    max-height: 90px !important;
+    object-fit: contain !important;
+  }
+  @media (max-width: 991px) {
+    .main-nav .inner-nav .l-part .logo img,
+    .main-nav .logo img,
+    .header-logo-img {
+      width: 180px !important;
+      max-height: 60px !important;
+    }
+  }
+</style>
+
 <nav class="main-nav">
   <div class="container">
     <div class="inner-nav">
@@ -13,7 +33,7 @@
 
         <a href="{{ routes.root_url }}" class="logo">
           {% if section.settings.logo %}
-            <img src="{{ section.settings.logo | image_url: width: 600 }}" alt="logo">
+            <img src="{{ section.settings.logo | image_url: width: 800 }}" alt="logo" class="header-logo-img">
           {% endif %}
         </a>
 
