@@ -446,10 +446,6 @@ html.lenis, html.lenis body {
   border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
-.counter-card-header {
-  margin-bottom: 1.5em;
-}
-
 .counter-icon-box {
   width: 48px;
   height: 48px;
@@ -459,36 +455,6 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.counter-icon-box.default-badge {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(52, 211, 153, 0.18);
-  border: 1px solid rgba(52, 211, 153, 0.35);
-}
-
-.counter-pulse-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 10px #34d399;
-  animation: counterPulse 2s infinite ease-in-out;
-}
-
-@keyframes counterPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.5; }
-}
-
-.counter-index-tag {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-  font-family: inherit;
 }
 
 .counter-card h3.count {

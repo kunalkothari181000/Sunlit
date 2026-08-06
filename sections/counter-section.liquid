@@ -6,18 +6,13 @@
         <div class="col-lg-3 col-md-6 col-12" {{ block.shopify_attributes }}>
           <div class="counter-card" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
             
-            <div class="counter-card-header d-flex align-items-center justify-content-between">
-              {% if block.settings.icon != blank %}
+            {% if block.settings.icon != blank %}
+              <div class="counter-card-header mb-3">
                 <div class="counter-icon-box">
                   <img src="{{ block.settings.icon | image_url: width: 60 }}" alt="{{ block.settings.label }}" loading="lazy">
                 </div>
-              {% else %}
-                <div class="counter-icon-box default-badge">
-                  <span class="counter-pulse-dot"></span>
-                </div>
-              {% endif %}
-              <span class="counter-index-tag">0{{ forloop.index }}</span>
-            </div>
+              </div>
+            {% endif %}
 
             <div class="counter-card-body">
               {% if block.settings.value != blank %}
@@ -34,7 +29,6 @@
               {% endif %}
             </div>
 
-            <div class="counter-card-glow"></div>
           </div>
         </div>
       {% endfor %}
