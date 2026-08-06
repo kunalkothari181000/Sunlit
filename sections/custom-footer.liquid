@@ -80,30 +80,34 @@
 
       </div>
 
-      <!-- MENU BLOCKS (3 Columns on Mobile) -->
-      {% for block in section.blocks %}
-        <div class="col-lg-2 col-4 {% if forloop.first %}offset-lg-1{% endif %}" {{ block.shopify_attributes }}>
-          <div class="ft-col">
+      <!-- MENU BLOCKS (Guaranteed 3 Columns on Mobile) -->
+      <div class="col-lg-7 col-12 offset-lg-1">
+        <div class="row g-2">
+          {% for block in section.blocks %}
+            <div class="col-4" {{ block.shopify_attributes }}>
+              <div class="ft-col">
 
-            {% if block.settings.heading != blank %}
-              <h3 class="ft-head">
-                {{ block.settings.heading }}
-              </h3>
-            {% endif %}
+                {% if block.settings.heading != blank %}
+                  <h3 class="ft-head">
+                    {{ block.settings.heading }}
+                  </h3>
+                {% endif %}
 
-            {% if block.settings.menu != blank %}
-              <ul class="ft-list">
-                {% for link in linklists[block.settings.menu].links %}
-                  <li>
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+                {% if block.settings.menu != blank %}
+                  <ul class="ft-list">
+                    {% for link in linklists[block.settings.menu].links %}
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
 
-          </div>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
+      </div>
 
     </div>
 
