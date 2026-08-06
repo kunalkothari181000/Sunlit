@@ -1,43 +1,142 @@
+<style>
+  .pr-cta-sec {
+    padding: 5.5em 0;
+    background: #ffffff;
+  }
+  .pr-cta-figma-box {
+    max-width: 1340px;
+    margin: 0 auto;
+    min-height: 541px;
+    background: #fff6e5;
+    border-radius: 32px;
+    padding: 4em 4.5em;
+    position: relative;
+    box-shadow: 0 15px 45px rgba(120, 53, 15, 0.06);
+    display: flex;
+    align-items: center;
+  }
+  .pcta-figma-head {
+    font-size: 38px;
+    font-weight: 800;
+    color: #78350f;
+    line-height: 1.22;
+    margin-bottom: 32px;
+    max-width: 440px;
+  }
+  .pcta-figma-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+  .pcta-figma-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .pcta-figma-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pcta-figma-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .pcta-figma-item-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #78350f;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .pcta-figma-item-text {
+    font-size: 14px;
+    color: #92400e;
+    margin-bottom: 0;
+    line-height: 1.45;
+  }
+  .pcta-figma-img-wrap {
+    position: relative;
+    text-align: right;
+  }
+  .pcta-figma-main-img {
+    max-width: 110%;
+    margin-right: -40px;
+    filter: drop-shadow(0 20px 40px rgba(120, 53, 15, 0.15));
+  }
+  .pcta-figma-overlay-pattern {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  @media (max-width: 991px) {
+    .pr-cta-figma-box {
+      padding: 3em 2em;
+      min-height: auto;
+    }
+    .pcta-figma-head {
+      font-size: 30px;
+    }
+    .pcta-figma-main-img {
+      max-width: 100%;
+      margin-right: 0;
+      margin-top: 2em;
+    }
+  }
+</style>
+
 <section class="pr-cta-sec">
-  <div class="container">
-    <div class="pr-cta">
-      <div class="row align-items-center">
+  <div class="container-fluid px-lg-5">
+    <div class="pr-cta-figma-box">
+      <div class="row align-items-center w-100">
 
         <!-- LEFT CONTENT -->
-        <div class="col-lg-5 col-12">
-          <div class="pr-cta-con" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-lg-6 col-12">
+          <div class="pcta-figma-content" data-aos="fade-right" data-aos-duration="1000">
 
             {% if section.settings.heading != blank %}
-              <h3 class="sec-head">
+              <h2 class="pcta-figma-head">
                 {{ section.settings.heading }}
-              </h3>
+              </h2>
             {% endif %}
 
-            <ul class="pr-cta-list">
+            <ul class="pcta-figma-list">
               {% for block in section.blocks %}
-                <li {{ block.shopify_attributes }}>
+                <li class="pcta-figma-item" {{ block.shopify_attributes }}>
 
-                  {% if block.settings.icon %}
-                    <img 
-                      src="{{ block.settings.icon | image_url: width: 80 }}" 
-                      alt="{{ block.settings.title | escape }}"
-                    >
-                  {% else %}
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  {% endif %}
+                  <div class="pcta-figma-icon">
+                    {% if block.settings.icon %}
+                      <img 
+                        src="{{ block.settings.icon | image_url: width: 120 }}" 
+                        alt="{{ block.settings.title | escape }}"
+                      >
+                    {% else %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#78350f" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    {% endif %}
+                  </div>
 
                   <div>
-
                     {% if block.settings.title != blank %}
-                      <h3>{{ block.settings.title }}</h3>
+                      <h3 class="pcta-figma-item-title">{{ block.settings.title }}</h3>
                     {% endif %}
 
                     {% if block.settings.text != blank %}
-                      <p class="para">
+                      <p class="pcta-figma-item-text">
                         {{ block.settings.text }}
                       </p>
                     {% endif %}
-
                   </div>
 
                 </li>
@@ -48,21 +147,22 @@
         </div>
 
         <!-- RIGHT IMAGE -->
-        <div class="col-lg-7 col-12">
-          <div class="pr-cta-img" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col-lg-6 col-12">
+          <div class="pcta-figma-img-wrap" data-aos="fade-left" data-aos-duration="1000">
 
             {% if section.settings.main_image %}
               <img 
                 src="{{ section.settings.main_image | image_url: width: 1200 }}" 
-                alt="main image"
+                class="pcta-figma-main-img" 
+                alt="Sunlit Farms Atta Packaging"
               >
             {% endif %}
 
             {% if section.settings.overlay_image %}
               <img 
-                src="{{ section.settings.overlay_image | image_url: width: 600 }}" 
-                class="pr-pt" 
-                alt="overlay"
+                src="{{ section.settings.overlay_image | image_url: width: 800 }}" 
+                class="pcta-figma-overlay-pattern" 
+                alt="wheat pattern"
               >
             {% endif %}
 
@@ -127,9 +227,27 @@
       "name": "Product CTA Advanced",
       "category": "Custom",
       "blocks": [
-        { "type": "feature" },
-        { "type": "feature" },
-        { "type": "feature" }
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Soft Rotis",
+            "text": "Ensures soft, fluffy rotis with excellent taste."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Easy to Cook",
+            "text": "Smooth dough formation and hassle-free preparation."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Suitable for Daily Use",
+            "text": "Perfect for everyday household consumption and regular cooking needs."
+          }
+        }
       ]
     }
   ]

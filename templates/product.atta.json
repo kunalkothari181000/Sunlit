@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "product_hero_nG63w9": {
@@ -46,7 +37,7 @@
       "name": "Product Hero",
       "settings": {
         "bg_image": "shopify:\/\/shop_images\/pr-inner-bg.jpg",
-        "heading": "Whole Wheat Chakki Atta",
+        "heading": "Chakki Atta",
         "description": "Made from carefully selected, high-quality MP wheat and stone-ground under controlled conditions to preserve natural fiber, dietary nutrition, and freshness in every pack.",
         "product_image": "shopify:\/\/shop_images\/pr-hero.png",
         "button_label": "Inquire Bulk / Wholesale",
@@ -104,24 +95,24 @@
           "type": "feature",
           "settings": {
             "icon": "shopify:\/\/shop_images\/icc1.svg",
-            "title": "Ultra Soft Rotis",
-            "text": "Retains natural wheat moisture for soft, fluffy rotis every time."
+            "title": "Soft Rotis",
+            "text": "Ensures soft, fluffy rotis with excellent taste."
           }
         },
         "feature_dgENVk": {
           "type": "feature",
           "settings": {
             "icon": "shopify:\/\/shop_images\/icc2.svg",
-            "title": "100% Whole Wheat",
-            "text": "Zero Maida, zero additives, and rich in natural dietary fiber."
+            "title": "Easy to Cook",
+            "text": "Smooth dough formation and hassle-free preparation."
           }
         },
         "feature_8yLCQa": {
           "type": "feature",
           "settings": {
             "icon": "shopify:\/\/shop_images\/icc3.svg",
-            "title": "FSSAI Certified",
-            "text": "Manufactured in ISO & FSSC 22000 compliant processing plants."
+            "title": "Suitable for Daily Use",
+            "text": "Perfect for everyday household consumption and regular cooking needs."
           }
         }
       },
