@@ -1,0 +1,148 @@
+<section class="qual-sec sec">
+  <div class="container">
+    <div class="row">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-5 col-12">
+        <div class="qual-l">
+
+          <div>
+            {% if section.settings.heading != blank %}
+              <h3 class="sec-head d-inline-block with-gr">
+                {{ section.settings.heading }}
+              </h3>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+              <p class="para">
+                {{ section.settings.text }}
+              </p>
+            {% endif %}
+          </div>
+
+          
+
+          <div class="ab-imgs">
+            {% if section.settings.image %}
+            <img 
+              src="{{ section.settings.image | image_url: width: 800 }}" 
+              class="abb-1" 
+              alt="image"
+            >
+          {% endif %}
+          {% if section.settings.image2 %}
+            <img 
+              src="{{ section.settings.image2 | image_url: width: 800 }}" 
+              class="abb-2" 
+              alt="image"
+            >
+          {% endif %}
+       
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT CARDS -->
+      <div class="col-lg-7 col-12">
+
+        {% for block in section.blocks %}
+          <div class="st-card" {{ block.shopify_attributes }}>
+
+            {% if block.settings.icon %}
+              <img 
+                src="{{ block.settings.icon | image_url: width: 100 }}" 
+                alt="{{ block.settings.title | escape }}"
+              >
+            {% endif %}
+
+            <div class="con">
+
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <p class="para">
+                  {{ block.settings.text }}
+                </p>
+              {% endif %}
+
+            </div>
+
+          </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Quality & Certification",
+  "tag": "section",
+  "class": "quality-certification-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Quality & Certification"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Sunlit Farms operates with modern milling infrastructure designed to maintain efficiency, hygiene, and product consistency."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Left Image 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cert",
+      "name": "Certification Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "FSSAI Certified"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Our products meet all required food safety regulations and standards."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quality & Certification",
+      "category": "Custom",
+      "blocks": [
+        { "type": "cert" },
+        { "type": "cert" },
+        { "type": "cert" }
+      ]
+    }
+  ]
+}
+{% endschema %}

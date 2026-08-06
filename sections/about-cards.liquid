@@ -1,0 +1,81 @@
+<section class="ab-cards-sec sec">
+  <div class="container">
+    <div class="ab-cards-wrapper">
+
+      {% for block in section.blocks %}
+        <div class="ab-card" {{ block.shopify_attributes }} data-aos="fade-up" data-aos-duration="1000">
+
+          {% if block.settings.icon %}
+            <img 
+              src="{{ block.settings.icon | image_url: width: 100 }}" 
+              alt="{{ block.settings.title | escape }}"
+            >
+          {% endif %}
+
+          <div>
+
+            {% if block.settings.title != blank %}
+              <h3 class="sec-head">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <p class="para">
+                {{ block.settings.text }}
+              </p>
+            {% endif %}
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Cards",
+  "tag": "section",
+  "class": "about-cards-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "About Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Company Origin"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Sunlit Farms was founded with a simple vision — to provide pure, hygienically processed wheat products that families and retailers can trust every day."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Cards",
+      "category": "Custom",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

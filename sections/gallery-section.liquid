@@ -1,0 +1,151 @@
+<section class="gallery-sec pt-0 sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="gallery-wrapper" data-aos="fade-up" data-aos-duration="1000">
+
+          <img src="{{ 'g-pt.svg' | asset_url }}" alt="" >
+
+          <!-- Heading -->
+          <div class="row">
+            <div class="col-12 text-center">
+
+              {% if section.settings.subheading != blank %}
+                <h3 class="sub-head white">
+                  {{ section.settings.subheading }}
+                </h3>
+              {% endif %}
+
+              {% if section.settings.heading != blank %}
+                <h3 class="sec-head white">
+                  {{ section.settings.heading }}
+                </h3>
+              {% endif %}
+
+            </div>
+          </div>
+
+          <!-- Slider -->
+          <div class="row">
+            <div class="col-12">
+              <div class="gallery-slider">
+
+                <div class="swiper gal-swiper">
+                  <div class="swiper-wrapper">
+
+                    {% for block in section.blocks %}
+                      <div class="swiper-slide" {{ block.shopify_attributes }}>
+                        <div class="gal-img">
+
+                          {% if block.settings.image %}
+                            <img 
+                              src="{{ block.settings.image | image_url: width: 800 }}" 
+                              alt="{{ block.settings.alt | escape }}"
+                            >
+                          {% endif %}
+
+                        </div>
+                      </div>
+                    {% endfor %}
+
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var swiper = new Swiper("#shopify-section-{{ section.id }} .gal-swiper", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: true,
+    initialSlide: 1,
+    loop: false,
+    pagination: {
+      el: "#shopify-section-{{ section.id }} .swiper-pagination",
+      clickable: true
+    },
+    breakpoints: {
+        0: {
+            slidesPerView: 1.5,
+            spaceBetween: 0,
+        },
+        640: {
+            slidesPerView: 1.5,
+
+        },
+        768: {
+            slidesPerView: 2.5,
+
+        },
+        1024: {
+            slidesPerView: 2.3,
+
+        },
+    },
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Gallery Section",
+  "tag": "section",
+  "class": "gallery-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our Gallery"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lorem ipsum dolor sit amet"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt Text",
+          "default": "Gallery Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery Section",
+      "category": "Custom",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

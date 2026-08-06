@@ -1,0 +1,201 @@
+<footer class="main-footer">
+
+  {% if section.settings.bg_image %}
+    <img 
+      src="{{ section.settings.bg_image | image_url: width: 1920 }}" 
+      class="w-100" 
+      alt="background"
+    >
+  {% endif %}
+
+  <div class="container">
+
+    <!-- Top Pattern -->
+    {% if section.settings.top_pattern %}
+      <div class="row">
+        <div class="col-12">
+          <img 
+            src="{{ section.settings.top_pattern | image_url: width: 1920 }}" 
+            class="w-100 ft-pt-img" 
+            alt="pattern"
+          >
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="row">
+
+      <!-- LEFT: Logo + Info -->
+      <div class="col-lg-5 col-12">
+
+        {% if section.settings.logo %}
+          <a href="{{ routes.root_url }}" class="ft-logo">
+            <img 
+              src="{{ section.settings.logo | image_url: width: 300 }}" 
+              alt="logo"
+            >
+          </a>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="para white">
+            {{ section.settings.description }}
+          </p>
+        {% endif %}
+
+        <ul class="ft-col-list">
+
+          {% if section.settings.phone != blank %}
+            <li>
+              {% if section.settings.phone_icon %}
+                <img src="{{ section.settings.phone_icon | image_url: width: 50 }}" alt="phone">
+              {% endif %}
+              <a href="tel:{{ section.settings.phone }}">
+                {{ section.settings.phone }}
+              </a>
+            </li>
+          {% endif %}
+
+          {% if section.settings.email != blank %}
+            <li>
+              {% if section.settings.email_icon %}
+                <img src="{{ section.settings.email_icon | image_url: width: 50 }}" alt="email">
+              {% endif %}
+              <a href="mailto:{{ section.settings.email }}">
+                {{ section.settings.email }}
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+
+      </div>
+
+      <!-- MENU BLOCKS -->
+      {% for block in section.blocks %}
+        <div class="col-lg-2 col-12 {% if forloop.first %}offset-lg-1{% endif %}" {{ block.shopify_attributes }}>
+          <div class="ft-col">
+
+            {% if block.settings.heading != blank %}
+              <h3 class="ft-head">
+                {{ block.settings.heading }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.menu != blank %}
+              <ul class="ft-list">
+                {% for link in linklists[block.settings.menu].links %}
+                  <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="row">
+      <div class="col-12">
+        <div class="ft-btm">
+          <p class="para white text-center">
+            {{ section.settings.copyright }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "tag": "footer",
+  "class": "custom-footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_pattern",
+      "label": "Top Pattern Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+91 8877665544"
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_icon",
+      "label": "Phone Icon"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "mail@sunlitfarms.com"
+    },
+    {
+      "type": "image_picker",
+      "id": "email_icon",
+      "label": "Email Icon"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright Text",
+      "default": "© 2026 Sunlit Farms. All rights reserved. Keep going."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Footer Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Menu Heading",
+          "default": "Shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "blocks": [
+        { "type": "menu", "settings": { "heading": "Shop" } },
+        { "type": "menu", "settings": { "heading": "Company" } },
+        { "type": "menu", "settings": { "heading": "Legal" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

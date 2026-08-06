@@ -1,0 +1,174 @@
+<section class="product-sec sec">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Header -->
+      <div class="col-12">
+        <div class="pr-head d-flex align-items-center justify-content-between flex-wrap">
+          
+          <div class="pr-head-text">
+            
+            {% if section.settings.heading != blank %}
+              <h3 class="sec-head with-gr d-inline-block">
+                {{ section.settings.heading }}
+              </h3>
+            {% endif %}
+
+            {% if section.settings.subtext != blank %}
+              <p class="para">
+                {{ section.settings.subtext }}
+              </p>
+            {% endif %}
+
+          </div>
+
+          {% if section.settings.button_label != blank %}
+            <a href="{{ section.settings.button_link }}" class="main-btn border-btn">
+              <span>{{ section.settings.button_label }}</span>
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <!-- Slider -->
+      <div class="col-12">
+        <div class="swiper pr-slider">
+          <div class="swiper-wrapper">
+
+            {% assign collection = collections[section.settings.collection] %}
+
+            {% for product in collection.products %}
+              <div class="swiper-slide">
+                <a href="{{ product.url }}" class="pr-card">
+
+                  {% if section.settings.card_bg %}
+                    <img 
+                      src="{{ section.settings.card_bg | image_url: width: 600 }}" 
+                      alt="bg"
+                    >
+                  {% endif %}
+
+                  <div class="pr-img-2">
+                    {% if product.featured_image %}
+                      <img 
+                        src="{{ product.featured_image | image_url: width: 500 }}" 
+                        alt="{{ product.title }}"
+                      >
+                    {% endif %}
+                  </div>
+
+                  <div class="pr-con">
+                    <div class="tp">
+                      <h3>{{ product.title }}</h3>
+
+                      {% if section.settings.show_arrow %}
+                        <span class="arrow-icon">
+                          {{ section.settings.arrow_svg }}
+                        </span>
+                      {% endif %}
+                    </div>
+
+                    {% if product.description != blank %}
+                      <p class="para">
+                        {{ product.description | strip_html | truncate: 120 }}
+                      </p>
+                    {% endif %}
+                  </div>
+
+                </a>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var prSwiper = new Swiper("#shopify-section-{{ section.id }} .pr-slider", {
+      slidesPerView: 3,
+      spaceBetween: 20,
+      loop: false,
+      breakpoints: {
+        0: {
+          slidesPerView: 1.2,
+          spaceBetween: 15,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Slider",
+  "tag": "section",
+  "class": "product-slider-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Product Range"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Crafted with precision to bring you the finest quality essentials for your kitchen."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_bg",
+      "label": "Card Background Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show Arrow Icon",
+      "default": true
+    },
+    {
+      "type": "html",
+      "id": "arrow_svg",
+      "label": "Arrow SVG",
+      "default": "<svg xmlns='http://www.w3.org/2000/svg' width='46' height='46' fill='none' viewBox='0 0 46 46'><path fill='#965134' d='M6.736 6.737c-8.967 8.967-8.967 23.559 0 32.526 8.968 8.968 23.56 8.968 32.527 0 8.968-8.967 8.968-23.559 0-32.526-8.967-8.968-23.56-8.968-32.527 0ZM37.23 37.23c-7.846 7.846-20.614 7.846-28.46 0-7.848-7.847-7.848-20.615 0-28.462 7.846-7.846 20.614-7.846 28.46 0 7.847 7.847 7.847 20.615 0 28.461Z'/></svg>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

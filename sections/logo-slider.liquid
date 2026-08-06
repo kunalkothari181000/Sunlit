@@ -1,0 +1,96 @@
+<section class="lg-slider-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="swiper lg-swiper" data-aos="fade-up" data-aos-duration="1000">
+          <div class="swiper-wrapper">
+
+            {% for block in section.blocks %}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <div class="lg-wrap">
+                  
+                  {% if block.settings.logo %}
+                    <img 
+                      src="{{ block.settings.logo | image_url: width: 300 }}" 
+                      alt="{{ block.settings.alt_text | escape }}"
+                    >
+                  {% endif %}
+
+                </div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var lgswiper = new Swiper(".lg-swiper", {
+      loop: false,
+      slidesPerView: 4,
+      spaceBetween: 0,
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Logo Slider",
+  "tag": "section",
+  "class": "logo-slider-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Brand Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Slider",
+      "category": "Custom",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

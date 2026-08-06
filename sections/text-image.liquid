@@ -1,0 +1,129 @@
+<section class="sec hm-sc2">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      {% if section.settings.layout == 'image_left' %}
+        <!-- Image Left -->
+        <div class="col-lg-6 col-12">
+          {% if section.settings.image %}
+            <img 
+              src="{{ section.settings.image | image_url: width: 1000 }}" 
+              class="w-100" 
+              alt="{{ section.settings.heading | escape }}"
+              data-aos="fade-right" data-aos-duration="1000"
+            >
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <!-- Content -->
+      <div class="col-lg-6 col-12">
+        
+        {% if section.settings.heading != blank %}
+          <h2 class="sec-head with-gr" data-aos="fade-left" data-aos-duration="1000">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <p class="para" data-aos="fade-left" data-aos-duration="1000">
+            {{ section.settings.text }}
+          </p>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="main-btn orange-btn" data-aos="fade-left" data-aos-duration="1000">
+            <span>{{ section.settings.button_label }}</span>
+
+            {% if section.settings.button_icon %}
+              <img 
+                src="{{ section.settings.button_icon | image_url: width: 50 }}" 
+                alt="icon"
+              >
+            {% endif %}
+          </a>
+        {% endif %}
+
+      </div>
+
+      {% if section.settings.layout == 'image_right' %}
+        <!-- Image Right -->
+        <div class="col-lg-6 col-12">
+          {% if section.settings.image %}
+            <img 
+              src="{{ section.settings.image | image_url: width: 1000 }}" 
+              class="w-100" 
+              alt="{{ section.settings.heading | escape }}"
+            >
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text Image Section",
+  "tag": "section",
+  "class": "text-image-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "image_left",
+      "options": [
+        {
+          "value": "image_left",
+          "label": "Image Left, Content Right"
+        },
+        {
+          "value": "image_right",
+          "label": "Image Right, Content Left"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built on Quality and Trust"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Sunlit Farms is committed to delivering pure, hygienically processed wheat products to households and retailers across India. With modern milling technology and strict quality control, we ensure every pack reflects consistency, safety, and trust built over decades."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "About Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Image Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

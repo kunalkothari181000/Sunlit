@@ -1,0 +1,140 @@
+<section class="counter-sec">
+  <div class="container">
+    <div class="row">
+      
+      {% for block in section.blocks %}
+        <div class="col-lg-3 col-12" {{ block.shopify_attributes }}>
+          <div class="counter-card">
+            
+            {% if block.settings.value != blank %}
+              <h3 class="count" data-count="{{ block.settings.datavalue }}">{{ block.settings.value }}</h3>
+            {% endif %}
+
+            {% if block.settings.label != blank %}
+              <p class="para">{{ block.settings.label }}</p>
+            {% endif %}
+
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<script>
+
+   document.addEventListener("DOMContentLoaded", function () {
+
+            const counters = document.querySelectorAll('.count');
+
+            const animateCount = (el) => {
+                const target = +el.getAttribute('data-count');
+                const duration = 2000;
+                const startTime = performance.now();
+
+                const update = (currentTime) => {
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    const value = Math.floor(progress * target);
+
+                    el.textContent = value + '+';
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = target + '+';
+                    }
+                };
+
+                requestAnimationFrame(update);
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        animateCount(el);
+                        obs.unobserve(el); // run once
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            counters.forEach(counter => observer.observe(counter));
+
+        });
+
+</script>
+
+{% schema %}
+{
+  "name": "Counter Section",
+  "tag": "section",
+  "class": "counter-section",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "counter",
+      "name": "Counter Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "datavalue",
+          "label": "dataValue",
+          "default": "15"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "15+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "States Distribution"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counter Section",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "counter",
+          "settings": {
+            "value": "15+",
+            "label": "States Distribution"
+          }
+        },
+        {
+          "type": "counter",
+          "settings": {
+            "value": "5000+",
+            "label": "Retail Stores"
+          }
+        },
+        {
+          "type": "counter",
+          "settings": {
+            "value": "FSSAI",
+            "label": "Certified"
+          }
+        },
+        {
+          "type": "counter",
+          "settings": {
+            "value": "15+",
+            "label": "Years Experience"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

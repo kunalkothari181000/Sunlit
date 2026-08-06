@@ -1,0 +1,230 @@
+<section class="product-inner-header">
+
+  {% if section.settings.bg_image %}
+    <img 
+      src="{{ section.settings.bg_image | image_url: width: 1920 }}" 
+      alt="background"
+    >
+  {% endif %}
+
+  <div class="container">
+    <div class="row">
+
+      <!-- LEFT: PRODUCT IMAGES -->
+      <div class="col-lg-6 col-12">
+        <div class="pr-imgs-slider">
+
+          <!-- Main Images -->
+          <div class="swiper pr-imgs-swiper">
+            <div class="swiper-wrapper">
+              {% for image in product.images %}
+                <div class="swiper-slide">
+                  <div class="pr-img">
+                    <img 
+                      src="{{ image | image_url: width: 800 }}" 
+                      alt="{{ product.title }}"
+                    >
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="pr-imgs-thumb">
+            <div class="swiper pr-imgs-thumb-swiper">
+              <div class="swiper-wrapper">
+                {% for image in product.images %}
+                  <div class="swiper-slide">
+                    <div class="pr-img-thumb">
+                      <img 
+                        src="{{ image | image_url: width: 200 }}" 
+                        alt="{{ product.title }}"
+                      >
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: PRODUCT CONTENT -->
+      <div class="col-lg-6 col-12">
+        <div class="product-inner-content">
+
+          <h1>{{ product.title }}</h1>
+
+          <p class="para">
+            {{ product.description | strip_html }}
+          </p>
+
+            <div class="product-price" id="price-{{ section.id }}">
+            <span class="current-price">
+                {{ product.selected_or_first_available_variant.price | money }}
+            </span>
+
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+                <span class="compare-price">
+                {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                </span>
+            {% endif %}
+            </div>
+
+          <!-- VARIANTS -->
+          {% if product.variants.size > 1 %}
+            <ul class="varient-picker">
+              {% for variant in product.variants %}
+                <li>
+                  <button 
+                    type="button"
+                    class="variant-btn {% if forloop.first %}active{% endif %}"
+                    data-variant-id="{{ variant.id }}"
+                    data-price="{{ variant.price | money }}"
+                    data-compare-price="{{ variant.compare_at_price | money }}"
+                    >
+                    <span>{{ variant.title }}</span>
+                    </button>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <!-- PRODUCT FORM -->
+          <form method="post" action="/cart/add" id="product-form-{{ section.id }}">
+            <input 
+              type="hidden" 
+              name="id" 
+              value="{{ product.selected_or_first_available_variant.id }}"
+            >
+
+            <!-- QUANTITY -->
+            <div class="quantity-selector">
+              <button type="button" class="qty-minus">-</button>
+              <input type="number" name="quantity" value="1" min="1">
+              <button type="button" class="qty-plus">+</button>
+            </div>
+
+            <!-- ADD TO CART -->
+            <button type="submit" class="main-btn">
+              <span>Add to Cart</span>
+            </button>
+
+            <!-- BUY NOW -->
+            {{ form | payment_button }}
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var sectionEl = document.querySelector("#shopify-section-{{ section.id }}");
+
+  // SWIPERS
+  
+  var thumbSwiper = new Swiper(sectionEl.querySelector(".pr-imgs-thumb-swiper"), {
+    slidesPerView: 4,
+    spaceBetween: 10,
+    watchSlidesProgress: true,
+  });
+
+  var mainSwiper = new Swiper(sectionEl.querySelector(".pr-imgs-swiper"), {
+    slidesPerView: 1,
+    thumbs: {
+      swiper: thumbSwiper
+    },
+    on: {
+    slideChange: function () {
+        updateActiveThumb(this.activeIndex);
+      }
+    }
+  });
+  
+
+
+  function updateActiveThumb(index) {
+    var thumbs = sectionEl.querySelectorAll(".pr-imgs-thumb-swiper .swiper-slide");
+
+    thumbs.forEach(el => el.classList.remove("swiper-slide-thumb-active"));
+
+    if (thumbs[index]) {
+      thumbs[index].classList.add("swiper-slide-thumb-active");
+    }
+  }
+
+  updateActiveThumb(0);
+
+  
+
+  // VARIANT SWITCH
+  var variantButtons = sectionEl.querySelectorAll(".variant-btn");
+  var input = sectionEl.querySelector("input[name='id']");
+
+ var priceContainer = sectionEl.querySelector("#price-{{ section.id }}");
+
+    variantButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        variantButtons.forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+
+        // update variant id
+        input.value = this.dataset.variantId;
+
+        // update price
+        let price = this.dataset.price;
+        let comparePrice = this.dataset.comparePrice;
+
+        let html = `<span class="current-price">${price}</span>`;
+
+        if (comparePrice && comparePrice !== "0" && comparePrice !== price) {
+        html += `<span class="compare-price">${comparePrice}</span>`;
+        }
+
+        priceContainer.innerHTML = html;
+    });
+    });
+
+  // QUANTITY
+  var minus = sectionEl.querySelector(".qty-minus");
+  var plus = sectionEl.querySelector(".qty-plus");
+  var qtyInput = sectionEl.querySelector("input[name='quantity']");
+
+  minus.addEventListener("click", () => {
+    if (qtyInput.value > 1) qtyInput.value--;
+  });
+
+  plus.addEventListener("click", () => {
+    qtyInput.value++;
+  });
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Header",
+  "tag": "section",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Header"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,216 @@
+<section class="product-sec sec">
+  <div class="container">
+    <div class="row">
+
+      <!-- HEADER -->
+      <div class="col-12">
+        <div class="pr-head d-flex align-items-center justify-content-between flex-wrap">
+
+          <div class="pr-head-text" data-aos="fade-right" data-aos-duration="1000">
+            
+            {% if section.settings.heading != blank %}
+              <h3 class="sec-head with-gr d-inline-block">
+                {{ section.settings.heading }}
+              </h3>
+            {% endif %}
+
+            {% if section.settings.subtext != blank %}
+              <p class="para">
+                {{ section.settings.subtext }}
+              </p>
+            {% endif %}
+
+          </div>
+
+          {% if section.settings.button_label != blank %}
+            <a href="{{ section.settings.button_link }}" class="main-btn border-btn" data-aos="fade-left" data-aos-duration="1000">
+              <span>{{ section.settings.button_label }}</span>
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <!-- SLIDER -->
+      <div class="col-12">
+        <div class="swiper pr-slider" data-aos="fade-up" data-aos-duration="1000">
+          <div class="swiper-wrapper">
+
+            {% for block in section.blocks %}
+              <div class="swiper-slide" {{ block.shopify_attributes }}>
+                <a href="{{ block.settings.button_link }}" class="pr-card">
+
+                  {% if block.settings.bg_image %}
+                    <img 
+                      src="{{ block.settings.bg_image | image_url: width: 600 }}" 
+                      alt="bg"
+                    >
+                  {% endif %}
+
+                  <div class="pr-img-2">
+                    {% if block.settings.image %}
+                      <img 
+                        src="{{ block.settings.image | image_url: width: 500 }}" 
+                        alt="{{ block.settings.title | escape }}"
+                      >
+                    {% endif %}
+                  </div>
+
+                  <div class="pr-con">
+                    <div class="tp">
+
+                      {% if block.settings.title != blank %}
+                        <h3>{{ block.settings.title }}</h3>
+                      {% endif %}
+
+                      {% if block.settings.show_arrow %}
+                        <span class="arrow-icon">
+                            {{ block.settings.arrow_svg }}
+                        </span>
+                        {% endif %}
+
+                    </div>
+
+                    {% if block.settings.text != blank %}
+                      <p class="para">
+                        {{ block.settings.text }}
+                      </p>
+                    {% endif %}
+
+                  </div>
+
+                </a>
+              </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+var prSwiper = new Swiper(".pr-slider", {
+            loop: false,
+            slidesPerView: 4,
+            spaceBetween: 0,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 15,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            },
+        });
+        });
+</script>
+
+{% schema %}
+{
+  "name": "Static Product Slider",
+  "tag": "section",
+  "class": "static-product-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Product Range"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Crafted with precision to bring you the finest quality essentials for your kitchen."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Atta"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Scalable, compliant supply chains built for international trade and market standards."
+        },
+        {
+        "type": "url",
+        "id": "button_link",
+        "label": "Product Link"
+        },
+        {
+        "type": "checkbox",
+        "id": "show_arrow",
+        "label": "Show Arrow",
+        "default": true
+        },
+        {
+        "type": "html",
+        "id": "arrow_svg",
+        "label": "Arrow SVG",
+        "default": "<svg xmlns='http://www.w3.org/2000/svg' width='46' height='46' fill='none' viewBox='0 0 46 46'><g clip-path='url(#a)'><path fill='#965134' d='M6.736 6.737c-8.967 8.967-8.967 23.559 0 32.526 8.968 8.968 23.56 8.968 32.527 0 8.968-8.967 8.968-23.559 0-32.526-8.967-8.968-23.56-8.968-32.527 0ZM37.23 37.23c-7.846 7.846-20.614 7.846-28.46 0-7.848-7.847-7.848-20.615 0-28.462 7.846-7.846 20.614-7.846 28.46 0 7.847 7.847 7.847 20.615 0 28.461ZM29.1 15.463a1.437 1.437 0 0 1 1.437 1.437v10.165a1.433 1.433 0 0 1-1.437 1.437 1.435 1.435 0 0 1-1.438-1.437V20.37l-9.744 9.744a1.437 1.437 0 1 1-2.033-2.033l9.744-9.744h-6.694a1.437 1.437 0 1 1 0-2.874H29.1Z'/></g><defs><clipPath id='a'><path fill='#fff' d='M0 0h46v46H0z'/></clipPath></defs></svg>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Static Product Slider",
+      "category": "Custom",
+      "blocks": [
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

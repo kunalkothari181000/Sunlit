@@ -1,0 +1,83 @@
+<section class="test-sec">
+
+  {% if section.settings.top_bg %}
+    <img 
+      src="{{ section.settings.top_bg | image_url: width: 1920 }}" 
+      class="w-100 test-green-bg" 
+      alt="background"
+    >
+  {% endif %}
+
+  <div class="test-slider-sec">
+    <div class="sec pt-0">
+      <div class="container">
+
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+
+            {% if section.settings.heading != blank %}
+              <h2 class="sec-head white" data-aos="fade-up" data-aos-duration="1000">       
+                {{ section.settings.heading }}
+              </h2>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+              <p class="para white big mb-0" data-aos="fade-up" data-aos-duration="1000">
+                {{ section.settings.text }}
+              </p>
+            {% endif %}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {% if section.settings.bottom_bg %}
+      <img 
+        src="{{ section.settings.bottom_bg | image_url: width: 1920 }}" 
+        class="w-100 test-grass-bg" 
+        alt="background"
+      >
+    {% endif %}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Purpose Section",
+  "tag": "section",
+  "class": "purpose-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "top_bg",
+      "label": "Top Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Purpose"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "To deliver pure, hygienically processed wheat products with consistent quality, ensuring every household and retail partner receives freshness, safety, and trust in every pack."
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_bg",
+      "label": "Bottom Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Purpose Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,116 @@
+<section class="sec">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="row">
+      <div class="col-12">
+        <div class="tp-head mb-5 d-flex gap-3 justify-content-between flex-wrap">
+
+          {% if section.settings.heading != blank %}
+            <h3 class="sec-head with-gr d-inline-block mb-0" data-aos="fade-right" data-aos-duration="1000">
+              {{ section.settings.heading }}
+            </h3>
+          {% endif %}
+
+          {% if section.settings.subtext != blank %}
+            <p class="para mb-0" style="max-width: 500px;" data-aos="fade-left" data-aos-duration="1000">
+              {{ section.settings.subtext }}
+            </p>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="col-lg-4 col-12" {{ block.shopify_attributes }}>
+          <div class="d-card yellow-card" data-aos="fade-up" data-aos-duration="1000">
+
+            {% if block.settings.image %}
+              <img 
+                src="{{ block.settings.image | image_url: width: 400 }}" 
+                alt="{{ block.settings.title | escape }}"
+              >
+            {% endif %}
+
+            <div class="con">
+
+              {% if block.settings.title != blank %}
+                <h2>{{ block.settings.title }}</h2>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <p class="para">
+                  {{ block.settings.text }}
+                </p>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Infrastructure",
+  "tag": "section",
+  "class": "about-infra-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Infrastructure"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Sunlit Farms operates with modern milling infrastructure designed to maintain efficiency, hygiene, and product consistency."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Infra Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Hygienic Processing"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Advanced milling systems with strict quality checks to maintain purity."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Infrastructure",
+      "category": "Custom",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

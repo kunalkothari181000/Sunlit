@@ -1,0 +1,158 @@
+<nav class="main-nav">
+  <div class="container">
+    <div class="inner-nav">
+
+      <!-- LEFT -->
+      <div class="l-part">
+
+        <button class="menu-btn">
+          {% if section.settings.menu_icon %}
+            <img src="{{ section.settings.menu_icon | image_url: width: 50 }}" alt="menu">
+          {% endif %}
+        </button>
+
+        <a href="{{ routes.root_url }}" class="logo">
+          {% if section.settings.logo %}
+            <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="logo">
+          {% endif %}
+        </a>
+
+      </div>
+
+      <!-- CENTER MENU -->
+      <div class="m-part">
+        <ul class="nav-list">
+          {% for link in linklists[section.settings.menu].links %}
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- RIGHT BUTTON -->
+      <div class="r-part">
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="main-btn orange-btn">
+            <span>{{ section.settings.button_label }}</span>
+
+            {% if section.settings.button_icon %}
+              <img src="{{ section.settings.button_icon | image_url: width: 50 }}" alt="icon">
+            {% endif %}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+
+  <div class="menu-head">
+    <a href="{{ routes.root_url }}" class="logo">
+      {% if section.settings.mobile_logo %}
+        <img src="{{ section.settings.mobile_logo | image_url: width: 200 }}" alt="logo">
+      {% endif %}
+    </a>
+
+    <button class="menu-close">
+      {% if section.settings.close_icon %}
+        <img src="{{ section.settings.close_icon | image_url: width: 40 }}" alt="close">
+      {% endif %}
+    </button>
+  </div>
+
+  <ul class="nav-list">
+    {% for link in linklists[section.settings.menu].links %}
+      <li>
+        <a href="{{ link.url }}">
+          <span>{{ link.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuBtn = document.querySelector("#shopify-section-{{ section.id }} .menu-btn");
+  const closeBtn = document.querySelector("#shopify-section-{{ section.id }} .menu-close");
+  const mobileNav = document.querySelector("#shopify-section-{{ section.id }} .mobile-nav");
+
+  if(menuBtn){
+    menuBtn.addEventListener("click", () => {
+      mobileNav.classList.add("active");
+    });
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
+    });
+  }
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "tag": "section",
+  "class": "custom-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Desktop Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_logo",
+      "label": "Mobile Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "menu_icon",
+      "label": "Menu Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "close_icon",
+      "label": "Close Icon"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Explore More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header"
+    }
+  ]
+}
+{% endschema %}

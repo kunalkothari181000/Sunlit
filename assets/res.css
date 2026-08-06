@@ -1,0 +1,140 @@
+@media (max-width: 1100px) {
+  .swiper-pagination.vertical {
+    left: -2.5% !important;
+  }
+}
+@media (max-width: 991px) {
+  .main-btn span {
+    font-size: 16px;
+  }
+  .container-left {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .main-nav .inner-nav .m-part .nav-list {
+    display: none;
+  }
+  .main-nav .inner-nav {
+    padding: 10px 1.5em;
+  }
+  .up-text.justify-content-center p {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .con-wrapper {
+    padding: 2em 1.5em;
+  }
+  .sec-head h3 {
+    font-size: 32px;
+  }
+  .banner-con h1 {
+    font-size: 32px;
+  }
+  .dh-con {
+    margin-top: 1.5em;
+  }
+  .banner-con h3 {
+    font-size: 18px;
+  }
+  .counter-wrap .counter h3 {
+    font-size: 35px;
+  }
+  .hero-img {
+    margin-top: 1.5em;
+  }
+  .ic-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 1.5em;
+  }
+  .timer-wrapper {
+    flex-wrap: wrap;
+  }
+  .up-text p {
+    font-size: 16px;
+  }
+  .im-img {
+    margin-top: 1.5em;
+  }
+  .vid-wrap {
+    padding-top: 65%;
+  }
+  .tick-sec .border1, .tick-sec .border2 {
+    display: none;
+  }
+  .vid-wrap button {
+    width: 100px;
+    height: 100px;
+  }
+  .vid-wrap button img {
+    width: 25px;
+  }
+}
+@media (max-width: 450px) {
+  .product-inner-content h1 {
+    font-size: 42px;
+  }
+  .pr-cta:after {
+    height: 100% !important;
+  }
+  .pr-cta-list h3 {
+    font-size: 22px !important;
+  }
+  .pr-cta {
+    padding: 1.5em 1em !important;
+  }
+  .ab-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .banner-con-wrap {
+    padding: 1.5em !important;
+  }
+  .sec-head {
+    font-size: 32px;
+  }
+  .row {
+    row-gap: 1em;
+  }
+  .sec {
+    padding: 3em 0px;
+  }
+  .ar-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-nav .inner-nav {
+    padding: 10px 0.8em;
+  }
+  .top-bar {
+    padding: 8px 0.5em;
+  }
+  .main-nav .inner-nav .l-part {
+    gap: 12px;
+  }
+  .ar-grid {
+    margin-top: 1em;
+  }
+  .ar-grid img {
+    display: none !important;
+  }
+  .main-nav .inner-nav .r-part .main-btn {
+    padding: 12px 15px !important;
+    font-size: 14px !important;
+  }
+  .main-nav .inner-nav .l-part .logo img {
+    width: 130px;
+  }
+  .main-nav {
+    padding: 12px 0px;
+  }
+}
+@media (max-width: 767px) {
+  .con-grid {
+    grid-template-columns: 1fr;
+  }
+  .container-right {
+    padding: 0 1em;
+  }
+}/*# sourceMappingURL=res.css.map */
