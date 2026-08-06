@@ -118,42 +118,51 @@
       "default": true
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "marquee_speed",
       "label": "Marquee Speed",
-      "min": 1000,
-      "max": 10000,
-      "step": 500,
-      "default": 4000,
-      "unit": "ms"
+      "default": "4000",
+      "options": [
+        { "value": "2000", "label": "Fast (2s)" },
+        { "value": "4000", "label": "Medium (4s)" },
+        { "value": "6000", "label": "Slow (6s)" },
+        { "value": "8000", "label": "Very Slow (8s)" }
+      ]
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "slides_desktop",
-      "label": "Logos visible per screen on Desktop",
-      "min": 2,
-      "max": 8,
-      "step": 1,
-      "default": 5
+      "label": "Desktop Visible Logos",
+      "default": "5",
+      "options": [
+        { "value": "3", "label": "3 Logos" },
+        { "value": "4", "label": "4 Logos" },
+        { "value": "5", "label": "5 Logos" },
+        { "value": "6", "label": "6 Logos" },
+        { "value": "8", "label": "8 Logos" }
+      ]
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "slides_mobile",
-      "label": "Logos visible per screen on Mobile",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 2
+      "label": "Mobile Visible Logos",
+      "default": "2",
+      "options": [
+        { "value": "1", "label": "1 Logo" },
+        { "value": "2", "label": "2 Logos" },
+        { "value": "3", "label": "3 Logos" }
+      ]
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "space_between",
       "label": "Space Between Logos",
-      "min": 10,
-      "max": 60,
-      "step": 5,
-      "default": 30,
-      "unit": "px"
+      "default": "30",
+      "options": [
+        { "value": "15", "label": "Compact (15px)" },
+        { "value": "30", "label": "Standard (30px)" },
+        { "value": "45", "label": "Wide (45px)" }
+      ]
     }
   ],
   "blocks": [
