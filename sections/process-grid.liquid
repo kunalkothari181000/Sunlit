@@ -21,21 +21,16 @@
       <div class="col-12">
         <div class="ar-grid" data-aos="fade-up" data-aos-duration="1000" >
 
-          {% if section.settings.arrow_1 %}
-            <img 
-              src="{{ section.settings.arrow_1 | image_url: width: 300 }}" 
-              class="ar1" 
-              alt="arrow"
-            >
-          {% endif %}
+          <!-- Custom Animated SVG Curved Arrows -->
+          <svg class="custom-process-arrow ar-svg-1" viewBox="0 0 260 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10,85 Q 130,5 245,78" stroke="#f97316" stroke-width="3.5" stroke-dasharray="8 6" stroke-linecap="round" class="animated-dash-path"/>
+            <polygon points="248,80 236,73 240,86" fill="#f97316"/>
+          </svg>
 
-          {% if section.settings.arrow_2 %}
-            <img 
-              src="{{ section.settings.arrow_2 | image_url: width: 300 }}" 
-              class="ar2" 
-              alt="arrow"
-            >
-          {% endif %}
+          <svg class="custom-process-arrow ar-svg-2" viewBox="0 0 260 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 10,15 Q 130,95 245,22" stroke="#f97316" stroke-width="3.5" stroke-dasharray="8 6" stroke-linecap="round" class="animated-dash-path"/>
+            <polygon points="248,20 240,12 236,25" fill="#f97316"/>
+          </svg>
 
           {% for block in section.blocks %}
             <div class="ar-wrap" {{ block.shopify_attributes }}>

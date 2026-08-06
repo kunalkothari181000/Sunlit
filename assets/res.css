@@ -593,124 +593,75 @@ html.lenis, html.lenis body {
 
 
 
-/* ── 22. STATIC PRODUCT SLIDER ENHANCEMENTS ───────────────────────────── */
-.pr-card {
-  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.38s ease !important;
-  will-change: transform;
+/* ── 22. STATIC PRODUCT SLIDER & PAGINATION DOTS ──────────────────────── */
+.pr-slider .swiper-pagination {
+  position: relative !important;
+  bottom: auto !important;
+  margin-top: 35px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
 }
 
-.pr-card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.14) !important;
+.pr-slider .swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: #cbd5e1 !important;
+  opacity: 1 !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  cursor: pointer !important;
 }
 
-.pr-card .pr-img-2 img {
-  transition: transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1),
-              filter 0.38s ease !important;
-  will-change: transform;
+.pr-slider .swiper-pagination-bullet-active {
+  background: #f97316 !important;
+  width: 26px !important;
+  border-radius: 100px !important;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4) !important;
 }
 
-.pr-card:hover .pr-img-2 img {
-  transform: translateY(-10px) scale(1.05) !important;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18)) !important;
-}
-
-.pr-card .arrow-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-              filter 0.3s ease !important;
-}
-
-.pr-card:hover .arrow-icon {
-  transform: scale(1.15) rotate(45deg);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
-}
-
-/* ── 23. PROCESS GRID ANIMATED ARROWS ON SCROLL ────────────────────────── */
-.ar-grid .ar1, .ar-grid .ar2 {
-  transition: transform 0.5s ease, filter 0.5s ease;
-  animation: arFloat 3.5s infinite ease-in-out;
-  filter: drop-shadow(0 6px 14px rgba(249, 115, 22, 0.35));
-  will-change: transform;
-}
-
-.ar-grid .ar2 {
-  animation-delay: 1.75s;
-}
-
-@keyframes arFloat {
-  0%, 100% {
-    transform: translateY(-100%) scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translateY(-108%) scale(1.06);
-    opacity: 1;
-    filter: drop-shadow(0 10px 20px rgba(249, 115, 22, 0.5));
-  }
-}
-
-.ar-wrap {
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
-}
-
-.ar-wrap:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 45px rgba(15, 40, 30, 0.35);
-  border-color: rgba(249, 115, 22, 0.5) !important;
-}
-
-/* ── 24. REDESIGNED PREMIUM CTA SECTION ─────────────────────────────────── */
-.cta-wrap {
-  position: relative;
-  overflow: hidden;
-  border-radius: 28px !important;
-  padding: 5em 2.5em !important;
-  background: linear-gradient(135deg, #184333 0%, #0f2c22 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 30px 70px rgba(10, 30, 20, 0.32) !important;
-  text-align: center;
-}
-
-.cta-wrap::before {
-  content: '';
+/* ── 23. PROCESS GRID CUSTOM ANIMATED SVG CURVED ARROWS ─────────────────── */
+.custom-process-arrow {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, transparent 60%);
+  z-index: 4;
   pointer-events: none;
+  overflow: visible;
 }
 
-.cta-wrap .sec-head {
-  color: #ffffff !important;
-  font-size: 38px !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 16px !important;
-  letter-spacing: -0.02em;
+.ar-svg-1 {
+  left: 20%;
+  top: -45px;
+  width: 22%;
+  height: 90px;
 }
 
-.cta-wrap .para {
-  color: rgba(255, 255, 255, 0.88) !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-  max-width: 620px;
-  margin: 0 auto 32px !important;
+.ar-svg-2 {
+  right: 20%;
+  bottom: -45px;
+  width: 22%;
+  height: 90px;
 }
 
-.cta-wrap .main-btn {
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4) !important;
-  animation: ctaBtnGlow 3s infinite ease-in-out;
+.animated-dash-path {
+  animation: processDashFlow 2.2s linear infinite;
+  filter: drop-shadow(0 2px 8px rgba(249, 115, 22, 0.4));
 }
 
-@keyframes ctaBtnGlow {
-  0%, 100% { box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4); }
-  50% { box-shadow: 0 16px 45px rgba(249, 115, 22, 0.7); }
+@keyframes processDashFlow {
+  from {
+    stroke-dashoffset: 28;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .custom-process-arrow {
+    display: none !important;
+  }
 }
 
 /* ── 25. FOOTER SUBSIDIARY BADGE ────────────────────────────────────────── */

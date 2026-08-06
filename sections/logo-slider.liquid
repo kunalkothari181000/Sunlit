@@ -115,18 +115,17 @@
       "type": "checkbox",
       "id": "enable_marquee",
       "label": "Enable Non-Stop Marquee Loop",
-      "default": true,
-      "info": "Continuous infinite scrolling logo ticker"
+      "default": true
     },
     {
       "type": "range",
       "id": "marquee_speed",
-      "label": "Marquee Speed (ms)",
+      "label": "Marquee Speed",
       "min": 1000,
       "max": 10000,
       "step": 500,
       "default": 4000,
-      "info": "Lower value = faster continuous scroll"
+      "unit": "ms"
     },
     {
       "type": "range",
@@ -135,8 +134,7 @@
       "min": 2,
       "max": 8,
       "step": 1,
-      "default": 5,
-      "info": "Applies when marquee loop is disabled or as base width"
+      "default": 5
     },
     {
       "type": "range",
@@ -150,11 +148,12 @@
     {
       "type": "range",
       "id": "space_between",
-      "label": "Space Between Logos (px)",
+      "label": "Space Between Logos",
       "min": 10,
       "max": 60,
       "step": 5,
-      "default": 30
+      "default": 30,
+      "unit": "px"
     }
   ],
   "blocks": [
@@ -181,7 +180,6 @@
       "name": "Logo Slider",
       "category": "Custom",
       "blocks": [
-        { "type": "logo" },
         { "type": "logo" },
         { "type": "logo" },
         { "type": "logo" },
