@@ -172,39 +172,75 @@
       </div>
     </div>
 
-    <!-- Process Pillars (Editable in Theme Editor with Custom Icon Upload) -->
+    <!-- Process Pillars (with solid defaults and Theme Editor icon upload option) -->
     <div class="row g-4 mb-5">
-      {% for block in section.blocks %}
-        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ forloop.index0 | times: 120 }}" {{ block.shopify_attributes }}>
-          <div class="process-card-box">
-            
-            <div class="pcb-icon-wrap">
-              {% if block.settings.icon %}
-                <img src="{{ block.settings.icon | image_url: width: 120 }}" alt="{{ block.settings.title | escape }}">
-              {% elsif forloop.index == 1 %}
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              {% elsif forloop.index == 2 %}
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
-              {% else %}
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ forloop.index0 | times: 120 }}" {{ block.shopify_attributes }}>
+            <div class="process-card-box">
+              
+              <div class="pcb-icon-wrap">
+                {% if block.settings.icon %}
+                  <img src="{{ block.settings.icon | image_url: width: 120 }}" alt="{{ block.settings.title | escape }}">
+                {% elsif forloop.index == 1 %}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                {% elsif forloop.index == 2 %}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+                {% else %}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                {% endif %}
+              </div>
+
+              {% if block.settings.step != blank %}
+                <span class="pcb-step">{{ block.settings.step }}</span>
               {% endif %}
+
+              {% if block.settings.title != blank %}
+                <h3 class="pcb-title">{{ block.settings.title }}</h3>
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <p class="pcb-desc">{{ block.settings.text }}</p>
+              {% endif %}
+
             </div>
-
-            {% if block.settings.step != blank %}
-              <span class="pcb-step">{{ block.settings.step }}</span>
-            {% endif %}
-
-            {% if block.settings.title != blank %}
-              <h3 class="pcb-title">{{ block.settings.title }}</h3>
-            {% endif %}
-
-            {% if block.settings.text != blank %}
-              <p class="pcb-desc">{{ block.settings.text }}</p>
-            {% endif %}
-
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- DEFAULT 3 ATTA PROCESS CARDS -->
+        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000">
+          <div class="process-card-box">
+            <div class="pcb-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="pcb-step">Step 01 • Sourcing</span>
+            <h3 class="pcb-title">Selected Wheat</h3>
+            <p class="pcb-desc">Only premium quality MP wheat grains are carefully selected to ensure consistent taste, texture, and natural sweetness.</p>
           </div>
         </div>
-      {% endfor %}
+
+        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+          <div class="process-card-box">
+            <div class="pcb-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+            </div>
+            <span class="pcb-step">Step 02 • Milling</span>
+            <h3 class="pcb-title">Chakki Ground</h3>
+            <p class="pcb-desc">Traditionally stone-ground under controlled low temperatures to preserve dietary fiber, essential vitamins, and moisture for softer rotis.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <div class="process-card-box">
+            <div class="pcb-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="pcb-step">Step 03 • Packaging</span>
+            <h3 class="pcb-title">Hygienically Packed</h3>
+            <p class="pcb-desc">Multiple automated checks during milling & packing in zero-contamination Swiss Bühler environments maintain maximum freshness and safety.</p>
+          </div>
+        </div>
+      {% endif %}
     </div>
 
     <!-- Nutritional Facts & Specification Box -->
