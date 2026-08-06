@@ -807,7 +807,11 @@ html.lenis, html.lenis body {
     margin-top: 1em;
   }
   .ar-grid img {
-    d/* ── 26. VISUAL-FIRST PAGE HERO BANNERS & PAGE STYLING ────────────────── */
+    display: none !important;
+  }
+}
+
+/* ── 26. VISUAL-FIRST PAGE HERO BANNERS & PAGE STYLING ────────────────── */
 .page-hero-banner {
   position: relative;
   background: linear-gradient(135deg, #184333 0%, #0a241a 100%);
@@ -1367,8 +1371,6 @@ html.lenis, html.lenis body {
   .visual-process-card {
     padding: 1.8em 1.4em;
   }
-}
-/*# sourceMappingURL=res.css.map */lex-shrink: 0;
 }
 
 /* Careers Page */
