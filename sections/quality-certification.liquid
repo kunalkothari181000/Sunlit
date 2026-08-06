@@ -45,13 +45,16 @@
     gap: 8px;
     box-shadow: 0 8px 25px rgba(24, 67, 51, 0.35);
   }
-  .qual-cards-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.6em !important;
+
+  /* 3D Stacking Cards Container */
+  .qual-cards-stack-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4em;
   }
-  .qual-card-item {
-    position: relative !important;
+  .qual-card-stack-item {
+    position: sticky !important;
     display: flex !important;
     align-items: center !important;
     gap: 24px !important;
@@ -59,45 +62,31 @@
     border: 1.5px solid #e2e8f0 !important;
     border-radius: 26px !important;
     padding: 2.2em 2.4em !important;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04) !important;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    overflow: hidden !important;
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.04), 0 15px 45px rgba(0, 0, 0, 0.08) !important;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+    margin-bottom: 24px;
   }
-  .qual-card-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 6px;
-    background: linear-gradient(180deg, #f97316 0%, #184333 100%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-  .qual-card-item:hover {
-    transform: translateX(10px) translateY(-3px) !important;
+  .qual-card-stack-item:hover {
+    transform: translateY(-4px) !important;
     border-color: #f97316 !important;
-    box-shadow: 0 25px 60px rgba(249, 115, 22, 0.12) !important;
-  }
-  .qual-card-item:hover::before {
-    opacity: 1;
+    box-shadow: 0 20px 50px rgba(249, 115, 22, 0.14) !important;
   }
   .qc-icon-box {
-    width: 64px !important;
-    height: 64px !important;
-    background: linear-gradient(135deg, rgba(249, 115, 22, 0.14) 0%, rgba(255, 183, 77, 0.2) 100%) !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12) 0%, rgba(255, 183, 77, 0.18) 100%) !important;
     color: #f97316 !important;
-    border-radius: 20px !important;
+    border-radius: 18px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.15) !important;
-    transition: transform 0.35s ease, background 0.35s ease !important;
+    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.12) !important;
+    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease !important;
   }
-  .qual-card-item:hover .qc-icon-box {
-    transform: scale(1.1) rotate(-4deg) !important;
-    background: linear-gradient(135deg, #184333 0%, #0f2c22 100%) !important;
+  .qual-card-stack-item:hover .qc-icon-box {
+    transform: scale(1.08) !important;
+    background: #184333 !important;
     color: #ffb74d !important;
   }
   .qc-content {
@@ -135,23 +124,26 @@
   .qc-check-icon {
     width: 38px !important;
     height: 38px !important;
-    background: linear-gradient(135deg, #184333 0%, #0a241a 100%) !important;
-    color: #ffb74d !important;
+    background: rgba(24, 67, 51, 0.08) !important;
+    color: #184333 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
-    box-shadow: 0 6px 16px rgba(24, 67, 51, 0.2) !important;
-    transition: transform 0.35s ease, background 0.35s ease !important;
+    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease !important;
   }
-  .qual-card-item:hover .qc-check-icon {
-    transform: scale(1.15) !important;
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+  .qual-card-stack-item:hover .qc-check-icon {
+    transform: scale(1.12) !important;
+    background: #f97316 !important;
     color: #ffffff !important;
   }
   @media (max-width: 991px) {
     .qual-left-sticky {
+      position: relative !important;
+      top: 0 !important;
+    }
+    .qual-card-stack-item {
       position: relative !important;
       top: 0 !important;
     }
@@ -204,15 +196,16 @@
         </div>
       </div>
 
-      <!-- RIGHT CERTIFICATION CARDS (Ultra-Modern Premium Cards) -->
+      <!-- RIGHT CERTIFICATION CARDS (Stacked Scroll Animation) -->
       <div class="col-lg-7 col-12">
-        <div class="qual-cards-list">
+        <div class="qual-cards-stack-wrapper">
           {% for block in section.blocks %}
+            {% assign sticky_top = 120 | plus: forloop.index0 | times: 65 %}
             <div 
-              class="qual-card-item" 
+              class="qual-card-stack-item" 
+              style="top: {{ sticky_top }}px; z-index: {{ forloop.index }};" 
               data-aos="fade-up" 
               data-aos-duration="800" 
-              data-aos-delay="{{ forloop.index0 | times: 120 }}" 
               {{ block.shopify_attributes }}
             >
 
@@ -223,7 +216,7 @@
                     alt="{{ block.settings.title | escape }}"
                   >
                 {% else %}
-                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 {% endif %}
               </div>
 
