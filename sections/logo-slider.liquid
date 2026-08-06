@@ -57,7 +57,9 @@
       if (!container) return;
 
       if (container.swiper) {
-        container.swiper.destroy(true, true);
+        try {
+          container.swiper.destroy(true, true);
+        } catch (e) {}
       }
 
       var isMarquee = container.getAttribute("data-marquee") === "true";
@@ -67,7 +69,7 @@
       var space = parseInt(container.getAttribute("data-space")) || 30;
 
       if (isMarquee) {
-        new Swiper(".lg-swiper-{{ section.id }}", {
+        new Swiper(container, {
           loop: true,
           autoplay: {
             delay: 0,
@@ -82,7 +84,7 @@
           allowTouchMove: false
         });
       } else {
-        new Swiper(".lg-swiper-{{ section.id }}", {
+        new Swiper(container, {
           loop: true,
           autoplay: {
             delay: 2500,
@@ -109,8 +111,17 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", initLogoSwiper_{{ section.id | replace: '-', '_' }});
-    document.addEventListener("shopify:section:load", initLogoSwiper_{{ section.id | replace: '-', '_' }});
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initLogoSwiper_{{ section.id | replace: '-', '_' }});
+    } else {
+      initLogoSwiper_{{ section.id | replace: '-', '_' }}();
+    }
+
+    document.addEventListener("shopify:section:load", function (e) {
+      if (e.detail && e.detail.sectionId === "{{ section.id }}") {
+        initLogoSwiper_{{ section.id | replace: '-', '_' }}();
+      }
+    });
   })();
 </script>
 
