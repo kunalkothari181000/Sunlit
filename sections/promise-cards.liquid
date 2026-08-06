@@ -13,17 +13,17 @@
       <div class="container">
 
         <!-- Heading -->
-        <div class="row mb-4">
+        <div class="row mb-5">
           <div class="col-12 text-center">
             
             {% if section.settings.subheading != blank %}
-              <h3 class="sub-head white" data-aos="fade-up" data-aos-duration="1000">
+              <span class="promise-subheading" data-aos="fade-up" data-aos-duration="800">
                 {{ section.settings.subheading }}
-              </h3>
+              </span>
             {% endif %}
 
             {% if section.settings.heading != blank %}
-              <h2 class="sec-head white" data-aos="fade-up" data-aos-duration="1000">
+              <h2 class="sec-head promise-heading white" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 {{ section.settings.heading }}
               </h2>
             {% endif %}
@@ -36,15 +36,30 @@
           {% for block in section.blocks %}
             <div class="col-lg-3 col-md-6 col-12 d-flex" {{ block.shopify_attributes }}>
               <div class="d-card w-100" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="d-card-top-bar"></div>
 
-                <div class="d-card-img-wrap">
-                  {% if block.settings.image %}
-                    <img 
-                      src="{{ block.settings.image | image_url: width: 300 }}" 
-                      alt="{{ block.settings.title | escape }}"
-                      loading="lazy"
-                    >
-                  {% endif %}
+                <div class="d-card-header d-flex align-items-center justify-content-between">
+                  <div class="promise-icon-badge">
+                    {% if block.settings.image %}
+                      <img 
+                        src="{{ block.settings.image | image_url: width: 240 }}" 
+                        alt="{{ block.settings.title | escape }}"
+                        loading="lazy"
+                      >
+                    {% else %}
+                      {% case forloop.index %}
+                        {% when 1 %}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        {% when 2 %}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        {% when 3 %}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        {% else %}
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      {% endcase %}
+                    {% endif %}
+                  </div>
+                  <span class="promise-card-num">0{{ forloop.index }}</span>
                 </div>
 
                 <div class="con">
