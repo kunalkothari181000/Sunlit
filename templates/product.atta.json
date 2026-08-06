@@ -45,7 +45,7 @@
       ],
       "name": "Product Hero",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/pr-inner-bg.jpg",
+        "bg_image": "shopify://shop_images/pr-inner-bg.jpg",
         "eyebrow": "Whole Wheat",
         "heading": "Chakki Atta",
         "subtitle": "Made from MP Wheat • Stone Ground Chakki Quality",
@@ -53,13 +53,26 @@
         "pill_2": "No Maida",
         "pill_3": "Zero Preservatives",
         "description": "Made from carefully selected, high-quality MP wheat and stone-ground under controlled conditions to preserve natural fiber, dietary nutrition, and freshness in every pack.",
-        "product_image": "shopify:\/\/shop_images\/pr-hero.png",
+        "product_image": "shopify://shop_images/pr-hero.png",
         "button_label": "Inquire Bulk / Wholesale",
-        "button_link": "\/pages\/contact-us"
+        "button_link": "/pages/contact-us"
       }
     },
     "atta_details_section": {
       "type": "atta-details-section",
+      "blocks": {
+        "step_bAwNwN": {
+          "type": "step",
+          "settings": {
+            "step": "Step 01 • Sourcing",
+            "title": "Selected Wheat",
+            "text": "Only premium quality MP wheat grains are carefully selected to ensure consistent taste, texture, and natural sweetness."
+          }
+        }
+      },
+      "block_order": [
+        "step_bAwNwN"
+      ],
       "name": "Atta Specifications",
       "settings": {}
     },
@@ -69,7 +82,7 @@
         "card_mQJyj7": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "image": "shopify://shop_images/c1.jpg",
             "title": "Selected MP Wheat",
             "text": "Sourced from premier agricultural belts to ensure superior grain quality and natural taste."
           }
@@ -77,7 +90,7 @@
         "card_zwwF4D": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "image": "shopify://shop_images/c1.jpg",
             "title": "Swiss Bühler Technology",
             "text": "Automated zero-touch milling and optical sorting for absolute purity."
           }
@@ -85,7 +98,7 @@
         "card_y7PVBW": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/c1.jpg",
+            "image": "shopify://shop_images/c1.jpg",
             "title": "Hygienic Packaging",
             "text": "Multiple automated checks ensure airtight freshness and safety in every bag."
           }
@@ -108,7 +121,7 @@
         "feature_8tJMkM": {
           "type": "feature",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icc1.svg",
+            "icon": "shopify://shop_images/icc1.svg",
             "title": "Soft Rotis",
             "text": "Ensures soft, fluffy rotis with excellent taste."
           }
@@ -116,7 +129,7 @@
         "feature_dgENVk": {
           "type": "feature",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icc2.svg",
+            "icon": "shopify://shop_images/icc2.svg",
             "title": "Easy to Cook",
             "text": "Smooth dough formation and hassle-free preparation."
           }
@@ -124,7 +137,7 @@
         "feature_8yLCQa": {
           "type": "feature",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/icc3.svg",
+            "icon": "shopify://shop_images/icc3.svg",
             "title": "Suitable for Daily Use",
             "text": "Perfect for everyday household consumption and regular cooking needs."
           }
@@ -138,19 +151,19 @@
       "name": "Product CTA Advanced",
       "settings": {
         "heading": "Everyday perfection in your kitchen.",
-        "main_image": "shopify:\/\/shop_images\/prr.png",
-        "overlay_image": "shopify:\/\/shop_images\/pr-pt.svg"
+        "main_image": "shopify://shop_images/prr.png",
+        "overlay_image": "shopify://shop_images/pr-pt.svg"
       }
     },
     "cta_section_JjwcRX": {
       "type": "cta-section",
       "name": "CTA Section",
       "settings": {
-        "bg_image": "shopify:\/\/shop_images\/cta-bg.jpg",
+        "bg_image": "shopify://shop_images/cta-bg.jpg",
         "heading": "Partner with Sunlit Farms for Bulk Atta Supply",
         "subtext": "Available for B2B Procurement, FMCG Retail & Wholesale Distribution",
         "button_label": "Contact Sales Team",
-        "button_link": "\/pages\/contact-us"
+        "button_link": "/pages/contact-us"
       }
     }
   },
