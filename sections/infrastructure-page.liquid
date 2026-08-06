@@ -1,171 +1,191 @@
-<section class="infra-sec sec">
+<div class="page-hero-banner">
   <div class="container">
-    
-    <!-- Hero Title -->
-    <div class="row text-center mb-5">
+    <div class="row text-center">
       <div class="col-lg-8 col-12 mx-auto">
-        <h1 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
-          {{ section.settings.heading | default: "World-Class Milling Infrastructure" }}
+        <span class="hero-tag-badge" data-aos="fade-down" data-aos-duration="1000">Advanced Manufacturing</span>
+        <h1 class="hero-page-head text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          World-Class Milling Infrastructure
         </h1>
-        <p class="para mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          {{ section.settings.subtext | default: "Powered by advanced Bühler milling technology, automated packaging lines, and multi-tier quality control laboratories across India." }}
+        <p class="hero-page-subtext text-white-50" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          Engineered for purity, consistency, and high-volume output powered by Swiss Bühler automation.
         </p>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Infrastructure Key Highlights -->
+<section class="infra-sec sec">
+  <div class="container">
+
+    <!-- Stat Highlights -->
     <div class="row g-4 mb-5">
-      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="1000">
-        <div class="infra-stat-card">
-          <h2>1,200 MT</h2>
-          <p class="para">Daily Sourcing & Milling Capacity</p>
+      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800">
+        <div class="infra-stat-box">
+          <div class="s-glow"></div>
+          <h2 class="stat-num">1,200 <span class="unit">MT</span></h2>
+          <p class="stat-label">Daily Sourcing & Milling</p>
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        <div class="infra-stat-card">
-          <h2>500k+</h2>
-          <p class="para">Sq. Ft. Integrated Facilities</p>
+      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        <div class="infra-stat-box">
+          <div class="s-glow"></div>
+          <h2 class="stat-num">500k+ <span class="unit">Sq Ft</span></h2>
+          <p class="stat-label">Integrated Facilities</p>
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <div class="infra-stat-card">
-          <h2>Bühler</h2>
-          <p class="para">Swiss Automated Milling Lines</p>
+      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <div class="infra-stat-box">
+          <div class="s-glow"></div>
+          <h2 class="stat-num">Bühler</h2>
+          <p class="stat-label">Automated Swiss Technology</p>
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="infra-stat-card">
-          <h2>100%</h2>
-          <p class="para">Touch-Free Hygienic Packing</p>
+      <div class="col-lg-3 col-sm-6 col-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        <div class="infra-stat-box">
+          <div class="s-glow"></div>
+          <h2 class="stat-num">100%</h2>
+          <p class="stat-label">Touch-Free Hygienic Packing</p>
         </div>
       </div>
     </div>
 
-    <!-- Factory & Milling Units Grid -->
-    <div class="row text-center mb-4">
+    <!-- Section Heading -->
+    <div class="row text-center mb-5">
       <div class="col-12">
-        <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
-          Our Manufacturing & Milling Plants
-        </h2>
+        <span class="sub-pill">Our Units</span>
+        <h2 class="sec-head with-gr d-inline-block">Manufacturing & Milling Hubs</h2>
       </div>
     </div>
 
+    <!-- 3 Plant Cards Grid with High Visual Elegance -->
     <div class="row g-4 mb-5">
       
       <!-- Unit 1 -->
       <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000">
-        <div class="plant-card">
-          <div class="plant-header">
-            <span class="p-badge">Madhya Pradesh Plant</span>
-            <h3>AAM - Akshat Agro Milling Company Pvt. Ltd.</h3>
+        <div class="plant-hero-card">
+          <div class="plant-img-wrap">
+            <img src="{{ 'ss.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="AAM Milling Plant" class="plant-img">
+            <span class="p-location-tag">Madhya Pradesh</span>
           </div>
-          <div class="plant-body">
-            <p class="p-addr">
+          <div class="plant-card-body">
+            <h3 class="plant-title">AAM - Akshat Agro Milling Co. Pvt. Ltd.</h3>
+            <p class="plant-addr-text">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              1 to 8 and 23 to 33, AKVN Food Park, VILL - Nimrani, Dist - Khargone. 451001, Madhya Pradesh
+              1 to 8 & 23 to 33, AKVN Food Park, VILL - Nimrani, Dist - Khargone. 451001, MP
             </p>
-            <div class="fssai-box mt-3">
-              <span class="fssai-label">FSSAI Lic. No.</span>
-              <span class="fssai-num">11414890000281</span>
+            <div class="fssai-pill-badge">
+              <span>FSSAI Lic. No.</span>
+              <strong>11414890000281</strong>
             </div>
-            <ul class="plant-features">
-              <li>High-Capacity Grain Storage Silos</li>
-              <li>Precision Grinding & Sifting Systems</li>
-              <li>Automated Moisture Monitoring</li>
-            </ul>
+            <div class="p-tags-row">
+              <span class="p-mini-tag">Grain Silos</span>
+              <span class="p-mini-tag">Optical Sorting</span>
+              <span class="p-mini-tag">Bühler Milling</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Unit 2 -->
       <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
-        <div class="plant-card">
-          <div class="plant-header">
-            <span class="p-badge">Uttar Pradesh Plant 1</span>
-            <h3>ARF - Akshat Roller Flour Mill Pvt. Ltd.</h3>
+        <div class="plant-hero-card">
+          <div class="plant-img-wrap">
+            <img src="{{ 'hero.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="ARF Milling Plant" class="plant-img">
+            <span class="p-location-tag">Uttar Pradesh</span>
           </div>
-          <div class="plant-body">
-            <p class="p-addr">
+          <div class="plant-card-body">
+            <h3 class="plant-title">ARF - Akshat Roller Flour Mill Pvt. Ltd.</h3>
+            <p class="plant-addr-text">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               A-4(A), Industrial Area, Ramnagar, Chandauli. 221110, Uttar Pradesh
             </p>
-            <div class="fssai-box mt-3">
-              <span class="fssai-label">FSSAI Lic. No.</span>
-              <span class="fssai-num">12720039000182</span>
+            <div class="fssai-pill-badge">
+              <span>FSSAI Lic. No.</span>
+              <strong>12720039000182</strong>
             </div>
-            <ul class="plant-features">
-              <li>Advanced Roller Flour Technology</li>
-              <li>Zero-Hand-Touch Hygienic Lines</li>
-              <li>Multi-Stage Contamination Filters</li>
-            </ul>
+            <div class="p-tags-row">
+              <span class="p-mini-tag">Roller Flour Mill</span>
+              <span class="p-mini-tag">Zero Touch Packing</span>
+              <span class="p-mini-tag">Destoning</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Unit 3 -->
       <div class="col-lg-4 col-md-12 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <div class="plant-card">
-          <div class="plant-header">
-            <span class="p-badge">Uttar Pradesh Plant 2</span>
-            <h3>Simran Food Pvt. Ltd.</h3>
+        <div class="plant-hero-card">
+          <div class="plant-img-wrap">
+            <img src="{{ 'hm-header.jpg' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Simran Food Plant" class="plant-img">
+            <span class="p-location-tag">Varanasi, UP</span>
           </div>
-          <div class="plant-body">
-            <p class="p-addr">
+          <div class="plant-card-body">
+            <h3 class="plant-title">Simran Food Pvt. Ltd.</h3>
+            <p class="plant-addr-text">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               P 101/1, Vill - Sujabad, Parao, Varanasi. 221001, Uttar Pradesh
             </p>
-            <div class="fssai-box mt-3">
-              <span class="fssai-label">Processing Center</span>
-              <span class="fssai-num">Hygienic Processing</span>
+            <div class="fssai-pill-badge">
+              <span>Processing Center</span>
+              <strong>Hygienic Hub</strong>
             </div>
-            <ul class="plant-features">
-              <li>Quality Testing Laboratory</li>
-              <li>Bulk Distribution & Logistics Hub</li>
-              <li>Airtight Sealed Packaging</li>
-            </ul>
+            <div class="p-tags-row">
+              <span class="p-mini-tag">Quality Lab</span>
+              <span class="p-mini-tag">Bulk Dispatch</span>
+              <span class="p-mini-tag">Airtight Packing</span>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- Processing Capabilities Section -->
-    <div class="row align-items-center g-4 mt-4">
+    <!-- Visual Process Grid Section -->
+    <div class="row align-items-center g-4 my-5">
       <div class="col-lg-6 col-12" data-aos="fade-right" data-aos-duration="1000">
-        <div class="infra-content-box">
-          <h2 class="sec-head">End-to-End Quality Engineering</h2>
-          <p class="para mb-4">
-            Our facilities are engineered to deliver consistent quality across Chakki Atta, Maida, Sooji, Rawa, and Dalia. From raw grain selection to final dispatch, every step operates under strict international hygiene and safety standards.
-          </p>
-          <div class="infra-feature-list">
-            <div class="if-item">
-              <span class="if-num">01</span>
-              <div>
-                <h4>Automated Cleaning & Destoning</h4>
-                <p class="para">Grains undergo multi-stage magnetic separation and optical sorting to remove impurities.</p>
-              </div>
+        <div class="visual-process-card">
+          <span class="sub-pill">Tech Specs</span>
+          <h2 class="sec-head">Precision Milling Technology</h2>
+          
+          <div class="v-feature-item">
+            <div class="vf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <div class="if-item">
-              <span class="if-num">02</span>
-              <div>
-                <h4>Controlled Temperature Milling</h4>
-                <p class="para">Grinding temperature is strictly monitored to preserve natural nutrients, dietary fiber, and flavor.</p>
-              </div>
+            <div>
+              <h4>Optical Sorter & Magnetic Separator</h4>
+              <p class="para">Eliminates foreign particles, unpolished grains, and dust before milling.</p>
             </div>
-            <div class="if-item">
-              <span class="if-num">03</span>
-              <div>
-                <h4>Hermetic Barrier Packaging</h4>
-                <p class="para">High-barrier packaging protects products from moisture, pests, and ambient contamination.</p>
-              </div>
+          </div>
+
+          <div class="v-feature-item">
+            <div class="vf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h4>Nutrient-Preserving Milling</h4>
+              <p class="para">Temperature-controlled rollers safeguard natural wheat bran, dietary fiber, and germ.</p>
+            </div>
+          </div>
+
+          <div class="v-feature-item">
+            <div class="vf-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div>
+              <h4>Robotic Touch-Free Packing</h4>
+              <p class="para">Fully automated bagging protects against humidity, insects, and atmospheric exposure.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-lg-6 col-12" data-aos="fade-left" data-aos-duration="1000">
-        <div class="infra-visual-card">
-          <img src="{{ 'ss.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Milling Infrastructure" class="img-fluid rounded-4 shadow-lg w-100">
+        <div class="infra-hero-preview-wrap">
+          <img src="{{ 'ss.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Factory Operations" class="i-preview-img">
+          <div class="i-floating-badge">
+            <span class="fb-title">Bühler Certified</span>
+            <span class="fb-text">Automated Grain Processing</span>
+          </div>
         </div>
       </div>
     </div>
@@ -177,21 +197,8 @@
 {
   "name": "Infrastructure Page",
   "tag": "section",
-  "class": "infra-page-section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "World-Class Milling Infrastructure"
-    },
-    {
-      "type": "textarea",
-      "id": "subtext",
-      "label": "Subtext",
-      "default": "Powered by advanced Bühler milling technology, automated packaging lines, and multi-tier quality control laboratories across India."
-    }
-  ],
+  "class": "infrastructure-page-section",
+  "settings": [],
   "presets": [
     {
       "name": "Infrastructure Page"
