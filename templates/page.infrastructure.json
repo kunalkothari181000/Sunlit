@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "infra_main": {
+      "type": "infrastructure-page",
+      "settings": {
+        "heading": "World-Class Milling Infrastructure",
+        "subtext": "Powered by advanced Bühler milling technology, automated packaging lines, and multi-tier quality control laboratories across India."
+      }
+    }
+  },
+  "order": [
+    "infra_main"
+  ]
+}

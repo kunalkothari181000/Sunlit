@@ -871,5 +871,366 @@ html.lenis, html.lenis body {
     max-height: 65px !important;
     object-fit: contain !important;
   }
+/* ── 26. CONTACT, INFRASTRUCTURE & CAREERS PAGES STYLING ───────────────── */
+.contact-info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.2em 1.8em;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.contact-info-card .c-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.contact-info-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.contact-info-card .c-link {
+  font-size: 16px;
+  font-weight: 700;
+  color: #184333;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.contact-info-card a.c-link:hover {
+  color: #f97316;
+}
+
+/* Contact Form Wrap & Factory Locations Card */
+.contact-form-wrap,
+.factory-locations-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 2.8em 2.4em;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  height: 100%;
+}
+
+.form-head {
+  font-size: 26px;
+  font-weight: 800;
+  color: #184333;
+  margin-bottom: 10px;
+}
+
+.factory-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5em;
+  margin-bottom: 1.2em;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.factory-item:hover {
+  border-color: #f97316;
+  transform: translateY(-3px);
+}
+
+.f-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #184333;
+  background: rgba(24, 67, 51, 0.12);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.factory-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.f-addr {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.f-addr svg {
+  color: #f97316;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.fssai-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.fssai-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.fssai-num {
+  font-size: 14px;
+  font-weight: 800;
+  color: #f97316;
+  letter-spacing: 0.04em;
+}
+
+/* Infrastructure Page */
+.infra-stat-card {
+  background: linear-gradient(135deg, #184333 0%, #0f2c22 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 2.2em 1.5em;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(24, 67, 51, 0.25);
+  transition: transform 0.35s ease;
+}
+
+.infra-stat-card:hover {
+  transform: translateY(-6px);
+}
+
+.infra-stat-card h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffb74d;
+  margin-bottom: 8px;
+}
+
+.infra-stat-card .para {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 14px !important;
+  margin-bottom: 0 !important;
+}
+
+.plant-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+}
+
+.plant-header {
+  background: #184333;
+  color: #ffffff;
+  padding: 1.8em 1.5em;
+}
+
+.p-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffb74d;
+  background: rgba(255, 183, 77, 0.18);
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.plant-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.plant-body {
+  padding: 1.8em 1.5em;
+}
+
+.plant-features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.plant-features li {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plant-features li::before {
+  content: '✓';
+  color: #f97316;
+  font-weight: 900;
+}
+
+.infra-feature-list .if-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.if-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Careers Page */
+.career-benefit-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2em 1.5em;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease;
+  height: 100%;
+}
+
+.career-benefit-card:hover {
+  transform: translateY(-6px);
+  border-color: #f97316;
+}
+
+.career-benefit-card .b-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(24, 67, 51, 0.1);
+  color: #184333;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.career-benefit-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease, border-color 0.35s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  border-color: #f97316;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.j-type {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f97316;
+}
+
+.job-header h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #184333;
+  margin-top: 4px;
+}
+
+.j-loc {
+  font-size: 12px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.job-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.j-exp {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.sm-btn {
+  padding: 8px 18px !important;
+  font-size: 13px !important;
 }
 /*# sourceMappingURL=res.css.map */
