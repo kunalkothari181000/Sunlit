@@ -1,4 +1,4 @@
-<div class="page-hero-banner">
+<div class="page-hero-banner infra-hero-banner" style="background: linear-gradient(135deg, rgba(24, 67, 51, 0.88) 0%, rgba(10, 36, 26, 0.92) 100%), url('{{ section.settings.bg_image | image_url: width: 1920 }}') center/cover no-repeat;">
   <div class="container">
     <div class="row text-center">
       <div class="col-lg-8 col-12 mx-auto">
@@ -49,11 +49,15 @@
       </div>
     </div>
 
-    <!-- Section Heading -->
+    <!-- Section Heading (Centered Stack) -->
     <div class="row text-center mb-5">
       <div class="col-12">
-        <span class="sub-pill">Our Units</span>
-        <h2 class="sec-head with-gr d-inline-block">Manufacturing & Milling Hubs</h2>
+        <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
+          <span class="sub-pill">Our Units</span>
+        </div>
+        <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
+          Manufacturing & Milling Hubs
+        </h2>
       </div>
     </div>
 
@@ -64,7 +68,7 @@
       <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000">
         <div class="plant-hero-card">
           <div class="plant-img-wrap">
-            <img src="{{ 'ss.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="AAM Milling Plant" class="plant-img">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="AAM Milling Plant" class="plant-img">
             <span class="p-location-tag">Madhya Pradesh</span>
           </div>
           <div class="plant-card-body">
@@ -90,7 +94,7 @@
       <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
         <div class="plant-hero-card">
           <div class="plant-img-wrap">
-            <img src="{{ 'hero.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="ARF Milling Plant" class="plant-img">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800" alt="ARF Milling Plant" class="plant-img">
             <span class="p-location-tag">Uttar Pradesh</span>
           </div>
           <div class="plant-card-body">
@@ -116,7 +120,7 @@
       <div class="col-lg-4 col-md-12 col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
         <div class="plant-hero-card">
           <div class="plant-img-wrap">
-            <img src="{{ 'hm-header.jpg' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Simran Food Plant" class="plant-img">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800" alt="Simran Food Plant" class="plant-img">
             <span class="p-location-tag">Varanasi, UP</span>
           </div>
           <div class="plant-card-body">
@@ -144,7 +148,9 @@
     <div class="row align-items-center g-4 my-5">
       <div class="col-lg-6 col-12" data-aos="fade-right" data-aos-duration="1000">
         <div class="visual-process-card">
-          <span class="sub-pill">Tech Specs</span>
+          <div class="d-block mb-2">
+            <span class="sub-pill">Tech Specs</span>
+          </div>
           <h2 class="sec-head">Precision Milling Technology</h2>
           
           <div class="v-feature-item">
@@ -181,7 +187,7 @@
 
       <div class="col-lg-6 col-12" data-aos="fade-left" data-aos-duration="1000">
         <div class="infra-hero-preview-wrap">
-          <img src="{{ 'ss.png' | shopify_asset_url | default: 'https://cdn.shopify.com/s/files/1/0000/0000/files/hero.png' }}" alt="Factory Operations" class="i-preview-img">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Factory Operations" class="i-preview-img">
           <div class="i-floating-badge">
             <span class="fb-title">Bühler Certified</span>
             <span class="fb-text">Automated Grain Processing</span>
@@ -198,7 +204,13 @@
   "name": "Infrastructure Page",
   "tag": "section",
   "class": "infrastructure-page-section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Hero Background Image"
+    }
+  ],
   "presets": [
     {
       "name": "Infrastructure Page"
