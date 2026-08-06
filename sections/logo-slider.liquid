@@ -1,6 +1,6 @@
 <section class="lg-slider-sec">
-  <div class="container">
-    <div class="row">
+  <div class="container-fluid px-0">
+    <div class="row g-0">
       <div class="col-12">
         <div class="swiper lg-swiper" data-aos="fade-up" data-aos-duration="1000">
           <div class="swiper-wrapper">
@@ -13,6 +13,24 @@
                     <img 
                       src="{{ block.settings.logo | image_url: width: 300 }}" 
                       alt="{{ block.settings.alt_text | escape }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+
+                </div>
+              </div>
+            {% endfor %}
+
+            {% comment %} Duplicate blocks for seamless infinite marquee loop {% endcomment %}
+            {% for block in section.blocks %}
+              <div class="swiper-slide" aria-hidden="true">
+                <div class="lg-wrap">
+                  
+                  {% if block.settings.logo %}
+                    <img 
+                      src="{{ block.settings.logo | image_url: width: 300 }}" 
+                      alt="{{ block.settings.alt_text | escape }}"
+                      loading="lazy"
                     >
                   {% endif %}
 
@@ -30,27 +48,18 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     var lgswiper = new Swiper(".lg-swiper", {
-      loop: false,
-      slidesPerView: 4,
-      spaceBetween: 0,
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-          spaceBetween: 15,
-        },
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 15,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
+      loop: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
       },
+      speed: 4000,
+      slidesPerView: "auto",
+      spaceBetween: 40,
+      freeMode: true,
+      freeModeMomentum: false,
+      allowTouchMove: false
     });
   });
 </script>
@@ -93,4 +102,4 @@
     }
   ]
 }
-{% endschema %}
+{% endschema %}

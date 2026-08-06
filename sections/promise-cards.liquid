@@ -32,17 +32,20 @@
         </div>
 
         <!-- Cards -->
-        <div class="row">
+        <div class="row g-4 justify-content-center">
           {% for block in section.blocks %}
-            <div class="col-lg-3 col-12" {{ block.shopify_attributes }}>
-              <div class="d-card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-lg-3 col-md-6 col-12 d-flex" {{ block.shopify_attributes }}>
+              <div class="d-card w-100" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
 
-                {% if block.settings.image %}
-                  <img 
-                    src="{{ block.settings.image | image_url: width: auto }}" 
-                    alt="{{ block.settings.title | escape }}"
-                  >
-                {% endif %}
+                <div class="d-card-img-wrap">
+                  {% if block.settings.image %}
+                    <img 
+                      src="{{ block.settings.image | image_url: width: 300 }}" 
+                      alt="{{ block.settings.title | escape }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </div>
 
                 <div class="con">
 
