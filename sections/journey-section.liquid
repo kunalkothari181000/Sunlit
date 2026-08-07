@@ -1,12 +1,12 @@
 <style>
   .journey-sec {
     background: #f8fafc;
-    padding: 6.5em 0 6em;
+    padding-top: 140px !important;
+    padding-bottom: 90px !important;
     position: relative;
     overflow: hidden;
   }
   .journey-header-wrap {
-    margin-top: 1.5em;
     margin-bottom: 4em;
   }
   .timeline-wrapper {
@@ -16,27 +16,35 @@
   }
   .timeline-line-center {
     position: absolute;
-    top: 20px;
-    bottom: 20px;
+    top: 25px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
     z-index: 1;
+    background: #e2e8f0;
+    border-radius: 4px;
   }
-  .timeline-svg-scroll {
+  .timeline-line-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, #f97316 0%, #ffb74d 50%, #184333 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
+    transition: height 0.1s linear;
   }
 
   .timeline-grid-flow {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
     position: relative;
     z-index: 2;
   }
   
-  /* Bulletproof 3-Column Grid: Left Card (1fr) | Center Node (60px) | Right Card (1fr) */
   .timeline-grid-row {
     display: grid !important;
     grid-template-columns: 1fr 60px 1fr !important;
@@ -48,7 +56,7 @@
     background: #ffffff !important;
     border: 1.5px solid #e2e8f0 !important;
     border-radius: 22px !important;
-    padding: 2em 2.2em !important;
+    padding: 2.2em 2.4em !important;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04) !important;
     transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
     position: relative !important;
@@ -99,24 +107,27 @@
     width: 26px;
     height: 26px;
     background: #ffffff;
-    border: 3px solid #f97316;
+    border: 3px solid #cbd5e1;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 0 4px rgba(203, 213, 225, 0.2);
     transition: all 0.35s ease;
   }
-  .timeline-grid-row:hover .node-ring {
-    transform: scale(1.25);
-    border-color: #184333;
-    box-shadow: 0 0 0 7px rgba(24, 67, 51, 0.2);
+  .timeline-grid-row.active-node .node-ring {
+    border-color: #f97316;
+    box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.25);
   }
   .node-dot {
     width: 8px;
     height: 8px;
-    background: #f97316;
+    background: #cbd5e1;
     border-radius: 50%;
+    transition: background 0.35s ease;
+  }
+  .timeline-grid-row.active-node .node-dot {
+    background: #f97316;
   }
 
   /* 2025 Sunlit Logo Space */
@@ -147,6 +158,9 @@
   }
 
   @media (max-width: 991px) {
+    .journey-sec {
+      padding-top: 110px !important;
+    }
     .timeline-line-center {
       left: 20px;
     }
@@ -172,10 +186,10 @@
   }
 </style>
 
-<section class="journey-sec sec">
+<section class="journey-sec sec" id="journeySec">
   <div class="container">
     
-    <!-- Section Header (Clean Spaced Stack) -->
+    <!-- Section Header (Clear Top Clearance) -->
     <div class="journey-header-wrap text-center">
       <div class="row">
         <div class="col-lg-8 col-12 mx-auto">
@@ -192,25 +206,15 @@
       </div>
     </div>
 
-    <!-- Timeline Wrapper with SVG Scroll Line -->
+    <!-- Timeline Wrapper with Interactive Animated Scroll Line -->
     <div class="timeline-wrapper">
       
-      <!-- Central Animated SVG Line -->
+      <!-- Central Animated Progress Line -->
       <div class="timeline-line-center">
-        <svg class="timeline-svg-scroll" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none">
-          <line x1="2" y1="0" x2="2" y2="1000" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 6"/>
-          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#timelineGlow)" stroke-width="4"/>
-          <defs>
-            <linearGradient id="timelineGlow" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#f97316"/>
-              <stop offset="0.5" stop-color="#ffb74d"/>
-              <stop offset="1" stop-color="#184333"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <div class="timeline-line-progress" id="journeyProgressLine"></div>
       </div>
 
-      <!-- Timeline Items (Bulletproof CSS Grid Rows) -->
+      <!-- Timeline Items -->
       <div class="timeline-grid-flow">
         {% for block in section.blocks %}
           {% assign is_even = forloop.index | modulo: 2 %}
@@ -286,6 +290,39 @@
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var journeySec = document.getElementById('journeySec');
+    var progressLine = document.getElementById('journeyProgressLine');
+    var rows = document.querySelectorAll('.timeline-grid-row');
+
+    if (!journeySec || !progressLine) return;
+
+    function updateTimelineScroll() {
+      var rect = journeySec.getBoundingClientRect();
+      var windowHeight = window.innerHeight;
+      
+      var totalHeight = rect.height;
+      var currentProgress = windowHeight - rect.top;
+      var percentage = Math.max(0, Math.min(100, (currentProgress / totalHeight) * 100));
+
+      progressLine.style.height = percentage + '%';
+
+      rows.forEach(function(row) {
+        var rowRect = row.getBoundingClientRect();
+        if (rowRect.top < windowHeight * 0.75) {
+          row.classList.add('active-node');
+        } else {
+          row.classList.remove('active-node');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateTimelineScroll);
+    updateTimelineScroll();
+  });
+</script>
 
 {% schema %}
 {
