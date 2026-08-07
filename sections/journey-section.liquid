@@ -1,18 +1,23 @@
 <style>
   .journey-sec {
     background: #f8fafc;
-    padding: 6em 0;
+    padding: 6.5em 0 6em;
     position: relative;
+    overflow: hidden;
+  }
+  .journey-header-wrap {
+    margin-top: 1.5em;
+    margin-bottom: 4em;
   }
   .timeline-wrapper {
     position: relative;
-    max-width: 1100px;
+    max-width: 1050px;
     margin: 0 auto;
   }
   .timeline-line-center {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 20px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
@@ -22,50 +27,36 @@
     width: 100%;
     height: 100%;
   }
-  .timeline-glow-pulse {
-    animation: glowMove 3s infinite linear;
-  }
-  @keyframes glowMove {
-    0% { stroke-dashoffset: 100; }
-    100% { stroke-dashoffset: 0; }
-  }
 
-  .timeline-items-flow {
+  .timeline-grid-flow {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 36px;
     position: relative;
     z-index: 2;
   }
-  .timeline-row-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .timeline-row-left {
-    flex-direction: row;
-  }
-  .timeline-row-right {
-    flex-direction: row-reverse;
+  
+  /* Bulletproof 3-Column Grid: Left Card (1fr) | Center Node (60px) | Right Card (1fr) */
+  .timeline-grid-row {
+    display: grid !important;
+    grid-template-columns: 1fr 60px 1fr !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 
-  .timeline-card-space {
-    flex: 1;
-  }
   .timeline-card {
-    flex: 1;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 24px;
-    padding: 2.2em 2.4em;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 22px !important;
+    padding: 2em 2.2em !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+    position: relative !important;
   }
   .timeline-card:hover {
-    transform: translateY(-6px);
-    border-color: #f97316;
-    box-shadow: 0 22px 55px rgba(249, 115, 22, 0.12);
+    transform: translateY(-5px) !important;
+    border-color: #f97316 !important;
+    box-shadow: 0 20px 50px rgba(249, 115, 22, 0.12) !important;
   }
 
   .tc-year-pill {
@@ -77,53 +68,53 @@
     font-weight: 800;
     padding: 6px 18px;
     border-radius: 100px;
-    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.25);
-    margin-bottom: 14px;
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.22);
+    margin-bottom: 12px;
   }
 
   .tc-title {
-    font-size: 22px;
-    font-weight: 800;
-    color: #184333;
-    margin-bottom: 10px;
-    line-height: 1.25;
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    color: #184333 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.25 !important;
   }
   .tc-text {
-    font-size: 15px;
-    color: #475569;
-    line-height: 1.6;
-    margin-bottom: 0;
+    font-size: 15px !important;
+    color: #475569 !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0 !important;
   }
 
-  /* Central Node */
+  /* Center Node (Guaranteed Centered) */
   .timeline-center-node {
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 60px !important;
+    height: 100% !important;
+    margin: 0 auto !important;
   }
   .node-ring {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     background: #ffffff;
     border: 3px solid #f97316;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.15);
     transition: all 0.35s ease;
   }
-  .timeline-card:hover + .timeline-center-node .node-ring,
-  .timeline-row-item:hover .node-ring {
+  .timeline-grid-row:hover .node-ring {
     transform: scale(1.25);
     border-color: #184333;
-    box-shadow: 0 0 0 8px rgba(24, 67, 51, 0.2);
+    box-shadow: 0 0 0 7px rgba(24, 67, 51, 0.2);
   }
   .node-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: #f97316;
     border-radius: 50%;
   }
@@ -132,15 +123,15 @@
   .tc-logo-badge {
     background: #fff8e7;
     border: 1.5px solid #ffb74d;
-    padding: 12px 22px;
-    border-radius: 18px;
+    padding: 10px 20px;
+    border-radius: 16px;
     display: inline-flex;
     align-items: center;
-    gap: 14px;
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.12);
+    gap: 12px;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.12);
   }
   .tc-logo-badge img {
-    max-height: 46px;
+    max-height: 40px;
     width: auto;
     object-fit: contain;
   }
@@ -159,22 +150,24 @@
     .timeline-line-center {
       left: 20px;
     }
-    .timeline-row-left,
-    .timeline-row-right {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 50px;
+    .timeline-grid-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding-left: 45px !important;
+      position: relative !important;
     }
     .timeline-center-node {
-      position: absolute;
-      left: -5px;
-      top: 24px;
-    }
-    .timeline-card-space {
-      display: none;
+      position: absolute !important;
+      left: -10px !important;
+      top: 24px !important;
+      width: 30px !important;
     }
     .timeline-card {
-      width: 100%;
+      width: 100% !important;
+    }
+    .timeline-card-space {
+      display: none !important;
     }
   }
 </style>
@@ -182,18 +175,20 @@
 <section class="journey-sec sec">
   <div class="container">
     
-    <!-- Section Header (Centered Clean Stack) -->
-    <div class="row text-center mb-5">
-      <div class="col-lg-8 col-12 mx-auto">
-        <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
-          <span class="sub-pill">Milestones & History</span>
+    <!-- Section Header (Clean Spaced Stack) -->
+    <div class="journey-header-wrap text-center">
+      <div class="row">
+        <div class="col-lg-8 col-12 mx-auto">
+          <div class="d-block mb-2" data-aos="fade-down" data-aos-duration="800">
+            <span class="sub-pill">Milestones & History</span>
+          </div>
+          <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
+            {{ section.settings.heading | default: "Our Journey" }}
+          </h2>
+          <p class="para mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            {{ section.settings.subtext | default: "From a single milling operation to a trusted manufacturing partner serving leading food brands across India." }}
+          </p>
         </div>
-        <h2 class="sec-head with-gr d-inline-block" data-aos="fade-up" data-aos-duration="1000">
-          {{ section.settings.heading | default: "Our Journey" }}
-        </h2>
-        <p class="para mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          {{ section.settings.subtext | default: "From a single milling operation to a trusted manufacturing partner serving leading food brands across India." }}
-        </p>
       </div>
     </div>
 
@@ -204,7 +199,7 @@
       <div class="timeline-line-center">
         <svg class="timeline-svg-scroll" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none">
           <line x1="2" y1="0" x2="2" y2="1000" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 6"/>
-          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#timelineGlow)" stroke-width="4" class="timeline-glow-pulse"/>
+          <line x1="2" y1="0" x2="2" y2="1000" stroke="url(#timelineGlow)" stroke-width="4"/>
           <defs>
             <linearGradient id="timelineGlow" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
               <stop stop-color="#f97316"/>
@@ -215,49 +210,73 @@
         </svg>
       </div>
 
-      <!-- Timeline Items -->
-      <div class="timeline-items-flow">
+      <!-- Timeline Items (Bulletproof CSS Grid Rows) -->
+      <div class="timeline-grid-flow">
         {% for block in section.blocks %}
           {% assign is_even = forloop.index | modulo: 2 %}
           
-          <div class="timeline-row-item {% if is_even == 0 %}timeline-row-right{% else %}timeline-row-left{% endif %}" data-aos="fade-up" data-aos-duration="800" {{ block.shopify_attributes }}>
+          <div class="timeline-grid-row" data-aos="fade-up" data-aos-duration="800" {{ block.shopify_attributes }}>
             
-            <!-- Content Card -->
-            <div class="timeline-card">
-              <div class="tc-year-pill">
-                <span>{{ block.settings.year }}</span>
-              </div>
-
-              {% if block.settings.title != blank %}
-                <h3 class="tc-title">{{ block.settings.title }}</h3>
-              {% endif %}
-
-              {% if block.settings.text != blank %}
-                <p class="tc-text">{{ block.settings.text }}</p>
-              {% endif %}
-
-              <!-- Space for Sunlit Logo in 2025 or when logo is uploaded -->
-              {% if block.settings.year == '2025' or block.settings.logo != blank %}
-                <div class="tc-logo-badge mt-3">
-                  {% if block.settings.logo %}
-                    <img src="{{ block.settings.logo | image_url: width: 300 }}" alt="{{ block.settings.title | escape }}">
-                  {% else %}
-                    <img src="https://cdn.shopify.com/s/files/1/0000/0000/files/logo.png" alt="Sunlit Farms Logo">
-                  {% endif %}
-                  <span class="tc-logo-tag">Brand Launch</span>
+            {% if is_even != 0 %}
+              <!-- LEFT ROW: Card in Col 1 | Node in Col 2 | Empty in Col 3 -->
+              <div class="timeline-card">
+                <div class="tc-year-pill">
+                  <span>{{ block.settings.year }}</span>
                 </div>
-              {% endif %}
-            </div>
-
-            <!-- Central Node -->
-            <div class="timeline-center-node">
-              <div class="node-ring">
-                <div class="node-dot"></div>
+                {% if block.settings.title != blank %}
+                  <h3 class="tc-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="tc-text">{{ block.settings.text }}</p>
+                {% endif %}
+                {% if block.settings.year == '2025' or block.settings.logo != blank %}
+                  <div class="tc-logo-badge mt-3">
+                    {% if block.settings.logo %}
+                      <img src="{{ block.settings.logo | image_url: width: 300 }}" alt="{{ block.settings.title | escape }}">
+                    {% else %}
+                      <img src="https://cdn.shopify.com/s/files/1/0000/0000/files/logo.png" alt="Sunlit Farms Logo">
+                    {% endif %}
+                    <span class="tc-logo-tag">Brand Launch</span>
+                  </div>
+                {% endif %}
               </div>
-            </div>
 
-            <!-- Empty Balancer Column -->
-            <div class="timeline-card-space"></div>
+              <div class="timeline-center-node">
+                <div class="node-ring"><div class="node-dot"></div></div>
+              </div>
+
+              <div class="timeline-card-space"></div>
+
+            {% else %}
+              <!-- RIGHT ROW: Empty in Col 1 | Node in Col 2 | Card in Col 3 -->
+              <div class="timeline-card-space"></div>
+
+              <div class="timeline-center-node">
+                <div class="node-ring"><div class="node-dot"></div></div>
+              </div>
+
+              <div class="timeline-card">
+                <div class="tc-year-pill">
+                  <span>{{ block.settings.year }}</span>
+                </div>
+                {% if block.settings.title != blank %}
+                  <h3 class="tc-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="tc-text">{{ block.settings.text }}</p>
+                {% endif %}
+                {% if block.settings.year == '2025' or block.settings.logo != blank %}
+                  <div class="tc-logo-badge mt-3">
+                    {% if block.settings.logo %}
+                      <img src="{{ block.settings.logo | image_url: width: 300 }}" alt="{{ block.settings.title | escape }}">
+                    {% else %}
+                      <img src="https://cdn.shopify.com/s/files/1/0000/0000/files/logo.png" alt="Sunlit Farms Logo">
+                    {% endif %}
+                    <span class="tc-logo-tag">Brand Launch</span>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
 
           </div>
         {% endfor %}
