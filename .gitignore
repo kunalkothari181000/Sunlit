@@ -1,0 +1,8 @@
+# Local credentials & secrets
+.env
+GITHUB_TOKEN.txt
+*.token
+
+# System files
+.DS_Store
+Thumbs.db
