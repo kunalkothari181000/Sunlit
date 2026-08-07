@@ -1,4 +1,4 @@
-<section class="test-sec" style="margin-bottom: 80px !important; padding-bottom: 40px !important;">
+<section class="test-sec" style="margin-bottom: 20px !important; padding-bottom: 0px !important;">
 
   {% if section.settings.top_bg %}
     <img 
@@ -12,17 +12,17 @@
     <div class="sec pt-0">
       <div class="container">
 
-        <div class="row mb-4">
-          <div class="col-12 text-center">
+        <div class="row">
+          <div class="col-lg-10 col-12 mx-auto text-center">
 
             {% if section.settings.heading != blank %}
-              <h2 class="sec-head white" data-aos="fade-up" data-aos-duration="1000">       
+              <h2 class="sec-head white" style="margin-bottom: 28px !important;" data-aos="fade-up" data-aos-duration="1000">       
                 {{ section.settings.heading }}
               </h2>
             {% endif %}
 
             {% if section.settings.text != blank %}
-              <p class="para white big mb-0" data-aos="fade-up" data-aos-duration="1000">
+              <p class="para white big mb-0" style="font-size: 20px; line-height: 1.65; max-width: 820px; margin: 0 auto;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
                 {{ section.settings.text }}
               </p>
             {% endif %}
@@ -59,13 +59,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Our Purpose"
+      "default": "Feeding Everyday Moments"
     },
     {
       "type": "textarea",
       "id": "text",
       "label": "Description",
-      "default": "To deliver pure, hygienically processed wheat products with consistent quality, ensuring every household and retail partner receives freshness, safety, and trust in every pack."
+      "default": "From the first roti of the morning to the snacks shared with family, we're proud to play a small role in countless everyday meals."
     },
     {
       "type": "image_picker",
