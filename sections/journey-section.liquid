@@ -1,3 +1,21 @@
+<style>
+  .tc-logo-badge {
+    background: #ffffff;
+    border: 1.5px solid #f97316;
+    padding: 10px 20px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(249, 115, 22, 0.12);
+  }
+  .tc-logo-badge img {
+    max-height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+</style>
+
 <section class="journey-sec sec">
   <div class="container">
     
@@ -43,12 +61,22 @@
             
             <!-- Content Card -->
             <div class="timeline-card">
-              <div class="tc-top">
+              <div class="tc-top mb-2">
                 <span class="tc-year">{{ block.settings.year }}</span>
-                <span class="tc-step">Step 0{{ forloop.index }}</span>
               </div>
               <h3 class="tc-title">{{ block.settings.title }}</h3>
-              <p class="tc-text">{{ block.settings.text }}</p>
+              <p class="tc-text mb-2">{{ block.settings.text }}</p>
+
+              <!-- Space for Sunlit Logo in 2025 or when logo is uploaded -->
+              {% if block.settings.year == '2025' or block.settings.logo != blank %}
+                <div class="tc-logo-badge mt-3">
+                  {% if block.settings.logo %}
+                    <img src="{{ block.settings.logo | image_url: width: 300 }}" alt="{{ block.settings.title | escape }}">
+                  {% else %}
+                    <img src="https://cdn.shopify.com/s/files/1/0000/0000/files/logo.png" alt="Sunlit Farms Logo">
+                  {% endif %}
+                </div>
+              {% endif %}
             </div>
 
             <!-- Central Node -->
@@ -111,6 +139,11 @@
           "id": "text",
           "label": "Milestone Description",
           "default": "Started operations with Simran Foods and a capacity of 60 TPD."
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Milestone Logo (e.g. for Sunlit Farms 2025 launch)"
         }
       ]
     }
