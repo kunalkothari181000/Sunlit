@@ -543,6 +543,16 @@ html.lenis, html.lenis body {
 }
 
 /* ── 21. ENHANCED SUNLIT DIFFERENCE (PROMISE CARDS) ─────────────────────── */
+.test-slider-sec {
+  background: linear-gradient(180deg, #2b6552 0%, #245746 100%) !important;
+}
+
+.test-green-bg, .test-grass-bg {
+  margin-bottom: -2px;
+  filter: brightness(1.35) saturate(0.95) !important;
+  opacity: 0.95 !important;
+}
+
 .promise-subheading {
   display: block;
   font-size: 15px;
@@ -559,22 +569,19 @@ html.lenis, html.lenis body {
 
 .d-card {
   position: relative;
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 20px !important;
-  padding: 2em 1.6em 1.8em !important;
+  padding: 2.2em 1.8em 2em !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
   display: flex !important;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   height: 100%;
-  transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.38s ease,
-              border-color 0.38s ease,
-              background 0.38s ease !important;
+  transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .d-card-top-bar {
@@ -592,12 +599,33 @@ html.lenis, html.lenis body {
   width: 100%;
 }
 
-.d-card-top-right-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  pointer-events: none;
-  z-index: 2;
+.d-card-num-badge {
+  font-size: 14px;
+  font-weight: 800;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.d-card-icon-box {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+}
+
+.d-card:hover .d-card-icon-box {
+  background: rgba(249, 115, 22, 0.2);
+  border-color: rgba(249, 115, 22, 0.5);
+  transform: scale(1.08) rotate(3deg);
 }
 
 .d-card, .ar-wrap {
@@ -606,21 +634,6 @@ html.lenis, html.lenis body {
               border-color 0.4s ease,
               background-color 0.4s ease !important;
   will-change: transform;
-}
-
-.d-card-top-right-img img,
-.d-card > img {
-  max-width: 115px;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
-  transform-origin: top right;
-}
-
-.d-card:hover .d-card-top-right-img img,
-.d-card:hover > img {
-  transform: scale(1.12) rotate(4deg);
-  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
 }
 
 .d-card:hover {
@@ -638,15 +651,15 @@ html.lenis, html.lenis body {
 
 .d-card .con {
   padding: 0 !important;
-  margin-top: 50px !important;
+  margin-top: 0 !important;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .d-card .con h2 {
-  font-size: 21px !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
   line-height: 1.3 !important;
   color: #ffffff !important;
@@ -655,7 +668,7 @@ html.lenis, html.lenis body {
 }
 
 .d-card .con .para {
-  font-size: 14px !important;
+  font-size: 14.5px !important;
   line-height: 1.6 !important;
   color: rgba(255, 255, 255, 0.85) !important;
   margin-bottom: 0 !important;
