@@ -415,8 +415,8 @@
       "name": "CTA Section",
       "settings": {
         "bg_image": "shopify://shop_images/cta-bg.jpg",
-        "heading": "Ready to Grow With Sunlit?",
-        "subtext": "If you're a distributor, wholesaler or FMCG brand, partner with us for quality, consistency, and reliability across every stage of the supply chain.",
+        "heading": "Let’s Build Something Better Together",
+        "subtext": "Whether you’re a food brand, distributor, wholesaler or retail partner, let’s talk about how we can support your business.",
         "button_label": "Partner With Us",
         "button_link": "",
         "button_icon": "shopify://shop_images/arrow.svg"
