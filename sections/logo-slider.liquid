@@ -1,35 +1,44 @@
 <section class="lg-slider-sec">
-  <div class="{% if section.settings.enable_marquee %}container-fluid px-0{% else %}container{% endif %}">
-    <div class="row g-0">
-      <div class="col-12">
-        <div class="swiper lg-swiper lg-swiper-{{ section.id }} {% if section.settings.enable_marquee %}is-marquee{% endif %}" 
-             data-aos="fade-up" 
-             data-aos-duration="1000"
-             data-marquee="{{ section.settings.enable_marquee }}"
-             data-speed="{{ section.settings.marquee_speed }}"
-             data-desktop="{{ section.settings.slides_desktop }}"
-             data-mobile="{{ section.settings.slides_mobile }}"
-             data-space="{{ section.settings.space_between }}">
-          <div class="swiper-wrapper">
+  {% assign layout_type = section.settings.layout_type | default: 'grid' %}
+  {% if section.settings.enable_marquee and section.settings.layout_type == blank %}
+    {% assign layout_type = 'marquee' %}
+  {% endif %}
 
-            {% for block in section.blocks %}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                <div class="lg-wrap">
-                  {% if block.settings.logo %}
-                    <img 
-                      src="{{ block.settings.logo | image_url: width: 400 }}" 
-                      alt="{{ block.settings.alt_text | escape }}"
-                      loading="lazy"
-                    >
-                  {% endif %}
-                </div>
+  <div class="{% if layout_type == 'marquee' %}container-fluid px-0{% else %}container{% endif %}">
+    
+    {% if layout_type == 'grid' %}
+      <div class="logo-grid-wrapper" data-aos="fade-up" data-aos-duration="1000">
+        <div class="row row-cols-{{ section.settings.grid_columns_mobile | default: '2' }} row-cols-sm-3 row-cols-md-4 row-cols-lg-{{ section.settings.grid_columns_desktop | default: '6' }} g-3 g-md-4 justify-content-center align-items-center">
+          {% for block in section.blocks %}
+            <div class="col d-flex justify-content-center align-items-center" {{ block.shopify_attributes }}>
+              <div class="lg-wrap lg-grid-card">
+                {% if block.settings.logo %}
+                  <img 
+                    src="{{ block.settings.logo | image_url: width: 400 }}" 
+                    alt="{{ block.settings.alt_text | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
               </div>
-            {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div class="row g-0">
+        <div class="col-12">
+          <div class="swiper lg-swiper lg-swiper-{{ section.id }} {% if layout_type == 'marquee' %}is-marquee{% endif %}" 
+               data-aos="fade-up" 
+               data-aos-duration="1000"
+               data-marquee="{% if layout_type == 'marquee' %}true{% else %}false{% endif %}"
+               data-speed="{{ section.settings.marquee_speed }}"
+               data-desktop="{{ section.settings.slides_desktop }}"
+               data-mobile="{{ section.settings.slides_mobile }}"
+               data-space="{{ section.settings.space_between }}">
+            <div class="swiper-wrapper">
 
-            {% comment %} Duplicate blocks for seamless infinite marquee loop {% endcomment %}
-            {% if section.settings.enable_marquee %}
               {% for block in section.blocks %}
-                <div class="swiper-slide" aria-hidden="true">
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
                   <div class="lg-wrap">
                     {% if block.settings.logo %}
                       <img 
@@ -41,12 +50,29 @@
                   </div>
                 </div>
               {% endfor %}
-            {% endif %}
 
+              {% comment %} Duplicate blocks for seamless infinite marquee loop {% endcomment %}
+              {% if layout_type == 'marquee' %}
+                {% for block in section.blocks %}
+                  <div class="swiper-slide" aria-hidden="true">
+                    <div class="lg-wrap">
+                      {% if block.settings.logo %}
+                        <img 
+                          src="{{ block.settings.logo | image_url: width: 400 }}" 
+                          alt="{{ block.settings.alt_text | escape }}"
+                          loading="lazy"
+                        >
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </section>
 
@@ -127,15 +153,49 @@
 
 {% schema %}
 {
-  "name": "Logo Slider",
+  "name": "Logo Section",
   "tag": "section",
   "class": "logo-slider-section",
   "settings": [
     {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout Style",
+      "default": "grid",
+      "options": [
+        { "value": "grid", "label": "Grid Layout" },
+        { "value": "marquee", "label": "Infinite Marquee Loop" },
+        { "value": "slider", "label": "Standard Slider Carousel" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "grid_columns_desktop",
+      "label": "Grid Columns (Desktop)",
+      "default": "6",
+      "options": [
+        { "value": "3", "label": "3 Columns" },
+        { "value": "4", "label": "4 Columns" },
+        { "value": "5", "label": "5 Columns" },
+        { "value": "6", "label": "6 Columns" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "grid_columns_mobile",
+      "label": "Grid Columns (Mobile)",
+      "default": "2",
+      "options": [
+        { "value": "1", "label": "1 Column" },
+        { "value": "2", "label": "2 Columns" },
+        { "value": "3", "label": "3 Columns" }
+      ]
+    },
+    {
       "type": "checkbox",
       "id": "enable_marquee",
-      "label": "Enable Non-Stop Marquee Loop",
-      "default": true
+      "label": "Enable Non-Stop Marquee Loop (Legacy)",
+      "default": false
     },
     {
       "type": "select",
@@ -152,7 +212,7 @@
     {
       "type": "select",
       "id": "slides_desktop",
-      "label": "Desktop Visible Logos",
+      "label": "Slider Desktop Visible Logos",
       "default": "5",
       "options": [
         { "value": "3", "label": "3 Logos" },
@@ -165,7 +225,7 @@
     {
       "type": "select",
       "id": "slides_mobile",
-      "label": "Mobile Visible Logos",
+      "label": "Slider Mobile Visible Logos",
       "default": "2",
       "options": [
         { "value": "1", "label": "1 Logo" },
@@ -206,7 +266,7 @@
   ],
   "presets": [
     {
-      "name": "Logo Slider",
+      "name": "Logo Section",
       "category": "Custom",
       "blocks": [
         { "type": "logo" },

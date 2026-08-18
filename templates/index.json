@@ -227,9 +227,12 @@
         "logo_WrnpPP",
         "logo_zVYTkU"
       ],
-      "name": "Logo Slider",
+      "name": "Logo Section",
       "settings": {
-        "enable_marquee": true,
+        "layout_type": "grid",
+        "grid_columns_desktop": "6",
+        "grid_columns_mobile": "2",
+        "enable_marquee": false,
         "marquee_speed": "4000",
         "slides_desktop": "6",
         "slides_mobile": "2",

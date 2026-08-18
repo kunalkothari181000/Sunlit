@@ -446,10 +446,55 @@ html.lenis, html.lenis body {
   border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
-/* ── 20. INFINITE MARQUEE LOGO SLIDER ──────────────────────────────────── */
+/* ── 20. INFINITE MARQUEE LOGO SLIDER & GRID ──────────────────────────────────── */
 .lg-slider-sec {
   padding: 3em 0 !important;
   overflow: hidden !important;
+}
+
+.logo-grid-wrapper {
+  width: 100%;
+}
+
+.lg-grid-card {
+  width: 100% !important;
+  height: 105px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+  padding: 12px 18px !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.lg-grid-card:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-5px) scale(1.03) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+.lg-grid-card img {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-height: 70px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  filter: opacity(0.9) grayscale(0.05) !important;
+  transition: filter 0.3s ease, transform 0.3s ease !important;
+}
+
+.lg-grid-card:hover img {
+  filter: opacity(1) grayscale(0) !important;
+  transform: scale(1.06) !important;
 }
 
 .lg-swiper.is-marquee .swiper-wrapper {
