@@ -26,24 +26,6 @@
     "counter_section_FHCpEF": {
       "type": "counter-section",
       "blocks": {
-        "counter_78b6V4": {
-          "type": "counter",
-          "settings": {
-            "datavalue": "28",
-            "suffix": "+",
-            "value": "28+",
-            "label": "Years of Manufacturing Excellence"
-          }
-        },
-        "counter_MneFkD": {
-          "type": "counter",
-          "settings": {
-            "datavalue": "85",
-            "suffix": "+",
-            "value": "85+",
-            "label": " Distribution Partners"
-          }
-        },
         "counter_BGpUjW": {
           "type": "counter",
           "settings": {
@@ -61,13 +43,31 @@
             "value": "16",
             "label": "States Market Presence"
           }
+        },
+        "counter_MneFkD": {
+          "type": "counter",
+          "settings": {
+            "datavalue": "85",
+            "suffix": "+",
+            "value": "85+",
+            "label": " Distribution Partners"
+          }
+        },
+        "counter_78b6V4": {
+          "type": "counter",
+          "settings": {
+            "datavalue": "28",
+            "suffix": "+",
+            "value": "28+",
+            "label": "Years of Manufacturing Excellence"
+          }
         }
       },
       "block_order": [
-        "counter_78b6V4",
-        "counter_MneFkD",
         "counter_BGpUjW",
-        "counter_QTrKaV"
+        "counter_QTrKaV",
+        "counter_MneFkD",
+        "counter_78b6V4"
       ],
       "name": "Counter Section",
       "settings": {}
